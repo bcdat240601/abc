@@ -4,3 +4,4 @@
     <input type="file" name="file" >
     <input type="submit" value="submit">
 </form>
+{{-- muốn up file phải có dòng enctype="multipart/form-data"--}}

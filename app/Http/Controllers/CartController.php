@@ -14,7 +14,8 @@ class CartController extends Controller
         $phone = new Product($a->id,$a->name,$a->price);
         $cart = session()->get('cart');
         if(isset($cart[$id])){
-            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+            // $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+            echo 'Bạn Đã Thêm Vào Giỏ Hàng Sản Phẩm Này Rồi';
         }
         else{
             $cart[$id] = [
@@ -27,20 +28,20 @@ class CartController extends Controller
        
         session()->put('cart',$cart);
         //echo session()->get("cart")[$id]['name'];
-        if($this->exist($id)){
-            echo 'ton tai'.$id;
-        }
-        else{
-        return
-                '<li id="item-cart-'.$phone->id.'">
-                    <a href="#" class="remove" data-idremove="'.$phone->id.'" title="Remove this item"><i class="fa fa-remove" ></i></a>
-                    <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
-                    <h4><a id="text">'.$phone->name.'</a></h4>
-                    <p class="quantity"> 1 x  <span class="amount">'.$phone->price.'</span></p>
-                </li>';
-        }    
+        // if($this->exist($id)){
+        //     echo 'ton tai'.$id;
+        // }
+        // else{
+        // return
+        //         '<li id="item-cart-'.$phone->id.'">
+        //             <a href="#" class="remove" data-idremove="'.$phone->id.'" title="Remove this item"><i class="fa fa-remove" ></i></a>
+        //             <a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
+        //             <h4><a id="text">'.$phone->name.'</a></h4>
+        //             <p class="quantity"> 1 x  <span class="amount">'.$phone->price.'</span></p>
+        //         </li>';
+        // }    
             
-        
+        echo 'Đã thêm vào giỏ hàng';
     }
     public function remove(Request $req){
         $id = $req->id;
@@ -57,5 +58,13 @@ class CartController extends Controller
             }
         }
         return false;
+    }
+    public function quantitychange(Request $req){
+        $quantity = $req->quantity;
+        $id = $req->id;
+        $cart = session()->get('cart');
+        $cart[$id]['quantity'] = $quantity;
+        session()->put('cart',$cart);
+        return $quantity*$cart[$id]['price'];
     }
 }

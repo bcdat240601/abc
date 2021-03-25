@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\HomeController;
 use app\Http\Controllers\ShopController;
 use app\Http\Controllers\TestController;
+use App\Http\Controllers\User\Auth\LoginController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +16,17 @@ use app\Http\Controllers\TestController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::match(['get', 'post'], '/login', [LoginController::class, 'login'])->name('login');
+Route::middleware('auth')->group(function (){
+    Route::get('homie', [UserController::class, 'index'])->name('home');
+    
+});
+Route::get('home', 'HomeController@Home');
+Route::any('logout','User\Auth\LoginController@logout')->name('logout');
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('home', 'HomeController@Home');//(tên controller@tên function)
+//(tên controller@tên function)
 Route::get('shopgrid', 'HomeController@ShopGrid');
 Route::get('blog', 'HomeController@Blog');
 Route::get('cart', 'HomeController@Cart');
@@ -49,6 +57,8 @@ Route::post('upload', 'UpFile@up')->name('upfile');
 //route add vào giỏ hàng
 Route::get('shopgrid/AddToCart', 'CartController@add');
 Route::get('shopgrid/re', 'CartController@remove');
+Route::get('shopgrid/quan', 'CartController@quantitychange');
+
 
 
     

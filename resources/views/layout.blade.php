@@ -82,7 +82,8 @@
 								<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
 								<li><i class="ti-user"></i> <a href="#">My account</a></li>
-								<li><i class="ti-power-off"></i><a href="login.html#">Login</a></li>
+								<li><i class="ti-power-off"></i><a href="{{ asset('login') }}">Login</a></li>
+								{{-- <li><i class="ti-power-off"></i><a href="login.html#">Log-out</a></li> --}}
 							</ul>
 						</div>
 						<!-- End Top Right -->
@@ -148,9 +149,9 @@
 										@endif
 									</span>
 								</a>
-								<!-- Shopping Item -->
+								{{-- {{-- <!-- Shopping Item --> --}}
 								<div class="shopping-item">
-									<div class="dropdown-cart-header">
+									{{-- <div class="dropdown-cart-header">
 										<span>
 											@if (session()->has('cart'))
 												{{count($items)}}
@@ -161,8 +162,8 @@
 									<ul class="shopping-list" id="list-items">
 										@if (session()->has('cart'))
 											@foreach ($items as $item)
-											<li id="item-cart-{{$item['id']}}">
-												<a href="#" class="remove" data-idremove="{{$item['id']}}" title="Remove this item"><i class="fa fa-remove" onclick="remove({{$item['id']}})"></i></a>
+											<li id="item-cart">
+												<a href="#" class="remove"  title="Remove this item"><i class="fa fa-remove" ></i></a>
 												<a class="cart-img" href="#"><img src="https://via.placeholder.com/70x70" alt="#"></a>
 												<h4><a id="text">{{$item['name']}}</a></h4>
 												<p class="quantity">{{$item['quantity']}} x  <span class="amount">{{$item['price']}}</span></p>
@@ -173,9 +174,9 @@
 									<div class="bottom">
 										<div class="total">
 											
-										</div>
+										</div> --}}
 										<a href="{{ asset('cart') }}" class="btn animate">Move To Cart</a>
-									</div>
+									{{-- </div> --}}
 								</div>
 								<!--/ End Shopping Item -->
 							</div>

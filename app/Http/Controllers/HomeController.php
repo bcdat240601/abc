@@ -22,7 +22,8 @@ class HomeController extends Controller
         return view('blog');
     }
     public function Cart(){
-        return view('cart');
+        $items = session()->get('cart');
+        return view('cart',['items'=>$items]);
     }
     public function CheckOut(){
         return view('checkout');
