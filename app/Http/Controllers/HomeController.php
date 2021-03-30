@@ -35,5 +35,4 @@ class HomeController extends Controller
         $product = dienthoai::find($id);
         return view('detail',['pd'=>$product]);
     }
-    public function test(){}
 }
