@@ -1,5 +1,6 @@
 @extends('layout')
 <style>
+	/* duy */
 	.default-img
 	{
 		width: 255px;
