@@ -176,8 +176,8 @@
 								<!--/ End Shop Top -->
 							</div>
 						</div>
-						<div class="row">
-							@foreach ($data as $item)
+						<div class="row" id="sanpham">
+							@foreach ($showitem as $item)
 							<div class="col-lg-4 col-md-6 col-12">
 								<div class="single-product">
 									<div class="product-img">
@@ -204,8 +204,12 @@
 									</div>
 								</div>
 							</div>
-							@endforeach
-							{!! $data->links() !!}
+							@endforeach							
+						</div>
+						<div style="text-align: center">
+							@for ($i = 1; $i <= $number_page; $i++)
+								<button class="page" style="height:30px;width:30px;">{{$i}}</button>
+							@endfor
 						</div>
 					</div>
 				</div>
@@ -368,5 +372,11 @@
 // 		});
 		
 // 	});
+$('.page').click(function () { 
+	var page = $(this).text();
+	$.get("shopgrid/page",{page:page},function(data){
+		$('#sanpham').html(data);
+	});
+});
 </script>
 @endsection

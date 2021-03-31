@@ -47,14 +47,14 @@
 									<td class="price" data-title="Price"><span>{{$item['price']}}</span></td>
 									<td class="qty" data-title="Qty"><!-- Input Order -->
 										<div class="input-group">
-											<div class="button minus" id="tru" data-id="{{$item['id']}}">
-												<button type="button"  class="btn btn-primary btn-number"  data-type="minus" data-field="quant[1]">
+											<div class="button minus tru" data-id="{{$item['id']}}">
+												<button type="button"  class="btn btn-primary btn-number"  data-type="minus" data-field="quant[{{$item['id']}}]">
 													<i class="ti-minus"></i>
 												</button>
 											</div>
-											<input type="text" id="quan" name="quant[1]" class="input-number"  data-min="1" data-max="100" value="{{$item['quantity']}}">
-											<div class="button plus" id="cong" data-id="{{$item['id']}}">
-												<button type="button"  class="btn btn-primary btn-number" data-type="plus" data-field="quant[1]">
+											<input type="text" id="quan-{{$item['id']}}" name="quant[{{$item['id']}}]" class="input-number"  data-min="1" data-max="100" value="{{$item['quantity']}}">
+											<div class="button plus cong" data-id="{{$item['id']}}">
+												<button type="button"  class="btn btn-primary btn-number" data-type="plus" data-field="quant[{{$item['id']}}]">
 													<i class="ti-plus"></i>
 												</button>
 											</div>
@@ -299,16 +299,16 @@
 @section('script')
 {{-- <script src="{{ asset('js/code/ajax.js') }}"></script> --}}
 <script>
-	$('#cong').click(function () { 
-		var quantity = $('#quan').val();
+	$('.cong').click(function () { 
 		var id = $(this).data("id");
+		var quantity = $('#quan-'+id).val();
 		$.get("shopgrid/quan",{quantity:quantity,id:id},function(data){
 			$('#total-'+id).text(data);
 		});
 	});
-	$('#tru').click(function () { 
-		var quantity = $('#quan').val();
+	$('.tru').click(function () { 
 		var id = $(this).data("id");
+		var quantity = $('#quan-'+id).val();
 		$.get("shopgrid/quan",{quantity:quantity,id:id},function(data){
 			$('#total-'+id).text(data);
 		});
