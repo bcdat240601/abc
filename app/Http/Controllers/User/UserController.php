@@ -13,8 +13,11 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
-        echo 'Xin chào User, '. $user->name;
-        return view('user/waiting');
+        $show = dienthoai::all()->take(3);
+        $Titem = dienthoai::all()->take(8);
+        $items = session()->get('cart');
+        // echo 'Xin chào User, '. $user->name;
+        return view('home',['username'=>$user->name,"Titem"=>$Titem,'show'=>$show,'items'=>$items]);
     }
     public function Home(){
         $show = dienthoai::all()->take(3);

@@ -9,6 +9,7 @@ use DB;
 class HomeController extends Controller
 {
     public function Home(){
+        session()->forget('page');
         $show = dienthoai::all()->take(3);
         $Titem = dienthoai::all()->take(8);
         $items = session()->get('cart');
@@ -30,19 +31,27 @@ class HomeController extends Controller
         return view('shopgrid',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
     public function Blog(){
-        return view('blog');
+        session()->forget('page');
+        $items = session()->get('cart');
+        return view('blog',['items'=>$items]);
     }
     public function Cart(){
+        session()->forget('page');
         $items = session()->get('cart');
         return view('cart',['items'=>$items]);
     }
     public function CheckOut(){
-        return view('checkout');
+        $items = session()->get('cart');
+        session()->forget('page');
+        return view('checkout',['items'=>$items]);
     }
     public function Contact(){
-        return view('contact');
+        $items = session()->get('cart');
+        session()->forget('page');
+        return view('contact',['items'=>$items]);
     }
     public function detail($id){
+        session()->forget('page');
         $product = dienthoai::find($id);
         return view('detail',['pd'=>$product]);
     }

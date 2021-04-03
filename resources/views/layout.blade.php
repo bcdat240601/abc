@@ -81,9 +81,15 @@
 							<ul class="list-main">
 								<li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
-								<li><i class="ti-user"></i> <a href="#">My account</a></li>
+								@if (session('login')==1)
+								<li><i class="ti-user"></i> <a href="#">{{$username}}</a></li>
+								@endif
+								@if (session('login')==0)
+								<li><i class="ti-power-off"></i><a href="{{ asset('register') }}">Register</a></li>
 								<li><i class="ti-power-off"></i><a href="{{ asset('login') }}">Login</a></li>
-								{{-- <li><i class="ti-power-off"></i><a href="login.html#">Log-out</a></li> --}}
+								@else
+								<li><i class="ti-power-off"></i><a href="{{ asset('logout') }}">Log-out</a></li>
+								@endif
 							</ul>
 						</div>
 						<!-- End Top Right -->

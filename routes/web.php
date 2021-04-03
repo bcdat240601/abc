@@ -6,6 +6,7 @@ use app\Http\Controllers\TestController;
 use App\Http\Controllers\User\Auth\LoginController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,11 @@ Route::middleware('auth')->group(function (){
     Route::get('homie', [UserController::class, 'index'])->name('home');
     
 });
-Route::get('home', 'HomeController@Home');
+Route::get('home', 'HomeController@Home')->name('Home');
+Route::get('register', function(){
+    return view('user/register');
+});
+Route::post('register', 'User\RegisterController@register')->name('register');
 Route::any('logout','User\Auth\LoginController@logout')->name('logout');
 Route::get('/', function () {
     return view('welcome');
