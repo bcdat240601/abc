@@ -16,6 +16,7 @@
         input
         {
             float: right;
+            width:160px;
         }
     </style>
     <div>register</div>
@@ -23,8 +24,8 @@
         @csrf
         Tên đầy đủ<input type="text" name="fullname"><br>
         Tên Tài Khoản<input type="text" name="user"><br>
-        Mật Khẩu<input type="text" name="password"><br>
-        Ngày sinh<input type="text" name="birthday"><br>
+        Mật Khẩu<input type="password" name="password"><br>
+        Ngày sinh<input type="date" name="birthday"><br>
         Số Điện Thoại<input type="text" name="phone"><br>
         Email<input type="text" name="email"><br>
         <input type="submit">
