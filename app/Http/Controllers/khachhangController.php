@@ -13,10 +13,13 @@ class khachhangController extends Controller
 {
     public function showkh()
     {
+        if(session()->get('role')==1){
         $object = 'khachhang';
         $data = DB::table('khachhang')->select('id','name','user','address','birthday','phonenumber','email')->get();
         $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
+        }
+        else echo 'invalid';
     }
     // public function detail($name){
     //     $id = $_GET['id'];
