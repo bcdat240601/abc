@@ -152,6 +152,8 @@
 									<span class="total-count">
 										@if (session()->has('cart'))
 											{{count($items)}}
+										@else
+											0
 										@endif
 									</span>
 								</a>

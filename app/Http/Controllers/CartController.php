@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\dienthoai;
 use App\Models\Product;
+use App\Models\hoadon;
+use App\Models\cthd;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -66,5 +69,28 @@ class CartController extends Controller
         $cart[$id]['quantity'] = $quantity;
         session()->put('cart',$cart);
         return $quantity*$cart[$id]['price'];
+    }
+    public function checkout(){
+        if (session('login') == 0) {
+            echo "bạn phải đăng nhập mới được phép thanh toán";
+        } else {
+            $user = Auth::user();
+            $cart = session()->get('cart');
+            $modelhd = new hoadon();
+                $modelhd->mahd = Str::random(3);
+                $modelhd->id_khach = $user->id;
+                $modelhd->id_nv = null;
+                $modelhd->code_km = null;
+                $modelhd->save();
+            foreach ($cart as $product) {
+                $modelcthd = new cthd();
+                $modelcthd->id_dt = $product['id'];
+                $modelcthd->ma_hd = $modelhd->mahd;
+                $modelcthd->total = $product['price']*$product['quantity'];
+                $modelcthd->save();
+            }
+            session()->forget('cart');
+            echo "đã thanh toán";
+        }
     }
 }
