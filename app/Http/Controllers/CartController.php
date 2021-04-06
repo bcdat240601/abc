@@ -92,6 +92,8 @@ class CartController extends Controller
                 $modelcthd = new cthd();
                 $modelcthd->id_dt = $product['id'];
                 $modelcthd->ma_hd = $modelhd->mahd;
+                $modelcthd->soluong = $product['quantity'];
+                $modelcthd->giatien = $product['price'];
                 $modelcthd->total = $product['price']*$product['quantity'];
                 $modelcthd->save();
             }

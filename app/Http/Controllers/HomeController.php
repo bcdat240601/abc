@@ -94,7 +94,8 @@ class HomeController extends Controller
         return view('component/listproduct',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
     public function history(){
-        $hoadon = DB::table('hoadon')->get();
+        $user = Auth::user();
+        $hoadon = DB::table('hoadon')->where('id_khach',$user->id)->get();
         return view('user/profile',['hoadon'=>$hoadon]);
     }
     public function hoadondetail(){

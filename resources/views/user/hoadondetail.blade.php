@@ -7,17 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        .item{
+            margin-bottom:20px;
+        }
+    </style>
     <div>
         @foreach ($cthd as $item)
-            <div>
+            <div class="item">
                 <div>Mã Điện Thoại:{{$item->id_dt}}</div>
-                {{-- <div>Mã khuyến mãi : @if ({{$item->code_km}} == null)
-                    Không
-                @else
-                    {{$item->code_km}}
-                @endif 
-                    </div> --}}
-                <div>Giá Tiền Sản Phẩm: {{$item->total}} VNĐ</div>
+                <div>Số Lượng:{{$item->soluong}}</div>
+                <div>Giá Tiền Sản Phẩm:{{number_format($item->giatien)}} VNĐ</div>
+                <div>Tổng Tiền Sản Phẩm: {{number_format($item->total)}} VNĐ</div>
             </div>
         @endforeach
     </ul>

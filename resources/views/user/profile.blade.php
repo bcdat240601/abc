@@ -17,7 +17,7 @@
                     {{$item->code_km}}
                 @endif 
                     </div> --}}
-                <div>Tổng tiền: {{$item->total}} VNĐ</div>
+                <div>Tổng tiền: {{number_format($item->total)}} VNĐ</div>
                 <div>Ngày Thanh Toán :{{$item->created_at}}</div>
                 <div class="detail"><a href="{{ asset('hoadondetail?mahd='.$item->mahd) }}">Xem Chi Tiết</a></div>
             </div>
