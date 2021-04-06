@@ -67,4 +67,29 @@ class HomeController extends Controller
         $items = session()->get('cart'); 
         return view('component/listproduct',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
+    public function cate(){
+        $id_hang = $_GET['id'];
+        session()->put('idhang',$id_hang);
+        $quantity = DB::table('dienthoai')->where('id_hang',$id_hang)->count();
+        $item_per_page = 3;
+        $page = 1;
+        $number_page = ceil($quantity/$item_per_page);
+        session()->put('page', $page);
+        $offset = ($page - 1)*$item_per_page;
+        $showitem = DB::table('dienthoai')->where('id_hang',$id_hang)->limit($item_per_page)->offset($offset)->get();
+        $items = session()->get('cart'); 
+        return view('shopgrid',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
+    }
+    public function paginateforcate(Request $req){
+        $id_hang = $_GET['id'];
+        $quantity = DB::table('dienthoai')->where('id_hang',$id_hang)->count();
+        $item_per_page = 3;
+        $page = $req->page;
+        $number_page = ceil($quantity/$item_per_page);
+        session()->put('page', $page);
+        $offset = ($page - 1)*$item_per_page;
+        $showitem = DB::table('dienthoai')->where('id_hang',$id_hang)->limit($item_per_page)->offset($offset)->get();
+        $items = session()->get('cart'); 
+        return view('component/listproduct',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
+    }
 }

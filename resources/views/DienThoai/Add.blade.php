@@ -16,6 +16,7 @@
         <label for="kichthuoc">Kích Thước</label><input type="text" name="kichthuoc" >
         <label for="trongluong">Trọng Lượng</label><input type="text" name="trongluong" >
         <label for="nation">Quốc Gia</label><input type="text" name="nation" value="">
+        <label for="idhang">ID Hãng</label><input type="text" name="idhang" value="">
         <input type="submit" value="Thêm Sản Phẩm">
     </form>
     <button ><a href="{{ asset('admin/table/sp') }}">Quay Lại</a></button>

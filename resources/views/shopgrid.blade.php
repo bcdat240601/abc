@@ -35,13 +35,10 @@
 								<div class="single-widget category">
 									<h3 class="title">Categories</h3>
 									<ul class="categor-list">
-										<li><a href="#">T-shirts</a></li>
-										<li><a href="#">jacket</a></li>
-										<li><a href="#">jeans</a></li>
-										<li><a href="#">sweatshirts</a></li>
-										<li><a href="#">trousers</a></li>
-										<li><a href="#">kitwears</a></li>
-										<li><a href="#">accessories</a></li>
+										<li><a href="{{ asset('shopgrid') }}" class="cate">ALL</a></li>
+										<li><a href="{{ asset('shopgrid/categories?id=3') }}" data-id="3" class="cate">IPHONE</a></li>
+										<li><a href="{{ asset('shopgrid/categories?id=5') }}" data-id="5" class="cate">OPPO</a></li>
+										<li><a href="{{ asset('shopgrid/categories?id=1') }}" data-id="1" class="cate">ASUS</a></li>
 									</ul>
 								</div>
 								<!--/ End Single Widget -->
@@ -354,10 +351,9 @@
 				</div>
 			</div>
 			<!-- Modal end -->
-			<span id="a"></span>
+			<span id="pagecate" style="display:none;">{{session()->get('idhang')}}</span>
 @endsection
 @section('script')
-<script src="{{ asset('js/code/ajax.js') }}"></script>
 <script>
 // 	$('.btn').click(function () {
 // 	var id = $(this).data("id"); 
@@ -372,9 +368,19 @@
 // 		});
 		
 // 	});
+$('.btn').click(function () {
+		var id = $(this).data("id"); 
+		$.get("shopgrid/AddToCart",{id:id},function(data){
+		});	
+	
+	});
 $('.page').click(function () { 
 	var page = $(this).text();
+	var id = $('#pagecate').text();
 	$.get("shopgrid/page",{page:page},function(data){
+		$('#sanpham').html(data);
+	});
+	$.get("pagecate",{page:page,id:id},function(data){
 		$('#sanpham').html(data);
 	});
 });

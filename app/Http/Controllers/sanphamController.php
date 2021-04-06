@@ -60,6 +60,7 @@ class sanphamController extends Controller
         $model->kichthuoc = $req->kichthuoc;
         $model->trongluong = $req->trongluong;
         $model->nation = $req->nation;
+        $model->id_hang = $req->idhang;
         $model->save();
         return view('DienThoai/Add',['data'=>$model]);
     }
