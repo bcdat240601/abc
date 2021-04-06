@@ -69,5 +69,8 @@ Route::get('shopgrid/categories', 'HomeController@cate');
 
 Route::get('shopgrid/pagecate', 'HomeController@paginateforcate');
 
+Route::get('profile', 'HomeController@history');
+Route::get('hoadondetail', 'HomeController@hoadondetail');
+
 
     

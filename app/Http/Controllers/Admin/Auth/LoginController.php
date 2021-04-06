@@ -16,8 +16,9 @@ class LoginController extends Controller
 
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('admin')->attempt($credentials)) {
-            // session()->put('role',);
-            return redirect()->route('dashboard');
+            $role = Auth::user()->role;
+            session()->put('role',$role);
+            return redirect()->route('home');
         } else {
             return redirect()->back()->withInput();
         }

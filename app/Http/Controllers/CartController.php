@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\hoadon;
 use App\Models\cthd;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class CartController extends Controller
 {
@@ -74,6 +75,7 @@ class CartController extends Controller
         if (session('login') == 0) {
             echo "bạn phải đăng nhập mới được phép thanh toán";
         } else {
+            $total = 0;
             $user = Auth::user();
             $cart = session()->get('cart');
             $modelhd = new hoadon();
@@ -81,6 +83,10 @@ class CartController extends Controller
                 $modelhd->id_khach = $user->id;
                 $modelhd->id_nv = null;
                 $modelhd->code_km = null;
+                foreach ($cart as $product) {
+                   $total = $total + $product['price']*$product['quantity'];
+                }
+                $modelhd->total = $total;
                 $modelhd->save();
             foreach ($cart as $product) {
                 $modelcthd = new cthd();
@@ -90,7 +96,8 @@ class CartController extends Controller
                 $modelcthd->save();
             }
             session()->forget('cart');
-            echo "đã thanh toán";
+            echo 'thành công';
+            return redirect('home');;
         }
     }
 }

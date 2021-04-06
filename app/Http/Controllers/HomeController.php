@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\dienthoai;
 use App\Models\Product;
+use App\Models\hoadon;
 use Illuminate\Support\Facades\Auth;
 use DB;
 class HomeController extends Controller
@@ -91,5 +92,14 @@ class HomeController extends Controller
         $showitem = DB::table('dienthoai')->where('id_hang',$id_hang)->limit($item_per_page)->offset($offset)->get();
         $items = session()->get('cart'); 
         return view('component/listproduct',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
+    }
+    public function history(){
+        $hoadon = DB::table('hoadon')->get();
+        return view('user/profile',['hoadon'=>$hoadon]);
+    }
+    public function hoadondetail(){
+        $mahd = $_GET['mahd'];
+        $cthd = DB::table('cthd')->where('ma_hd',$mahd)->get();
+        return view('user/hoadondetail',['cthd'=>$cthd]);
     }
 }

@@ -23,7 +23,7 @@ class RegisterController extends Controller
                     $model->phonenumber = $req->phone;
                     $model->email = $req->email;
                     $model->save();
-            return 'Đã lưu';   
+            return redirect('home');;   
                 }else {
                     $message = 'Email không hợp lệ';
                     return view('user/register',['message'=>$message]);
