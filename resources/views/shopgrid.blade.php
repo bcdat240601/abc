@@ -36,9 +36,9 @@
 									<h3 class="title">Categories</h3>
 									<ul class="categor-list">
 										<li><a href="{{ asset('shopgrid') }}" class="cate">ALL</a></li>
-										<li><a href="{{ asset('shopgrid/categories?id=3') }}" data-id="3" class="cate">IPHONE</a></li>
-										<li><a href="{{ asset('shopgrid/categories?id=5') }}" data-id="5" class="cate">OPPO</a></li>
-										<li><a href="{{ asset('shopgrid/categories?id=1') }}" data-id="1" class="cate">ASUS</a></li>
+										<li><a href="{{ asset('categories?id=3') }}" data-id="3" class="cate">IPHONE</a></li>
+										<li><a href="{{ asset('categories?id=5') }}" data-id="5" class="cate">OPPO</a></li>
+										<li><a href="{{ asset('categories?id=1') }}" data-id="1" class="cate">ASUS</a></li>
 									</ul>
 								</div>
 								<!--/ End Single Widget -->
@@ -371,6 +371,7 @@
 $('.btn').click(function () {
 		var id = $(this).data("id"); 
 		$.get("shopgrid/AddToCart",{id:id},function(data){
+			alert(data);
 		});	
 	
 	});

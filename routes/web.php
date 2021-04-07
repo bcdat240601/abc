@@ -65,7 +65,7 @@ Route::get('shopgrid/re', 'CartController@remove');
 Route::get('shopgrid/quan', 'CartController@quantitychange');
 Route::get('shopgrid/page', 'HomeController@paginate');
 Route::get('cart/checkout',  'CartController@checkout');
-Route::get('shopgrid/categories', 'HomeController@cate');
+Route::get('categories', 'HomeController@cate');
 
 Route::get('shopgrid/pagecate', 'HomeController@paginateforcate');
 

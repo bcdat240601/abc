@@ -15,7 +15,8 @@
     <div>
         @foreach ($cthd as $item)
             <div class="item">
-                <div>Mã Điện Thoại:{{$item->id_dt}}</div>
+                <div>Tên Sản Phẩm: {{$item->name}}</div>
+                <div>Màu sắc: {{$item->color}}</div>
                 <div>Số Lượng:{{$item->soluong}}</div>
                 <div>Giá Tiền Sản Phẩm:{{number_format($item->giatien)}} VNĐ</div>
                 <div>Tổng Tiền Sản Phẩm: {{number_format($item->total)}} VNĐ</div>
