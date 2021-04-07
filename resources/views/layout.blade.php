@@ -127,9 +127,9 @@
 							<div class="search-bar">
 								<select>
 									<option selected="selected">All Category</option>
-									<option>watch</option>
-									<option>mobile</option>
-									<option>kid’s item</option>
+									<option>IPHONE</option>
+									<option>OPPO</option>
+									<option>ASUS</option>
 								</select>
 								<form>
 									<input name="search" placeholder="Search Products Here....." type="search">
@@ -208,7 +208,7 @@
 											<ul class="nav main-menu menu navbar-nav">
 													<li class="active"><a href="{{ asset('home') }}">Home</a></li>
 													<li><a href="#">Product</a></li>												
-													<li><a href="#">Service</a></li>
+													<!-- <li><a href="#">Service</a></li> -->
 													<li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="{{ asset('shopgrid') }}">Shop Grid</a></li>
@@ -217,11 +217,11 @@
 														</ul>
 													</li>
 													<li><a href="#">Pages</a></li>									
-													<li><a href="{{ asset('blog') }}">Blog<i class="ti-angle-down"></i></a>
+													<!-- <li><a href="{{ asset('blog') }}">Blog<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
 														</ul>
-													</li>
+													</li> -->
 													<li><a href="contact.html">Contact Us</a></li>
 												</ul>
 										</div>

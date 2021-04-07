@@ -758,21 +758,16 @@
         <ul class="main-category">
             <li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 <ul class="sub-category">
-                    <li><a href="#">accessories</a></li>
-                    <li><a href="#">best selling</a></li>
-                    <li><a href="#">top 100 offer</a></li>
-                    <li><a href="#">sunglass</a></li>
-                    <li><a href="#">watch</a></li>
-                    <li><a href="#">man’s product</a></li>
-                    <li><a href="#">ladies</a></li>
-                    <li><a href="#">westrn dress</a></li>
-                    <li><a href="#">denim </a></li>
+				   <li><a href="#">top 100 offer</a></li>
+                   <li><a href="#">IPHONE</a></li>
+                   <li><a href="#">OPPO</a></li>
+                   <li><a href="#">ASUS</a></li>
                 </ul>
             </li>
             <li class="main-mega"><a href="#">best selling <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 <ul class="mega-menu">
                     <li class="single-menu">
-                        <a href="#" class="title-link">Shop Kid's</a>
+                        <a href="#" class="title-link">IPHONE</a>
                         <div class="image">
                             <img src="https://via.placeholder.com/225x155" alt="#">
                         </div>
@@ -784,7 +779,7 @@
                         </div>
                     </li>
                     <li class="single-menu">
-                        <a href="#" class="title-link">Shop Men's</a>
+                        <a href="#" class="title-link">OPPO</a>
                         <div class="image">
                             <img src="https://via.placeholder.com/225x155" alt="#">
                         </div>
@@ -796,7 +791,7 @@
                         </div>
                     </li>
                     <li class="single-menu">
-                        <a href="#" class="title-link">Shop Women's</a>
+                        <a href="#" class="title-link">ASUS</a>
                         <div class="image">
                             <img src="https://via.placeholder.com/225x155" alt="#">
                         </div>
@@ -809,14 +804,10 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="#">accessories</a></li>
             <li><a href="#">top 100 offer</a></li>
-            <li><a href="#">sunglass</a></li>
-            <li><a href="#">watch</a></li>
-            <li><a href="#">man’s product</a></li>
-            <li><a href="#">ladies</a></li>
-            <li><a href="#">westrn dress</a></li>
-            <li><a href="#">denim </a></li>
+            <li><a href="#">IPHONE</a></li>
+            <li><a href="#">OPPO</a></li>
+            <li><a href="#">ASUS</a></li>
         </ul>
     </div>
 </div>
