@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>User Login</title>
 </head>
 <body>
-<form method="POST" action="{{ route('admin.login') }}">
+<form method="POST" action="{{ route('login') }}">
     @csrf
     <h1>User</h1>
     <input type="text" name="email" placeholder="Nhập địa chỉ email">
@@ -12,10 +12,10 @@
     <button type="submit">Đăng nhập</button>
 </form>
 </body>
-</html>
+</html> -->
 
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -133,43 +133,25 @@
         }
     </style>
     =
-    <script type="text/javascript">
-        function adminlogin() {
-            var useradmin = "admin";
-            var passlog = "admin";
-
-            if (document.getElementById("userlog").value == "admin" && document.getElementById("passlog").value == "admin") {
-                window.location = "./admin.html";
-            } else {
-                if (document.getElementById("userlog").value == "") {
-                    alert("Tên đăng nhập không được bỏ trống");
-                } else if (document.getElementById("passlog").value == "") {
-                    alert("Mật Khẩu không được bỏ trống")
-                } else {
-                    alert("Đăng nhập thành công <3")
-                    window.location = "index2.html"
-                }
-            }
-        }
-    </script>
 </head>
 
 <body>
     <div class="login-form">
-        <form action="{{route('admin.login')}}" method="post">
+        <form method="POST" action="{{ route('login') }}">
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
             <h4 class="modal-title">Đăng nhập vào tài khoản</h4>
+            @csrf
             <div class="form-group">
-                <input type="text" class="form-control" id="userlog" placeholder="Tên đăng nhập" required="required">
+                <input type="text" class="form-control" id="userlog" name="email" placeholder="Tên đăng nhập" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="passlog" placeholder="Mật khẩu" required="required">
+                <input type="password" class="form-control" id="passlog" name="password" placeholder="Mật khẩu" required="required">
             </div>
-            <input type="button" onclick="adminlogin();" class="btn btn-primary btn-block btn-lg" value="Đăng nhập">
+            <input type="submit" class="btn btn-primary btn-block btn-lg" value="Đăng nhập">
         </form>
         <div class="text-center small">Bạn chưa tạo tài khoản? <a href="{{ asset('register') }}">Đăng ký tại đây</a></div>
         <div class="text-center small"> <a href="{{ asset('home') }}">Trang Chủ</a></div>
     </div>
 </body>
 
-</html> -->
+</html>
