@@ -4,7 +4,7 @@
     <title>User Login</title>
 </head>
 <body>
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('admin.login') }}">
     @csrf
     <h1>User</h1>
     <input type="text" name="email" placeholder="Nhập địa chỉ email">
