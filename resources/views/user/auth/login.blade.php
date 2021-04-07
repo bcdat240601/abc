@@ -13,8 +13,6 @@
 </form>
 </body>
 </html>
-<<<<<<< HEAD
-=======
 
 
 <!-- <!DOCTYPE html>
@@ -175,4 +173,3 @@
 </body>
 
 </html> -->
->>>>>>> develope
