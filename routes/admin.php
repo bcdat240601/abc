@@ -44,3 +44,6 @@ Route::post('detail/khachhang/save',[khachhangController::class, 'edit'])->name(
 Route::post('detail/khachhang/add',[khachhangController::class, 'add'])->name('addkh');
 Route::get("table/detail/khachhang/delete",[khachhangController::class, 'delete']);
 
+Route::get('logout',[LoginController::class, 'logout']);
+
+

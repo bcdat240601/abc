@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Auth;
-
+use App\Models\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,11 +16,25 @@ class LoginController extends Controller
 
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('admin')->attempt($credentials)) {
-            $role = Auth::user()->role;
+
+           
+            $o = admin::where('email','=',$request->email)->first();
+            $role=$o->role;
             session()->put('role',$role);
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
+
         } else {
             return redirect()->back()->withInput();
         }
+    }
+    public function Manager(){
+        if(session()->get('role')==1) return redirect()->route('dashboard');
+        if(session()->get('role')==0) return view('home');
+        else echo 'invalid';
+    }
+    public function logout(){
+        Auth::logout();
+        \session()->forget('role');
+        return redirect()->route('admin.login');
     }
 }
