@@ -61,7 +61,7 @@
 										</div>
 										<!--/ End Input Order -->
 									</td>
-									<td class="total-amount" data-title="Total"><span id="total-{{$item['id']}}">{{$item['quantity']*$item['price']}}</span></td>
+									<td class="total-amount" data-title="Total"><span id="total-{{$item['id']}}" class="subtotal">{{$item['quantity']*$item['price']}}</span></td>
 									<td class="action" data-title="Remove"><a href="#" class="remove" data-id="{{$item['id']}}"><i class="ti-trash remove-icon"></i></a></td>
 								</tr>
 								@endforeach
@@ -92,7 +92,7 @@
 							<div class="col-lg-4 col-md-7 col-12">
 								<div class="right">
 									<ul>
-										<li>Cart Subtotal<span>$330.00</span></li>
+										<li>Cart Subtotal<span id="subtotal">$330.00</span></li>
 										<li>Shipping<span>Free</span></li>
 										<li>You Save<span>$20.00</span></li>
 										<li class="last">You Pay<span>$310.00</span></li>
@@ -299,11 +299,24 @@
 @section('script')
 {{-- <script src="{{ asset('js/code/ajax.js') }}"></script> --}}
 <script>
+	function gettotal(){
+		var a = $('.subtotal').text();
+		var s = 0;
+		var array = $('.subtotal').map(function(){
+               return $.trim($(this).text());
+            }).get()
+		array.forEach(element => {
+			s += parseInt(element);
+		});
+		$('#subtotal').text(s);
+	}
+	gettotal();
 	$('.cong').click(function () { 
 		var id = $(this).data("id");
 		var quantity = $('#quan-'+id).val();
 		$.get("shopgrid/quan",{quantity:quantity,id:id},function(data){
 			$('#total-'+id).text(data);
+			gettotal();
 		});
 	});
 	$('.tru').click(function () { 
@@ -311,15 +324,16 @@
 		var quantity = $('#quan-'+id).val();
 		$.get("shopgrid/quan",{quantity:quantity,id:id},function(data){
 			$('#total-'+id).text(data);
+			gettotal();
 		});
 	});
 	$('.remove').click(function () { 
 		var id = $(this).data("id");
-		$(".product-"+id).hide();
+		$(".product-"+id).remove();
 		$.get("shopgrid/re",{id:id},function(){
 			alert("xóa thành công");
+			gettotal();
 		});
-		
 	});
 </script>
 @endsection
