@@ -36,9 +36,9 @@
 									<h3 class="title">Categories</h3>
 									<ul class="categor-list">
 										<li><a href="{{ asset('shopgrid') }}" class="cate">ALL</a></li>
-										<li><a href="{{ asset('categories?id=3') }}" data-id="3" class="cate">IPHONE</a></li>
-										<li><a href="{{ asset('categories?id=5') }}" data-id="5" class="cate">OPPO</a></li>
-										<li><a href="{{ asset('categories?id=1') }}" data-id="1" class="cate">ASUS</a></li>
+										<li><a href="{{ asset('shopgrid/categories?id=3') }}" data-id="3" class="cate">IPHONE</a></li>
+										<li><a href="{{ asset('shopgrid/categories?id=5') }}" data-id="5" class="cate">OPPO</a></li>
+										<li><a href="{{ asset('shopgrid/categories?id=1') }}" data-id="1" class="cate">ASUS</a></li>
 									</ul>
 								</div>
 								<!--/ End Single Widget -->
@@ -150,7 +150,7 @@
 										<div class="single-shorter">
 											<label>Show :</label>
 											<select>
-												<option selected="selected">09</option>
+												<option selected="selected">03</option>
 												<option>15</option>
 												<option>25</option>
 												<option>30</option>
@@ -373,7 +373,9 @@ $('.btn').click(function () {
 		$.get("shopgrid/AddToCart",{id:id},function(data){
 			alert(data);
 		});	
-	
+		$.get("AddToCart",{id:id},function(data){
+			alert(data);
+		});
 	});
 $('.page').click(function () { 
 	var page = $(this).text();

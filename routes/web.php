@@ -65,7 +65,7 @@ Route::get('shopgrid/re', 'CartController@remove');
 Route::get('shopgrid/quan', 'CartController@quantitychange');
 Route::get('shopgrid/page', 'HomeController@paginate');
 Route::get('cart/checkout',  'CartController@checkout');
-Route::get('categories', 'HomeController@cate');
+Route::get('shopgrid/categories', 'HomeController@cate');
 
 Route::get('shopgrid/pagecate', 'HomeController@paginateforcate');
 
@@ -73,6 +73,8 @@ Route::get('profile', 'HomeController@history');
 Route::get('hoadondetail', 'HomeController@hoadondetail');
 
 Route::get('total', 'CartController@total');
+
+Route::get('searching', 'HomeController@search')->name('search');
 
 
     
