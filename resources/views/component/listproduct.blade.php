@@ -20,7 +20,7 @@
 									<div class="product-content">
 										<h3><a href="product-details.html">{{$item->name}}</a></h3>
 										<div class="product-price">
-											<span>{{$item->price}} VNĐ</span>
+											<span>{{number_format($item->price)}} VNĐ</span>
 										</div>
 									</div>
 								</div>

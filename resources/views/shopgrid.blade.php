@@ -150,7 +150,7 @@
 										<div class="single-shorter">
 											<label>Show :</label>
 											<select>
-												<option selected="selected">09</option>
+												<option selected="selected">03</option>
 												<option>15</option>
 												<option>25</option>
 												<option>30</option>
@@ -196,7 +196,7 @@
 									<div class="product-content">
 										<h3><a href="product-details.html">{{$item->name}}</a></h3>
 										<div class="product-price">
-											<span>{{$item->price}} VNĐ</span>
+											<span>{{number_format($item->price)}} VNĐ</span>
 										</div>
 									</div>
 								</div>
@@ -371,8 +371,11 @@
 $('.btn').click(function () {
 		var id = $(this).data("id"); 
 		$.get("shopgrid/AddToCart",{id:id},function(data){
+			alert(data);
 		});	
-	
+		$.get("AddToCart",{id:id},function(data){
+			alert(data);
+		});
 	});
 $('.page').click(function () { 
 	var page = $(this).text();
