@@ -12,6 +12,14 @@ use DB;
 class HomeController extends Controller
 {
     public function Home(){
+        $hangs = DB::table('hang')->select('id','name')->get();
+        foreach ($hangs as $hang) {
+            $allhang[$hang->id] = [
+                'id' => $hang->id,
+                'name' => $hang->name
+            ];
+        }
+        session()->put('allhang',$allhang);
         session()->forget('page');
         $show = dienthoai::all()->take(3);
         $Titem = dienthoai::all()->take(8);
@@ -70,7 +78,13 @@ class HomeController extends Controller
         return view('component/listproduct',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
     public function cate(){
-        $id_hang = $_GET['id'];
+        $temp = session()->get('idhang');
+        if (isset($temp)) {
+            $id_hang = session()->get('idhang');
+        } else {
+            $id_hang = $_GET['id'];
+        }
+        
         $current_page = session()->get('page');
         session()->put('idhang',$id_hang);
         $quantity = DB::table('dienthoai')->where('id_hang',$id_hang)->count();
@@ -131,6 +145,14 @@ class HomeController extends Controller
     public function search(){
         $search = $_GET['search'];
         $search = $this->xoa_dau($search);
+        $search = strtoupper($search);
+        $allhang = session()->get('allhang');
+        foreach ($allhang as $hang) {
+            if($hang['name'] == $search){
+                session()->put('idhang',$hang['id']);
+                return redirect('shopgrid/categories');
+            }
+        }
         $quantity = DB::table('dienthoai')->select('id','name','price','image')->where('name',$search)->count();
         $item_per_page = 3;
         $page = 1;
