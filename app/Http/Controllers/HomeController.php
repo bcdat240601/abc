@@ -111,14 +111,14 @@ class HomeController extends Controller
     }
     function xoa_dau($a) {
         //có thể thay thế bằng hàm preg_replace
-        $str = Str::of($a)->replace('/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g','a');
-        $str = Str::of($a)->replace('/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g', "e");
-        $str = Str::of($a)->replace('/ì|í|ị|ỉ|ĩ/g', "i");
-        $str = Str::of($a)->replace('/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g', "o");
-        $str = Str::of($a)->replace('/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g', "u");
-        $str = Str::of($a)->replace('/ỳ|ý|ỵ|ỷ|ỹ/g', "y");
-        $str = Str::of($a)->replace('/đ/g', "d");
-        $str = Str::of($a)->replace('/ {1,}/g'," ");
+        $a = preg_replace('/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/','a',$a);
+        $a = preg_replace('/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/', "e",$a);
+        $a = preg_replace('/ì|í|ị|ỉ|ĩ/', "i",$a);
+        $a = preg_replace('/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/', "o",$a);
+        $a = preg_replace('/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/', "u",$a);
+        $a = preg_replace('/ỳ|ý|ỵ|ỷ|ỹ/', "y",$a);
+        $a = preg_replace('/đ/', "d",$a);
+        $a = preg_replace('/ {1,}/'," ",$a);
         // $str = $str.replace('/À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ/g', "A");
         // $str = $str.replace('/È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ/g', "E");
         // $str = $str.replace('/Ì|Í|Ị|Ỉ|Ĩ/g', "I");
@@ -126,7 +126,7 @@ class HomeController extends Controller
         // $str = $str.replace('/Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ/g', "U");
         // $str = $str.replace('/Ỳ|Ý|Ỵ|Ỷ|Ỹ/g', "Y");
         // $str = $str.replace('/Đ/g', "D");
-        return $str;
+        return $a;
     }
     public function search(){
         $search = $_GET['search'];
