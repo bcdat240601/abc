@@ -90,6 +90,7 @@
 								@else
 								<li><i class="ti-power-off"></i><a href="{{ asset('logout') }}">Log-out</a></li>
 								@endif
+								<li><i class="ti-user"></i><a href="{{ asset('admin/home') }}">Admin</a></li>
 							</ul>
 						</div>
 						<!-- End Top Right -->

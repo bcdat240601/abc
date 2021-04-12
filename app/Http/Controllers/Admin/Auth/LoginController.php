@@ -20,6 +20,7 @@ class LoginController extends Controller
            
             $o = admin::where('email','=',$request->email)->first();
             $role=$o->role;
+            session()->put('islogin',1);
             session()->put('role',$role);
             return redirect()->route('dashboard');
 
@@ -28,12 +29,13 @@ class LoginController extends Controller
         }
     }
     public function Manager(){
-        if(session()->get('role')==1) return redirect()->route('dashboard');
-        if(session()->get('role')==0) return view('home');
+        if(session()->get('role')==1 && session()->get('login')==1) return redirect()->route('dashboard');
+        if(session()->get('role')==0 && session()->get('login')==1) return view('home');
         else echo 'invalid';
     }
     public function logout(){
         Auth::logout();
+        session()->put('islogin',0);
         \session()->forget('role');
         return redirect()->route('admin.login');
     }

@@ -16,13 +16,15 @@ class nhanvienController extends Controller
 {
     public function shownv()
     {
-        if(session()->get('role')==1){
+        if(session()->get('role')==1 && session()->get('islogin')==1 ){
         $object = 'nhanvien';
         $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email')->get();
         $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
         }
-        else echo 'invalid';
+        if(session()->get('role')==0 && session()->get('login')==1) return view('invalid');
+        else return redirect('admin/login');
+        
     }
     public function addnv(Request $req){
         $model = new admin();

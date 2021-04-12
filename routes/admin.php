@@ -15,7 +15,10 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 });
 Route::get('home', function () {
-    return view('admin/admin');
+    if(session()->get('role')==1 && session()->get('islogin')==1 ){
+     return view('admin/admin');
+    }
+    else return  redirect('admin/login');
 });
 Route::get('forgot', function () {
     return view('admin/forgotpassword');
