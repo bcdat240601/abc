@@ -12,6 +12,7 @@ use DB;
 class HomeController extends Controller
 {
     public function Home(){
+        session()->put('phantrang',1);
         $hangs = DB::table('hang')->select('id','name')->get();
         foreach ($hangs as $hang) {
             $allhang[$hang->id] = [
@@ -20,6 +21,18 @@ class HomeController extends Controller
             ];
         }
         session()->put('allhang',$allhang);
+        $allsp = DB::table('dienthoai')->select('id','name','price','image')->get();
+        foreach ($allsp as $sp) {
+            $allsanpham[$sp->id] = [
+                'id' => $sp->id,
+                'name' => $sp->name,
+                'price' => $sp->price,
+                'image' => $sp->image,
+                'flag' => 0,
+                'sttshow' => -1
+            ];
+        }
+        session()->put('allsanpham',$allsanpham);
         session()->forget('page');
         $show = dienthoai::all()->take(3);
         $Titem = dienthoai::all()->take(8);
@@ -78,11 +91,10 @@ class HomeController extends Controller
         return view('component/listproduct',['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
     public function cate(){
-        $temp = session()->get('idhang');
-        if (isset($temp)) {
-            $id_hang = session()->get('idhang');
-        } else {
+        if (isset($_GET['id'])) {
             $id_hang = $_GET['id'];
+        } else {
+            $id_hang = session()->get('idhang');
         }
         
         $current_page = session()->get('page');
@@ -142,25 +154,46 @@ class HomeController extends Controller
         // $str = $str.replace('/Đ/g', "D");
         return $a;
     }
+    // public function search(){
+    //     $search = $_GET['search'];
+    //     $search = $this->xoa_dau($search);
+    //     $search = strtoupper($search);
+    //     $allhang = session()->get('allhang');
+    //     foreach ($allhang as $hang) {
+    //         if($hang['name'] == $search){
+    //             session()->put('idhang',$hang['id']);
+    //             return redirect('shopgrid/categories');
+    //         }
+    //     }
+    //     $quantity = DB::table('dienthoai')->select('id','name','price','image')->where('name',$search)->count();
+    //     $item_per_page = 3;
+    //     $page = 1;
+    //     $number_page = ceil($quantity/$item_per_page);
+    //     $offset = ($page - 1)*$item_per_page;
+    //     // $searchitem = DB::table('dienthoai')->join('hang','dienthoai.id_hang','=','hang.id')->select('dienthoai.id','dienthoai.name','dienthoai.price','dienthoai.image')->where('dienthoai.name',$search)->get();
+    //     $searchitem = DB::table('dienthoai')->select('id','name','price','image')->where('name',$search)->limit($item_per_page)->offset($offset)->get();
+    //     $items = session()->get('cart'); 
+    //     return view('shopgrid',['items'=>$items,'showitem'=>$searchitem,'number_page'=>$number_page]);
+    // }
     public function search(){
+        session()->put('phantrang',2);
+        $dem = 0;
+        $sp = DB::table('dienthoai')->select('id')->get();
         $search = $_GET['search'];
         $search = $this->xoa_dau($search);
         $search = strtoupper($search);
-        $allhang = session()->get('allhang');
-        foreach ($allhang as $hang) {
-            if($hang['name'] == $search){
-                session()->put('idhang',$hang['id']);
-                return redirect('shopgrid/categories');
-            }
-        }
-        $quantity = DB::table('dienthoai')->select('id','name','price','image')->where('name',$search)->count();
         $item_per_page = 3;
         $page = 1;
-        $number_page = ceil($quantity/$item_per_page);
+        $allsanpham = session()->get('allsanpham');
+        foreach ($sp as $id) {
+            if(strpos($allsanpham[$id->id]['name'],$search) !== false){
+                $allsanpham[$id->id]['flag']= 1;
+                $dem = $dem + 1;
+            }
+        }
         $offset = ($page - 1)*$item_per_page;
-        // $searchitem = DB::table('dienthoai')->join('hang','dienthoai.id_hang','=','hang.id')->select('dienthoai.id','dienthoai.name','dienthoai.price','dienthoai.image')->where('dienthoai.name',$search)->get();
-        $searchitem = DB::table('dienthoai')->select('id','name','price','image')->where('name',$search)->limit($item_per_page)->offset($offset)->get();
-        $items = session()->get('cart'); 
-        return view('shopgrid',['items'=>$items,'showitem'=>$searchitem,'number_page'=>$number_page]);
+        $number_page = ceil($dem/$item_per_page);
+        $items = session()->get('cart');
+        return view('shopgrid',['items'=>$items,'showitem'=>$allsanpham,'number_page'=>$number_page]);
     }
 }
