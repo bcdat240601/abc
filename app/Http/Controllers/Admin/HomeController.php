@@ -13,8 +13,11 @@ class HomeController extends Controller
 {
     public function index()
     {
+         if(session()->get('role')==1 && session()->get('islogin')==1 ){
         $user = Auth::guard('admin')->user();
         echo 'Xin chào Admin, '. $user->name;
+        }
+        else return  redirect('admin/login');
     }
     
 
