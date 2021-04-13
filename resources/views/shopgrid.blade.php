@@ -173,81 +173,41 @@
 								<!--/ End Shop Top -->
 							</div>
 						</div>
-						@if (session('phantrang') == 1)
-							<div class="row" id="sanpham">
-								@foreach ($showitem as $item)
-								<div class="col-lg-4 col-md-6 col-12">
-									<div class="single-product">
-										<div class="product-img">
-											<a href="product-details.html">
-												<img class="default-img" src="{{ asset('images/product/'.$item->image) }}" alt="#">
-												<img class="hover-img" src="{{ asset('images/product/'.$item->image) }}" alt="#">
-											</a>
-											<div class="button-head">
-												<div class="product-action">
-													<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-													<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-													<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-												</div>
-												<div class="product-action-2">
-													<button title="Add to cart" class="btn" data-id="{{$item->id}}">Add to Cart</button>
-												</div>
+						<div class="row" id="sanpham">
+							@foreach ($showitem as $item)
+							<div class="col-lg-4 col-md-6 col-12">
+								<div class="single-product">
+									<div class="product-img">
+										<a href="product-details.html">
+											<img class="default-img" src="{{ asset('images/product/'.$item->image) }}" alt="#">
+											<img class="hover-img" src="{{ asset('images/product/'.$item->image) }}" alt="#">
+										</a>
+										<div class="button-head">
+											<div class="product-action">
+												<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+												<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+												<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 											</div>
-										</div>
-										<div class="product-content">
-											<h3><a href="product-details.html">{{$item->name}}</a></h3>
-											<div class="product-price">
-												<span>{{number_format($item->price)}} VNĐ</span>
+											<div class="product-action-2">
+												<button title="Add to cart" class="btn" data-id="{{$item->id}}">Add to Cart</button>
 											</div>
 										</div>
 									</div>
-								</div>
-								@endforeach							
-							</div>
-							<div style="text-align: center">
-								@for ($i = 1; $i <= $number_page; $i++)
-									<button class="page" style="height:30px;width:30px;">{{$i}}</button>
-								@endfor
-							</div>
-						@else
-							<div class="row" id="sanpham">
-								@foreach ($showitem as $item)
-								@if ($item['flag'] == 1)
-								<div class="col-lg-4 col-md-6 col-12">
-									<div class="single-product">
-										<div class="product-img">
-											<a href="product-details.html">
-												<img class="default-img" src="{{ asset('images/product/'.$item['image']) }}" alt="#">
-												<img class="hover-img" src="{{ asset('images/product/'.$item['image']) }}" alt="#">
-											</a>
-											<div class="button-head">
-												<div class="product-action">
-													<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
-													<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
-													<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
-												</div>
-												<div class="product-action-2">
-													<button title="Add to cart" class="btn" data-id="{{$item['id']}}">Add to Cart</button>
-												</div>
-											</div>
-										</div>
-										<div class="product-content">
-											<h3><a href="product-details.html">{{$item['name']}}</a></h3>
-											<div class="product-price">
-												<span>{{number_format($item['price'])}} VNĐ</span>
-											</div>
+									<div class="product-content">
+										<h3><a href="product-details.html">{{$item->name}}</a></h3>
+										<div class="product-price">
+											<span>{{number_format($item->price)}} VNĐ</span>
 										</div>
 									</div>
 								</div>
-								@endif
-								@endforeach
-								<div style="text-align: center">
-									@for ($i = 1; $i <= $number_page; $i++)
-										<button class="page2" style="height:30px;width:30px;">{{$i}}</button>
-									@endfor
-								</div>						
 							</div>
-						@endif
+							@endforeach							
+						</div>
+						<div style="text-align: center">
+							@for ($i = 1; $i <= $number_page; $i++)
+								<button class="page" style="height:30px;width:30px;">{{$i}}</button>
+							@endfor
+						</div>
 					</div>
 				</div>
 			</div>
@@ -392,6 +352,7 @@
 			</div>
 			<!-- Modal end -->
 			<span id="pagecate" style="display:none;">{{session()->get('idhang')}}</span>
+			<span id="search" style="display:none;">{{session()->get('search')}}</span>
 @endsection
 @section('script')
 <script>
@@ -420,12 +381,19 @@ $('.btn').click(function () {
 $('.page').click(function () { 
 	var page = $(this).text();
 	var id = $('#pagecate').text();
-	$.get("shopgrid/page",{page:page},function(data){
+	var search = $('#search').text();
+	if (search == 1) {
+		$.get("searchpag",{page:page},function(data){
 		$('#sanpham').html(data);
-	});
-	$.get("pagecate",{page:page,id:id},function(data){
-		$('#sanpham').html(data);
-	});
+	});	
+	} else {
+		$.get("shopgrid/page",{page:page},function(data){
+			$('#sanpham').html(data);
+		});
+		$.get("pagecate",{page:page,id:id},function(data){
+			$('#sanpham').html(data);
+		});
+	}
 });
 </script>
 @endsection

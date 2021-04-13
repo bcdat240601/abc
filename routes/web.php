@@ -76,7 +76,7 @@ Route::get('total', 'CartController@total');
 
 Route::get('searching', 'HomeController@search')->name('search');
 
-
+Route::get('searchpag', 'HomeController@searchpagi');
     
 Route::get('product', function(){
     return view('detail');
