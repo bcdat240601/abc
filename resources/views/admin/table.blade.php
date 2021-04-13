@@ -31,13 +31,14 @@
                                 <th>{{$value}}</th>
                                 @endforeach
                                 <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
-                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                               
+                                <th> @if (session()->get('role')==1)  <button class="delete" data-row="{{$item->id}}">Xóa</button> @endif</th>  
                             </tr>
                         @endforeach
                     </tbody>
                    
                 </table>
-                <button><a href="{{ asset('admin/detail/'.$object.'/showadd') }}">Thêm</a></button>
+                {{-- <button><a href="{{ asset('admin/detail/'.$object.'/showadd') }}">Thêm</a></button> --}}
             </div>
         </div>
     </div>

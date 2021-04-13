@@ -84,9 +84,11 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        @if (session()->get('role')==1)
+                        <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
+                        <a class="collapse-item" href="utilities-border.html">DELETE workers</a>
+                        @endif
+                        <a class="collapse-item" href="{{ asset('admin/detail/khachhang/showadd') }}">ADD customer</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
                     </div>
                 </div>
@@ -144,7 +146,7 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card">
+            <div class="sidebar-card" style="display: none;">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
@@ -341,7 +343,7 @@
                             {{-- <a href="{{ asset('admin/logout') }} "><button>logout</button></a> --}}
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">welcome {{session()->get('name')}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('img/undraw_profile.svg') }}">
                             </a>

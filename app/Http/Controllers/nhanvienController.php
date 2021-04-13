@@ -16,7 +16,7 @@ class nhanvienController extends Controller
 {
     public function shownv()
     {
-        if(session()->get('role')==1 && session()->get('islogin')==1 ){
+        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $object = 'nhanvien';
         $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email')->get();
         $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email'];
@@ -38,9 +38,9 @@ class nhanvienController extends Controller
                     $model->birthday = $req->birthday;
                     $model->phonenumber = $req->phone;
                     $model->email = $req->email;
-                    $model->role = 1;
+                    $model->role = $req->role;
                     $model->save();
-            return redirect('admin/table');;   
+            return redirect('admin/table/nv');;   
                 }else {
                     $message = 'Email không hợp lệ';
                     return view('nhanvien/add',['message'=>$message]);
@@ -75,4 +75,5 @@ class nhanvienController extends Controller
         }
         return true;
     }
+
 }

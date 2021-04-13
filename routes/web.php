@@ -78,3 +78,6 @@ Route::get('searching', 'HomeController@search')->name('search');
 
 
     
+Route::get('product', function(){
+    return view('detail');
+});

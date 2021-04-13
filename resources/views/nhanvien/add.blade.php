@@ -11,6 +11,7 @@
         <label for="Ngày Sinh">Ngày Sinh</label><input type="text" name="birthday" value="">
         <label for="Số Điện Thoại">Số điện thoại</label><input type="text" name="phone" value="">
         <label for="Email">Email</label><input type="text" name="email" value="">
+        <label for="Email">Role</label><input type="text" name="role" value="">
         <input type="submit" value="Thêm">
     </form>
     <span>@if (isset($message))
