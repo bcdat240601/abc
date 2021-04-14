@@ -26,8 +26,12 @@
                 <div>Tổng tiền: {{number_format($item->total)}} VNĐ</div>
                 <div>Ngày Thanh Toán :{{$item->created_at}}</div>
                 <div class="detail"><a href="{{ asset('hoadondetail?mahd='.$item->mahd) }}">Xem Chi Tiết</a></div>
+                @if ($item->chotdon == 0)
+                    <div><a href="{{ asset('huydon?mahd='.$item->mahd) }}">Hủy Đơn Hàng</a></div>
+                @endif
             </div>
         @endforeach
+        <a href="{{ asset('home') }}">Quay về trang chủ</a>
     </ul>
 </body>
 </html>

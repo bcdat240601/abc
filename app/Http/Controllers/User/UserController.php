@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\dienthoai;
 use App\Models\Product;
-
+use DB;
 class UserController extends Controller
 {
     public function index()
@@ -45,5 +45,11 @@ class UserController extends Controller
     public function detail($id){
         $product = dienthoai::find($id);
         return view('detail',['pd'=>$product]);
+    }
+    public function huydonhang(){
+        $mahd = $_GET['mahd'];
+        $deletecthd = DB::table('cthd')->where('ma_hd',$mahd)->delete();
+        $deletehd = DB::table('hoadon')->where('mahd',$mahd)->delete();
+        return redirect('profile');
     }
 }
