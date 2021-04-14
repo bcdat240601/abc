@@ -32,7 +32,7 @@
                                 @endforeach
                                 <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
                                
-                                <th> @if (session()->get('role')==1)  <button class="delete" data-row="{{$item->id}}">Xóa</button> @endif</th>  
+                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>  
                             </tr>
                         @endforeach
                     </tbody>

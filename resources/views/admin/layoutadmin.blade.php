@@ -86,7 +86,7 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         @if (session()->get('role')==1)
                         <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
-                        <a class="collapse-item" href="utilities-border.html">DELETE workers</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/nv') }}">DELETE workers</a>
                         @endif
                         <a class="collapse-item" href="{{ asset('admin/detail/khachhang/showadd') }}">ADD customer</a>
                         <a class="collapse-item" href="utilities-other.html">Other</a>
@@ -117,7 +117,7 @@
                         <a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/kh">Customer Show</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
+                        @if (session()->get('role')==1)<a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/nv">Show Workers</a>@endif
                         <a class="collapse-item" href="blank.html">Blank Page</a>
                     </div>
                 </div>

@@ -39,6 +39,7 @@ class LoginController extends Controller
         Auth::logout();
         session()->put('islogin',0);
         \session()->forget('role');
+        \session()->forget('name');
         return redirect()->route('admin.login');
     }
 }

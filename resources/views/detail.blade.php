@@ -27,21 +27,21 @@
                     class="img-fluid z-depth-1">
                 </a>
               </figure>
-              <figure class="view overlay rounded z-depth-1" style="visibility: hidden;">
+              <figure class="view overlay rounded z-depth-1" style="display:none;">
                 <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
                   data-size="710x823">
                   <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
                     class="img-fluid z-depth-1">
                 </a>
               </figure>
-              <figure class="view overlay rounded z-depth-1" style="visibility: hidden;">
+              <figure class="view overlay rounded z-depth-1" style="display:none;">
                 <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
                   data-size="710x823">
                   <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg"
                     class="img-fluid z-depth-1">
                 </a>
               </figure>
-              <figure class="view overlay rounded z-depth-1" style="visibility: hidden;">
+              <figure class="view overlay rounded z-depth-1" style="display:none;">
                 <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"
                   data-size="710x823">
                   <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg"

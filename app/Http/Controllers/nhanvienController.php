@@ -75,5 +75,11 @@ class nhanvienController extends Controller
         }
         return true;
     }
-
+    public function delete(Request $req){
+        $row = $req->row;
+        if(session()->get('role')==1 && session()->get('islogin')==1){
+        $model = DB::table('nhanvien')->where('id', '=', $row)->delete();
+        return view('DienThoai/detail');
+        }
+    }
 }

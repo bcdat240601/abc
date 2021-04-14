@@ -59,7 +59,9 @@ class khachhangController extends Controller
     }
     public function delete(Request $req){
         $row = $req->row;
+        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $model = DB::table('khachhang')->where('id', '=', $row)->delete();
         return view('KhachHang/detail');
+        }
     }
 }
