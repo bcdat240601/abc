@@ -57,3 +57,5 @@ Route::get('detail/nhanvien/showadd', function(){
     return view('nhanvien/add');
 });
 Route::post('detail/nhanvien/add',[nhanvienController::class, 'addnv'])->name('addnv');
+
+Route::get('checkbill',[nhanvienController::class, 'checkbill']);

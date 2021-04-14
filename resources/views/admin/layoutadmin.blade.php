@@ -118,7 +118,7 @@
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         @if (session()->get('role')==1)<a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/nv">Show Workers</a>@endif
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="http://localhost:8080/abc/public/admin/checkbill">Check Bill</a>
                     </div>
                 </div>
             </li>
