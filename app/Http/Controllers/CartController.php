@@ -81,6 +81,7 @@ class CartController extends Controller
                 $modelhd->mahd = Str::random(3);
                 $modelhd->id_khach = $user->id;
                 $modelhd->id_nv = null;
+                $modelhd->chotdon = 0;
                 $modelhd->code_km = null;
                 foreach ($cart as $product) {
                    $total = $total + $product['price']*$product['quantity'];
