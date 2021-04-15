@@ -33,4 +33,5 @@ class TestController extends Controller
 
         echo "show mảng:".implode(",",session()->get("mảng_tên"));
     }
+
 }
