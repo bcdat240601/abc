@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\dienthoai;
 use App\Models\User;
 use App\Models\admin;
+use App\Models\hoadon;
 use DB;
 
 class nhanvienController extends Controller
@@ -81,5 +82,14 @@ class nhanvienController extends Controller
         $model = DB::table('nhanvien')->where('id', '=', $row)->delete();
         return view('DienThoai/detail');
         }
+    }
+    public function checkbill(){
+        $bill = DB::table('hoadon')->get();
+        return view('admin/bill',['bill'=>$bill]);
+    }
+    public function xuly (){
+        $model = new hoadon();
+        $model->chotdon = 1;
+        return redirect('admin/checkbill');
     }
 }

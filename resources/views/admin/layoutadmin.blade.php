@@ -32,11 +32,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="height: 10.375rem;">
+                <div class="sidebar-brand-icon rotate-n-0" style="height: 10.375rem;">
+                    <img src="{{asset('images/logo4.png')}}" alt="logo" style="width:97%;">
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                
             </a>
 
             <!-- Divider -->
@@ -118,7 +118,7 @@
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         @if (session()->get('role')==1)<a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/nv">Show Workers</a>@endif
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item" href="http://localhost:8080/abc/public/admin/checkbill">Check Bill</a>
                     </div>
                 </div>
             </li>

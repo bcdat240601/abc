@@ -18,7 +18,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <tname</th>
+                            <th>tên</th>
                             <th>Tài Khoản</th>
                             <th>Mật Khẩu</th>
                             <th>Địa chỉ</th>
