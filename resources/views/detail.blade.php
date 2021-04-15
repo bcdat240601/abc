@@ -91,7 +91,7 @@
               </tr>
               <tr>
                 <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
-                <td>Black</td>
+                <td>{{$pd->color}}</td>
               </tr>
               <tr>
                 <th class="pl-0 w-25" scope="row"><strong>Delivery</strong></th>
