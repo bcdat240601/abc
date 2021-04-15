@@ -93,8 +93,8 @@ class CartController extends Controller
                 $dienthoai = dienthoai::find($product['id']);
                 $modelcthd->id_dt = $product['id'];
                 $modelcthd->ma_hd = $modelhd->mahd;
-                $modelcthd->name = $dienthoai->name;
-                $modelcthd->color = $dienthoai->color;
+                // $modelcthd->name = $dienthoai->name;
+                // $modelcthd->color = $dienthoai->color;
                 $modelcthd->soluong = $product['quantity'];
                 $modelcthd->giatien = $product['price'];
                 $modelcthd->total = $product['price']*$product['quantity'];

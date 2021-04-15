@@ -110,7 +110,7 @@ class HomeController extends Controller
     public function hoadondetail(){
         session()->forget('search');
         $mahd = $_GET['mahd'];
-        $cthd = DB::table('cthd')->where('ma_hd',$mahd)->get();
+        $cthd = DB::table('cthd')->join('dienthoai','cthd.id_dt','=','dienthoai.id')->select('dienthoai.name','dienthoai.color','cthd.giatien','cthd.soluong','cthd.total')->where('ma_hd',$mahd)->get();
         return view('user/hoadondetail',['cthd'=>$cthd]);
     }
     function xoa_dau($a) {
