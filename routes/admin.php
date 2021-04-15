@@ -60,4 +60,4 @@ Route::post('detail/nhanvien/add',[nhanvienController::class, 'addnv'])->name('a
 
 Route::get('checkbill',[nhanvienController::class, 'checkbill']);
 
-Route::get('xuly',[nhanvienController::class, 'xuly']);
+Route::get('xuly',[nhanvienController::class, 'xuly'])->name('admin.xuly');

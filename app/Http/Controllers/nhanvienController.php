@@ -87,9 +87,9 @@ class nhanvienController extends Controller
         $bill = DB::table('hoadon')->get();
         return view('admin/bill',['bill'=>$bill]);
     }
-    public function xuly (){
-        $model = new hoadon();
-        $model->chotdon = 1;
-        return redirect('admin/checkbill');
+    public function xuly (Request $req){
+        $model = hoadon::find($req->mahd);
+        $model->chotdon = $req->state;
+        $model->save();
     }
 }

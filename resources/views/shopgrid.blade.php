@@ -149,11 +149,16 @@
 									<div class="shop-shorter">
 										<div class="single-shorter">
 											<label>Show :</label>
-											<select>
-												<option selected="selected">03</option>
-												<option>15</option>
-												<option>25</option>
-												<option>30</option>
+											<select name="select">
+												<option @if (session('select') == 3)
+													selected="selected"
+												@endif>03</option>
+												<option @if (session('select') == 6)
+												selected="selected"
+												@endif>06</option>
+												<option @if (session('select') == 9)
+												selected="selected"
+											@endif>09</option>
 											</select>
 										</div>
 										<div class="single-shorter">
@@ -378,10 +383,18 @@ $('.btn').click(function () {
 			alert(data);
 		});
 	});
+$('.list li').click(function () { 
+	var select = $(this).data('value');
+	$.get('shorter',{select:select},function(data){
+
+	});
+	
+});
 $('.page').click(function () { 
 	var page = $(this).text();
 	var id = $('#pagecate').text();
 	var search = $('#search').text();
+	var select = $("select[name='select']").val();
 	if (search == 1) {
 		$.get("searchpag",{page:page},function(data){
 		$('#sanpham').html(data);
