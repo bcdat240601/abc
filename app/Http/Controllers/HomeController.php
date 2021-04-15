@@ -161,25 +161,4 @@ class HomeController extends Controller
         $items = session()->get('cart'); 
         return view($where_to_return,['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
-    // public function search(){
-    //     session()->put('phantrang',2);
-    //     $dem = 0;
-    //     $sp = DB::table('dienthoai')->select('id')->get();
-    //     $search = $_GET['search'];
-    //     $search = $this->xoa_dau($search);
-    //     $search = strtoupper($search);
-    //     $item_per_page = 3;
-    //     $page = 1;
-    //     $allsanpham = session()->get('allsanpham');
-    //     foreach ($sp as $id) {
-    //         if(strpos($allsanpham[$id->id]['name'],$search) !== false){
-    //             $allsanpham[$id->id]['flag']= 1;
-    //             $dem = $dem + 1;
-    //         }
-    //     }
-    //     $offset = ($page - 1)*$item_per_page;
-    //     $number_page = ceil($dem/$item_per_page);
-    //     $items = session()->get('cart');
-    //     return view('shopgrid',['items'=>$items,'showitem'=>$allsanpham,'number_page'=>$number_page]);
-    // }
 }
