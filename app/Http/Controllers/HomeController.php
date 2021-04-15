@@ -165,6 +165,6 @@ class HomeController extends Controller
     public function shorter(Request $req){
         $select = $req->select;
         session()->put('select',$select);
-        // return redirect('shopgrid');
+        return redirect('shopgrid');
     }
 }

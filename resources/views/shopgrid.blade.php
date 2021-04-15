@@ -386,7 +386,7 @@ $('.btn').click(function () {
 $('.list li').click(function () { 
 	var select = $(this).data('value');
 	$.get('shorter',{select:select},function(data){
-
+		$('body').html(data);
 	});
 	
 });
