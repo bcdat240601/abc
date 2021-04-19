@@ -50,20 +50,20 @@
 												<div id="slider-range"></div>
 													<div class="price_slider_amount">
 													<div class="label-input">
-														<span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price"/>
+														<span>Range:1,000,000 trở lên</span>
 													</div>
 												</div>
 											</div>
 										</div>
 										<ul class="check-box-list">
 											<li>
-												<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
+												<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">{{number_format(1000000)}} - {{number_format(5000000)}}</label>
 											</li>
 											<li>
-												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
+												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">{{number_format(5000000)}} - {{number_format(15000000)}}</label>
 											</li>
 											<li>
-												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
+												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">{{number_format(15000000)}} trở lên</label>
 											</li>
 										</ul>
 									</div>

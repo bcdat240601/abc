@@ -4,7 +4,7 @@
 <div>
     <div>Mã hóa đơn: {{$item->mahd}}</div>
     <div>Id khách: {{$item->id_khach}}</div>
-    <div>Tổng tiền:{{$item->total}}</div>
+    <div>Tổng tiền: {{number_format($item->total)}} VNĐ</div>
     <div>Ngày khởi tạo: {{$item->created_at}}</div>
     <div>
         <input type="radio" name="state-{{$item->mahd}}" data-id="{{$item->mahd}}" class="cxl" id="cxl-1" value="0" @if ($item->chotdon == 0)
