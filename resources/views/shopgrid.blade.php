@@ -194,7 +194,7 @@
 										</div>
 									</div>
 									<div class="product-content">
-										<h3><a href="product-details.html">{{$item->name}}</a></h3>
+										<h3><a href="{{ asset('') }}">{{$item->name}}</a></h3>
 										<div class="product-price">
 											<span>{{number_format($item->price)}} VNĐ</span>
 										</div>

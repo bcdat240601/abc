@@ -23,7 +23,7 @@
               <figure class="view overlay rounded z-depth-1 main-img">
                 <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
                   data-size="710x823">
-                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+                  <img src="{{ asset('images/product/'.$pd->image) }}"
                     class="img-fluid z-depth-1">
                 </a>
               </figure>

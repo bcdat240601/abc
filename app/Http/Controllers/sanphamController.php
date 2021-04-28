@@ -13,10 +13,14 @@ class sanphamController extends Controller
 {
     public function showsp()
     {
+        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $object = 'sanpham';
         $data = DB::table('dienthoai')->select('id','name','price','color')->get();
         $title = ['Id','Tên','Giá','Color'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
+        }
+        if(session()->get('role')==0 && session()->get('login')==1) return view('invalid');
+        else return redirect('admin/login');
     }
     public function detailsp(){
         $name = 'dienthoai';
