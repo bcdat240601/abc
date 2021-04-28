@@ -22,7 +22,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dang Nhap</title>
+    <title>Log in</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,7 +32,7 @@
     <style>
         body {
             color: rgb(255, 255, 255);
-            background: #848a8f;
+            background: #34414c;
             font-family: 'Varela Round', sans-serif;
         }
         
@@ -75,7 +75,7 @@
             height: 100px;
             border-radius: 50%;
             z-index: 9;
-            background: #b40101;
+            background: #F7941D;
             padding: 15px;
             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
         }
@@ -102,14 +102,14 @@
         }
         
         .login-form .btn {
-            background: #b40101;
+            background: #F7941D;
             border: none;
             line-height: normal;
         }
         
         .login-form .btn:hover,
         .login-form .btn:focus {
-            background: #b40101;
+            background: #d77704;
         }
         
         .login-form .checkbox-inline {
@@ -129,7 +129,7 @@
         }
         
         .login-form a {
-            color: #b40101;
+            color: #f7941d;
         }
     </style>
     
@@ -158,18 +158,18 @@
     <div class="login-form">
         <form method="POST" action="{{ route('login') }}">
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
-            <h4 class="modal-title">Đăng nhập vào tài khoản</h4>
+            <h4 class="modal-title">Log in</h4>
             @csrf
             <div class="form-group">
-                <input type="text" class="form-control" id="userlog" name="email" placeholder="Tên đăng nhập" required="required">
+                <input type="text" class="form-control" id="userlog" name="email" placeholder="Email" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="passlog" name="password" placeholder="Mật khẩu" required="required">
+                <input type="password" class="form-control" id="passlog" name="password" placeholder="Password" required="required">
             </div>
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="Đăng nhập">
         </form>
-        <div class="text-center small">Bạn chưa tạo tài khoản? <a href="{{ asset('register') }}">Đăng ký tại đây</a></div>
-        <div class="text-center small"> <a href="{{ asset('home') }}">Trang Chủ</a></div>
+        <div class="text-center small">Have you created your account? <a href="{{ asset('register') }}">Sign up here</a></div>
+        <div class="text-center small"> <a href="{{ asset('home') }}">Home</a></div>
     </div>
 </body>
 
