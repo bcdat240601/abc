@@ -30,7 +30,7 @@ class khachhangController extends Controller
     public function detailkh(){
         $name = 'khachhang';
         $id = $_GET['id'];
-        $model = DB::table($name)->where('id',"=",$id)->first();
+        $model = DB::table($name)->select('id','name','user','address','birthday','phonenumber','email')->where('id',"=",$id)->first();
         return view('KhachHang/detail',['data'=>$model]);
     }
     public function edit(Request $req){

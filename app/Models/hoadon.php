@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class hoadon extends Model
 {
     protected $table = 'hoadon';
+    protected $primaryKey = 'mahd';
+    public $incrementing = false;
 }

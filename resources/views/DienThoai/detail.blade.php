@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Tên</th>
@@ -37,7 +37,7 @@
                             <th>{{$data->battery}}</th>
                             <th>{{$data->RAM}}</th>
                             <th>{{$data->ROM}}</th>
-                            <th>{{$data->price}}</th>
+                            <th>{{number_format($data->price)}}</th>
                             <th>{{$data->color}}</th>
                             <th>{{$data->cpu}}</th>
                             <th>{{$data->screen}}</th>

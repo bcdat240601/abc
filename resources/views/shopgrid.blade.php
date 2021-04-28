@@ -50,20 +50,20 @@
 												<div id="slider-range"></div>
 													<div class="price_slider_amount">
 													<div class="label-input">
-														<span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price"/>
+														<span>Range:1,000,000 trở lên</span>
 													</div>
 												</div>
 											</div>
 										</div>
 										<ul class="check-box-list">
 											<li>
-												<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
+												<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">{{number_format(1000000)}} - {{number_format(5000000)}}</label>
 											</li>
 											<li>
-												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
+												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">{{number_format(5000000)}} - {{number_format(15000000)}}</label>
 											</li>
 											<li>
-												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
+												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">{{number_format(15000000)}} trở lên</label>
 											</li>
 										</ul>
 									</div>
@@ -72,7 +72,7 @@
 								<div class="single-widget recent-post">
 									<h3 class="title">Recent post</h3>
 									<!-- Single Post -->
-									<div class="single-post first">
+									<!-- <div class="single-post first">
 										<div class="image">
 											<img src="https://via.placeholder.com/75x75" alt="#">
 										</div>
@@ -87,10 +87,10 @@
 												<li><i class="ti-star"></i></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- End Single Post -->
 									<!-- Single Post -->
-									<div class="single-post first">
+									<!-- <div class="single-post first">
 										<div class="image">
 											<img src="https://via.placeholder.com/75x75" alt="#">
 										</div>
@@ -105,10 +105,10 @@
 												<li><i class="ti-star"></i></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- End Single Post -->
 									<!-- Single Post -->
-									<div class="single-post first">
+									<!-- <div class="single-post first">
 										<div class="image">
 											<img src="https://via.placeholder.com/75x75" alt="#">
 										</div>
@@ -123,12 +123,12 @@
 												<li class="yellow"><i class="ti-star"></i></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- End Single Post -->
 								</div>
 								<!--/ End Single Widget -->
 								<!-- Single Widget -->
-								<div class="single-widget category">
+								<!-- <div class="single-widget category">
 									<h3 class="title">Manufacturers</h3>
 									<ul class="categor-list">
 										<li><a href="#">Forever</a></li>
@@ -137,7 +137,7 @@
 										<li><a href="#">ecko united</a></li>
 										<li><a href="#">zara</a></li>
 									</ul>
-								</div>
+								</div> -->
 								<!--/ End Single Widget -->
 						</div>
 					</div>
@@ -149,11 +149,16 @@
 									<div class="shop-shorter">
 										<div class="single-shorter">
 											<label>Show :</label>
-											<select>
-												<option selected="selected">03</option>
-												<option>15</option>
-												<option>25</option>
-												<option>30</option>
+											<select name="select">
+												<option @if (session('select') == 3)
+													selected="selected"
+												@endif>03</option>
+												<option @if (session('select') == 6)
+												selected="selected"
+												@endif>06</option>
+												<option @if (session('select') == 9)
+												selected="selected"
+											@endif>09</option>
 											</select>
 										</div>
 										<div class="single-shorter">
@@ -378,10 +383,18 @@ $('.btn').click(function () {
 			alert(data);
 		});
 	});
+$('.list li').click(function () { 
+	var select = $(this).data('value');
+	$.get('shorter',{select:select},function(data){
+		$('body').html(data);
+	});
+	
+});
 $('.page').click(function () { 
 	var page = $(this).text();
 	var id = $('#pagecate').text();
 	var search = $('#search').text();
+	var select = $("select[name='select']").val();
 	if (search == 1) {
 		$.get("searchpag",{page:page},function(data){
 		$('#sanpham').html(data);

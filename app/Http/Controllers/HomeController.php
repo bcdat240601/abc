@@ -14,6 +14,7 @@ class HomeController extends Controller
     public function Home(){
         session()->forget('search');
         session()->forget('page');
+        session()->put('select',3);
         $show = dienthoai::all()->take(3);
         $Titem = dienthoai::all()->take(8);
         $items = session()->get('cart');
@@ -160,32 +161,16 @@ class HomeController extends Controller
     }
     public function chung($truyvan,$where_to_return,$page){
         $quantity = $truyvan->count();
-        $item_per_page = 3;
+        $item_per_page = session()->get('select');
         $number_page = ceil($quantity/$item_per_page);
         $offset = ($page - 1)*$item_per_page;
         $showitem = $truyvan->limit($item_per_page)->offset($offset)->get();
         $items = session()->get('cart'); 
         return view($where_to_return,['items'=>$items,'showitem'=>$showitem,'number_page'=>$number_page]);
     }
-    // public function search(){
-    //     session()->put('phantrang',2);
-    //     $dem = 0;
-    //     $sp = DB::table('dienthoai')->select('id')->get();
-    //     $search = $_GET['search'];
-    //     $search = $this->xoa_dau($search);
-    //     $search = strtoupper($search);
-    //     $item_per_page = 3;
-    //     $page = 1;
-    //     $allsanpham = session()->get('allsanpham');
-    //     foreach ($sp as $id) {
-    //         if(strpos($allsanpham[$id->id]['name'],$search) !== false){
-    //             $allsanpham[$id->id]['flag']= 1;
-    //             $dem = $dem + 1;
-    //         }
-    //     }
-    //     $offset = ($page - 1)*$item_per_page;
-    //     $number_page = ceil($dem/$item_per_page);
-    //     $items = session()->get('cart');
-    //     return view('shopgrid',['items'=>$items,'showitem'=>$allsanpham,'number_page'=>$number_page]);
-    // }
+    public function shorter(Request $req){
+        $select = $req->select;
+        session()->put('select',$select);
+        return redirect('shopgrid');
+    }
 }

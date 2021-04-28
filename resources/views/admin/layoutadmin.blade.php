@@ -112,13 +112,13 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="http://localhost:8080/abc/public/home">Customer view</a>
-                        <a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/sp">Detail Show</a>
-                        <a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/kh">Customer Show</a>
+                        <a class="collapse-item" href="{{ asset('home') }}">Customer view</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/sp') }}">Detail Show</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/kh') }}">Customer Show</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        @if (session()->get('role')==1)<a class="collapse-item" href="http://localhost:8080/abc/public/admin/table/nv">Show Workers</a>@endif
-                        <a class="collapse-item" href="http://localhost:8080/abc/public/admin/checkbill">Check Bill</a>
+                        @if (session()->get('role')==1)<a class="collapse-item" href="{{ asset('admin/table/nv') }}">Show Workers</a>@endif
+                        <a class="collapse-item" href="{{ asset('admin/checkbill') }}">Check Bill</a>
                     </div>
                 </div>
             </li>

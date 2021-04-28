@@ -15,12 +15,11 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table>
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>tên</th>
-                            <th>Tài Khoản</th>
-                            <th>Mật Khẩu</th>
+                            <th>Tài Khoản</th>                    
                             <th>Địa chỉ</th>
                             <th>Ngày sinh</th>
                             <th>Số điện thoại</th>
@@ -31,7 +30,6 @@
                         <tr>
                             <th>{{$data->name}}</th>
                             <th>{{$data->user}}</th>
-                            <th>{{$data->password}}</th>
                             <th>{{$data->address}}</th>
                             <th>{{$data->birthday}}</th>
                             <th>{{$data->phonenumber}}</th>
@@ -51,7 +49,6 @@
         <input type="text" name="id" value="{{$data->id}}" style="display: none">
         <label for="name">Tên</label><input type="text" name="name" value="{{$data->name}}">
         <label for="user">Tài Khoản</label><input type="text" name="user" value="{{$data->user}}">
-        <label for="password">Mật Khẩu</label><input type="text" name="password" value="{{$data->password}}">
         <label for="address">Địa Chỉ</label><input type="text" name="address" value="{{$data->address}}">
         <label for="birthday">Ngày Sinh</label><input type="text" name="birthday" value="{{$data->birthday}}">
         <label for="phonenumber">Số điện thoại</label><input type="text" name="phonenumber" value="{{$data->phonenumber}}">
