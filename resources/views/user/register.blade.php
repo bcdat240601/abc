@@ -18,7 +18,7 @@
     <style>
         body {
             color: #fff;
-            background: #848a8f;
+            background: #34414c;
             font-family: 'Roboto', sans-serif;
         }
         
@@ -119,8 +119,7 @@
 <body>
     <div class="signup-form">
         <form action="{{ route('register') }}" method="post">
-        <h2>Đăng Ký</h2>
-        <p>Điền thông tin vào ô trống</p>
+        <h2>Sign up</h2>
         <hr>
            @csrf
            <!-- Tên đầy đủ<input type="text" name="fullname"><br> -->

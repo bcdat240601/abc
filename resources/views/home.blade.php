@@ -507,7 +507,7 @@
 								<p class="text">Suspendisse massa leo, vestibulum cursus nulla sit amet, frungilla placerat lorem. Cars fermentum, sapien. </p>
 								<h1 class="price">$1200 <s>$1890</s></h1>
 								<div class="coming-time">
-									<div class="clearfix" data-countdown="2021/02/30"></div>
+									<div class="clearfix" data-countdown="2021/04/10"></div>
 								</div>
 							</div>
 						</div>	
