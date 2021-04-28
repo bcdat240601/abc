@@ -29,7 +29,7 @@ class khachhangController extends Controller
     public function detailkh(){
         $name = 'khachhang';
         $id = $_GET['id'];
-        $model = DB::table($name)->where('id',"=",$id)->first();
+        $model = DB::table($name)->select('id','name','user','address','birthday','phonenumber','email')->where('id',"=",$id)->first();
         return view('KhachHang/detail',['data'=>$model]);
     }
     public function edit(Request $req){
@@ -59,7 +59,9 @@ class khachhangController extends Controller
     }
     public function delete(Request $req){
         $row = $req->row;
+        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $model = DB::table('khachhang')->where('id', '=', $row)->delete();
         return view('KhachHang/detail');
+        }
     }
 }

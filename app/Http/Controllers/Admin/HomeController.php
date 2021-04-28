@@ -11,10 +11,13 @@ use DB;
 
 class HomeController extends Controller
 {
-    public function index()
-    {
+    public function index(){
+        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $user = Auth::guard('admin')->user();
-        echo 'Xin chào Admin, '. $user->name;
+    //    echo 'Xin chào Admin, '. $user->name;
+        return view('admin/admin');
+        }
+        else return  redirect('admin/login');
     }
     
 

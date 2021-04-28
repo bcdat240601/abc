@@ -4,7 +4,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+    <p class="mb-4" style="display:none;" >DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official DataTables documentation</a>.</p>
 
@@ -31,13 +31,14 @@
                                 <th>{{$value}}</th>
                                 @endforeach
                                 <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
-                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                               
+                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>  
                             </tr>
                         @endforeach
                     </tbody>
                    
                 </table>
-                <button><a href="{{ asset('admin/detail/'.$object.'/showadd') }}">Thêm</a></button>
+                {{-- <button><a href="{{ asset('admin/detail/'.$object.'/showadd') }}">Thêm</a></button> --}}
             </div>
         </div>
     </div>

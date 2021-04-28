@@ -72,5 +72,15 @@ Route::get('shopgrid/pagecate', 'HomeController@paginateforcate');
 Route::get('profile', 'HomeController@history');
 Route::get('hoadondetail', 'HomeController@hoadondetail');
 
+Route::get('total', 'CartController@total');
 
+Route::get('searching', 'HomeController@search')->name('search');
+
+Route::get('searchpag', 'HomeController@searchpagi');
+
+Route::get('huydon', 'User\UserController@huydonhang');
     
+Route::get('product', function(){
+    return view('detail');
+});
+Route::get('shorter','HomeController@shorter');

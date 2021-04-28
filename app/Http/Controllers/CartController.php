@@ -28,6 +28,7 @@ class CartController extends Controller
                 'price' => $phone->price,
                 'quantity' => 1
             ];
+            echo 'Đã thêm vào giỏ hàng';
         }
        
         session()->put('cart',$cart);
@@ -44,8 +45,6 @@ class CartController extends Controller
         //             <p class="quantity"> 1 x  <span class="amount">'.$phone->price.'</span></p>
         //         </li>';
         // }    
-            
-        echo 'Đã thêm vào giỏ hàng';
     }
     public function remove(Request $req){
         $id = $req->id;
@@ -82,6 +81,7 @@ class CartController extends Controller
                 $modelhd->mahd = Str::random(3);
                 $modelhd->id_khach = $user->id;
                 $modelhd->id_nv = null;
+                $modelhd->chotdon = 0;
                 $modelhd->code_km = null;
                 foreach ($cart as $product) {
                    $total = $total + $product['price']*$product['quantity'];
@@ -90,8 +90,11 @@ class CartController extends Controller
                 $modelhd->save();
             foreach ($cart as $product) {
                 $modelcthd = new cthd();
+                $dienthoai = dienthoai::find($product['id']);
                 $modelcthd->id_dt = $product['id'];
                 $modelcthd->ma_hd = $modelhd->mahd;
+                $modelcthd->soluong = $product['quantity'];
+                $modelcthd->giatien = $product['price'];
                 $modelcthd->total = $product['price']*$product['quantity'];
                 $modelcthd->save();
             }

@@ -90,6 +90,7 @@
 								@else
 								<li><i class="ti-power-off"></i><a href="{{ asset('logout') }}">Log-out</a></li>
 								@endif
+								<li><i class="ti-user"></i><a href="{{ asset('admin/home') }}">Admin</a></li>
 							</ul>
 						</div>
 						<!-- End Top Right -->
@@ -104,7 +105,7 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="{{ asset('home') }}"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
+							<a href="{{ asset('home') }}"><img src="{{asset('images/logo3.png')}}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -131,7 +132,7 @@
 									<option>OPPO</option>
 									<option>ASUS</option>
 								</select>
-								<form>
+								<form action="{{ route('search') }}" method="get">
 									<input name="search" placeholder="Search Products Here....." type="search">
 									<button class="btnn"><i class="ti-search"></i></button>
 								</form>

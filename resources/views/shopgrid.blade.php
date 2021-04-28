@@ -50,20 +50,20 @@
 												<div id="slider-range"></div>
 													<div class="price_slider_amount">
 													<div class="label-input">
-														<span>Range:</span><input type="text" id="amount" name="price" placeholder="Add Your Price"/>
+														<span>Range:1,000,000 trở lên</span>
 													</div>
 												</div>
 											</div>
 										</div>
 										<ul class="check-box-list">
 											<li>
-												<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">$20 - $50<span class="count">(3)</span></label>
+												<label class="checkbox-inline" for="1"><input name="news" id="1" type="checkbox">{{number_format(1000000)}} - {{number_format(5000000)}}</label>
 											</li>
 											<li>
-												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">$50 - $100<span class="count">(5)</span></label>
+												<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox">{{number_format(5000000)}} - {{number_format(15000000)}}</label>
 											</li>
 											<li>
-												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">$100 - $250<span class="count">(8)</span></label>
+												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">{{number_format(15000000)}} trở lên</label>
 											</li>
 										</ul>
 									</div>
@@ -149,11 +149,16 @@
 									<div class="shop-shorter">
 										<div class="single-shorter">
 											<label>Show :</label>
-											<select>
-												<option selected="selected">09</option>
-												<option>15</option>
-												<option>25</option>
-												<option>30</option>
+											<select name="select">
+												<option @if (session('select') == 3)
+													selected="selected"
+												@endif>03</option>
+												<option @if (session('select') == 6)
+												selected="selected"
+												@endif>06</option>
+												<option @if (session('select') == 9)
+												selected="selected"
+											@endif>09</option>
 											</select>
 										</div>
 										<div class="single-shorter">
@@ -196,7 +201,7 @@
 									<div class="product-content">
 										<h3><a href="product-details.html">{{$item->name}}</a></h3>
 										<div class="product-price">
-											<span>{{$item->price}} VNĐ</span>
+											<span>{{number_format($item->price)}} VNĐ</span>
 										</div>
 									</div>
 								</div>
@@ -352,6 +357,7 @@
 			</div>
 			<!-- Modal end -->
 			<span id="pagecate" style="display:none;">{{session()->get('idhang')}}</span>
+			<span id="search" style="display:none;">{{session()->get('search')}}</span>
 @endsection
 @section('script')
 <script>
@@ -371,18 +377,36 @@
 $('.btn').click(function () {
 		var id = $(this).data("id"); 
 		$.get("shopgrid/AddToCart",{id:id},function(data){
+			alert(data);
 		});	
-	
+		$.get("AddToCart",{id:id},function(data){
+			alert(data);
+		});
 	});
+$('.list li').click(function () { 
+	var select = $(this).data('value');
+	$.get('shorter',{select:select},function(data){
+		$('body').html(data);
+	});
+	
+});
 $('.page').click(function () { 
 	var page = $(this).text();
 	var id = $('#pagecate').text();
-	$.get("shopgrid/page",{page:page},function(data){
+	var search = $('#search').text();
+	var select = $("select[name='select']").val();
+	if (search == 1) {
+		$.get("searchpag",{page:page},function(data){
 		$('#sanpham').html(data);
-	});
-	$.get("pagecate",{page:page,id:id},function(data){
-		$('#sanpham').html(data);
-	});
+	});	
+	} else {
+		$.get("shopgrid/page",{page:page},function(data){
+			$('#sanpham').html(data);
+		});
+		$.get("pagecate",{page:page,id:id},function(data){
+			$('#sanpham').html(data);
+		});
+	}
 });
 </script>
 @endsection
