@@ -67,9 +67,15 @@ class HomeController extends Controller
     public function detail($id){
         session()->forget('search');
         session()->forget('page');
+        $items = session()->get('cart');
         $product = dienthoai::find($id);
-        return view('detail',['pd'=>$product]);
+        return view('detail',['pd'=>$product,'items'=>$items]);
     }
+    // public function deltais($id){
+    //     $product = dienthoai::find($id);
+    //     $product = dienthoai::find($id);
+    //     return view('detail',['pd'=>$product]);
+    // }
     public function cate(){
         session()->forget('search');
         if (isset($_GET['id'])) {

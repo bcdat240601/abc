@@ -72,7 +72,7 @@
 								<div class="single-widget recent-post">
 									<h3 class="title">Recent post</h3>
 									<!-- Single Post -->
-									<div class="single-post first">
+									<!-- <div class="single-post first">
 										<div class="image">
 											<img src="https://via.placeholder.com/75x75" alt="#">
 										</div>
@@ -87,10 +87,10 @@
 												<li><i class="ti-star"></i></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- End Single Post -->
 									<!-- Single Post -->
-									<div class="single-post first">
+									<!-- <div class="single-post first">
 										<div class="image">
 											<img src="https://via.placeholder.com/75x75" alt="#">
 										</div>
@@ -105,10 +105,10 @@
 												<li><i class="ti-star"></i></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- End Single Post -->
 									<!-- Single Post -->
-									<div class="single-post first">
+									<!-- <div class="single-post first">
 										<div class="image">
 											<img src="https://via.placeholder.com/75x75" alt="#">
 										</div>
@@ -123,12 +123,12 @@
 												<li class="yellow"><i class="ti-star"></i></li>
 											</ul>
 										</div>
-									</div>
+									</div> -->
 									<!-- End Single Post -->
 								</div>
 								<!--/ End Single Widget -->
 								<!-- Single Widget -->
-								<div class="single-widget category">
+								<!-- <div class="single-widget category">
 									<h3 class="title">Manufacturers</h3>
 									<ul class="categor-list">
 										<li><a href="#">Forever</a></li>
@@ -137,7 +137,7 @@
 										<li><a href="#">ecko united</a></li>
 										<li><a href="#">zara</a></li>
 									</ul>
-								</div>
+								</div> -->
 								<!--/ End Single Widget -->
 						</div>
 					</div>
@@ -199,7 +199,7 @@
 										</div>
 									</div>
 									<div class="product-content">
-										<h3><a href="product-details.html">{{$item->name}}</a></h3>
+										<h3><a href="{{ asset('') }}">{{$item->name}}</a></h3>
 										<div class="product-price">
 											<span>{{number_format($item->price)}} VNĐ</span>
 										</div>

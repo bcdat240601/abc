@@ -128,9 +128,9 @@
 							<div class="search-bar">
 								<select>
 									<option selected="selected">All Category</option>
-									<option>watch</option>
-									<option>mobile</option>
-									<option>kid’s item</option>
+									<option>IPHONE</option>
+									<option>OPPO</option>
+									<option>ASUS</option>
 								</select>
 								<form action="{{ route('search') }}" method="get">
 									<input name="search" placeholder="Search Products Here....." type="search">
