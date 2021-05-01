@@ -461,8 +461,8 @@
     <script src="{{asset('js/waypoints.min.js')}}"></script>
     <!-- Countdown JS -->
     <script src="{{asset('js/finalcountdown.min.js')}}"></script>
-    <!-- Nice Select JS -->
-    <script src="{{asset('js/nicesellect.js')}}"></script>
+    {{-- <!-- Nice Select JS -->
+    <script src="{{asset('js/nicesellect.js')}}"></script> --}}
     <!-- Flex Slider JS -->
     <script src="{{asset('js/flex-slider.js')}}"></script>
     <!-- ScrollUp JS -->

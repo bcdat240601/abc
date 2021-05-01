@@ -1,11 +1,14 @@
 @extends('admin/layoutadmin')
 @section('content')
-<style>
-    .thongke{
-        margin-bottom:10px;
-    }
-</style>
     <form action="{{ route('thongketheothoigian') }}" method="get">
+        <select name="select" id="select">
+            <option value="1" @if (session('thongketype')==1)
+                selected
+            @endif>Thống kê theo sản phẩm</option>
+            <option value="2" @if (session('thongketype')==2)
+            selected
+        @endif>Thống kê theo khách hàng</option>
+        </select><br>
         Từ Ngày: <input type="date" name="from"><br>
         <br>
         Đến Ngày: <input type="date" name="to"><br>
@@ -15,14 +18,27 @@
         <div>Kết quả thống kê từ ngày {{$from}} đến ngày {{$to}}</div>
     @endif
     @if (isset($thongke))
-        @foreach ($thongke as $item)
-        <div class="thongke">
-            <div>Tên: {{$item->name}}</div>
-            <div>Giá Tiền: {{$item->giatien}}</div>
-            <div>Số Lượng: {{$item->soluong}}</div>
-            {{-- <div>Tổng Tiền: {{$item->total}}</div> --}}
-        </div>
-        @endforeach
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                @foreach ($title as $value)
+                    <th>{{$value}}</th>                                    
+                @endforeach            
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($thongke as $items)
+                <tr>
+                @foreach ($items as $item)
+                    <th>{{$item}}</th>
+                @endforeach
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @endif
+    @if (isset($message))
+        {{$message}}
     @endif
 @endsection
 @section('scripts')
