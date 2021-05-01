@@ -67,3 +67,6 @@ Route::get('chart',function(){
 
 Route::get('xuly',[nhanvienController::class, 'xuly'])->name('admin.xuly');
 
+Route::get('thongke',[HomeController::class, 'thongke']);
+Route::get('thongketime',[HomeController::class, 'thongketime'])->name('thongketheothoigian');
+

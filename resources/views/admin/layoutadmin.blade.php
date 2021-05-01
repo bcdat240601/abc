@@ -119,6 +119,7 @@
                         <h6 class="collapse-header">Other Pages:</h6>
                         @if (session()->get('role')==1)<a class="collapse-item" href="{{ asset('admin/table/nv') }}">Show Workers</a>@endif
                         <a class="collapse-item" href="{{ asset('admin/checkbill') }}">Check Bill</a>
+                        <a class="collapse-item" href="{{ asset('admin/thongke') }}">Thống Kê</a>
                     </div>
                 </div>
             </li>
