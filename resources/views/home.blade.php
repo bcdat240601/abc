@@ -53,19 +53,39 @@
 		<div class="container-fluid">
 			<div class="row">
 				<!-- Single Banner  -->
-				@foreach ($show as $item)
+				{{-- @foreach ($show as $item) --}}
 				<div class="col-lg-4 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="{{ asset('images/product/'.$item->image) }}" alt="#">
+						<img src="{{ asset('images/post.jpeg') }}" style="width: 419.66px; height:225px;" alt="#">
 						<div class="content">
 							<p>Sắp Ra Mắt</p>
-							<h3>Super Phone <br> collection</h3>
+							<h3 style="color: #955782">Super Phone <br> collection</h3>
 							<a href="#">Discover Now</a>
 						</div>
 					</div>
 				</div>
+				<div class="col-lg-4 col-md-6 col-12">
+					<div class="single-banner">
+						<img src="{{ asset('images/opo.jpg') }}" style="width: 419.66px; height:225px;" alt="#">
+						<div class="content">
+							<p>Sắp Ra Mắt</p>
+							<h3>Super Phone <br> collection</h3>
+							<a href="#" style="color: white">Discover Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-12">
+					<div class="single-banner">
+						<img src="{{ asset('images/xiao.jpg') }}" style="width: 419.66px; height:225px;" alt="#">
+						<div class="content">
+							<p>Sắp Ra Mắt</p>
+							<h3>Super Phone <br> collection</h3>
+							<a href="#" >Discover Now</a>
+						</div>
+					</div>
+				</div>
 				<!-- /End Single Banner  -->
-				@endforeach
+				{{-- @endforeach --}}
 
 			</div>
 		</div>
@@ -138,7 +158,7 @@
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://via.placeholder.com/600x370" alt="#">
+						<img src="https://images.pexels.com/photos/7609019/pexels-photo-7609019.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Man's items <br>Up to<span> 50%</span></h3>
@@ -150,9 +170,9 @@
 				<!-- Single Banner  -->
 				<div class="col-lg-6 col-md-6 col-12">
 					<div class="single-banner">
-						<img src="https://via.placeholder.com/600x370" alt="#">
+						<img src="https://images.pexels.com/photos/6567501/pexels-photo-6567501.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
-							<p>shoes women</p>
+							<p>phone for women</p>
 							<h3>mid season <br> up to <span>70%</span></h3>
 							<a href="#" class="btn">Shop Now</a>
 						</div>
@@ -490,16 +510,16 @@
 	<!-- End Shop Home List  -->
 	
 	<!-- Start Cowndown Area -->
-	<section class="cown-down">
+	<section class="cown-down" style="display:none;">
 		<div class="section-inner ">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-6 col-12 padding-right">
+					<div class="col-lg-6 col-12 padding-right" style="display:none;">
 						<div class="image">
 							<img src="https://via.placeholder.com/750x590" alt="#">
 						</div>	
 					</div>	
-					<div class="col-lg-6 col-12 padding-left">
+					<div class="col-lg-6 col-12 padding-left"  style="display:none;">
 						<div class="content">
 							<div class="heading-block">
 								<p class="small-title">Deal of day</p>
@@ -532,7 +552,7 @@
 				<div class="col-lg-4 col-md-6 col-12">
 					<!-- Start Single Blog  -->
 					<div class="shop-single-blog">
-						<img src="https://via.placeholder.com/370x300" alt="#">
+						<img src="https://images.pexels.com/photos/6147067/pexels-photo-6147067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July , 2020. Monday</p>
 							<a href="#" class="title">Sed adipiscing ornare.</a>
@@ -544,10 +564,10 @@
 				<div class="col-lg-4 col-md-6 col-12">
 					<!-- Start Single Blog  -->
 					<div class="shop-single-blog">
-						<img src="https://via.placeholder.com/370x300" alt="#">
+						<img src="https://images.pexels.com/photos/6663490/pexels-photo-6663490.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July, 2020. Monday</p>
-							<a href="#" class="title">Man’s Fashion Winter Sale</a>
+							<a href="#" class="title">Man’s Style Phone Sale</a>
 							<a href="#" class="more-btn">Continue Reading</a>
 						</div>
 					</div>
@@ -556,10 +576,10 @@
 				<div class="col-lg-4 col-md-6 col-12">
 					<!-- Start Single Blog  -->
 					<div class="shop-single-blog">
-						<img src="https://via.placeholder.com/370x300" alt="#">
+						<img src="https://images.pexels.com/photos/4491469/pexels-photo-4491469.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July, 2020. Monday</p>
-							<a href="#" class="title">Women Fashion Festive</a>
+							<a href="#" class="title">Women FStyle Phone Festive</a>
 							<a href="#" class="more-btn">Continue Reading</a>
 						</div>
 					</div>
