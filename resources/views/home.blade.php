@@ -49,7 +49,7 @@
 	<!--/ End Slider Area -->
 	
 	<!-- Start Small Banner  -->
-	<section class="small-banner section">
+	<section class="small-banner section" style="margin-left: 93px;">
 		<div class="container-fluid">
 			<div class="row">
 				<!-- Single Banner  -->
@@ -201,8 +201,8 @@
 						<div class="single-product">
 							<div class="product-img">
 								<a href="product-details.html">
-									<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-									<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+									<img class="default-img" src="{{ asset('images/bfw.jpeg') }}" alt="#">
+									<img class="hover-img" src="{{ asset('images/bfw.jpeg') }}" alt="#">
 									<span class="out-of-stock">Hot</span>
 								</a>
 								<div class="button-head">
@@ -217,7 +217,7 @@
 								</div>
 							</div>
 							<div class="product-content">
-								<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+								<h3><a href="product-details.html">Black Phone For Women</a></h3>
 								<div class="product-price">
 									<span class="old">$60.00</span>
 									<span>$50.00</span>
@@ -229,8 +229,9 @@
 						<div class="single-product">
                             <div class="product-img">
                                 <a href="product-details.html">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                    <img class="default-img" src="{{ asset('images/case.jfif') }}" alt="#">
+                                    <img class="hover-img" src="{{ asset('images/case.jfif') }}" alt="#">
+									<span class="new">New</span>
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
@@ -244,7 +245,7 @@
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="product-details.html">Women Hot Collection</a></h3>
+                                <h3><a href="product-details.html">Teen Hot Collection</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -255,8 +256,8 @@
 						<div class="single-product">
                             <div class="product-img">
                                 <a href="product-details.html">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                    <img class="default-img" src="{{ asset('images/pink.jfif') }}" alt="#">
+                                    <img class="hover-img" src="{{ asset('images/pink.jfif') }}" alt="#">
 									<span class="new">New</span>
                                 </a>
 								<div class="button-head">
@@ -282,8 +283,9 @@
 						<div class="single-product">
                             <div class="product-img">
                                 <a href="product-details.html">
-                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
-                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+                                    <img class="default-img" src="{{ asset('images/cool.jpeg') }}" alt="#">
+                                    <img class="hover-img" src="{{ asset('images/cool.jpeg') }}" alt="#">
+									<span class="out-of-stock">Cool</span>
                                 </a>
 								<div class="button-head">
 									<div class="product-action">
@@ -297,7 +299,7 @@
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+                                <h3><a href="product-details.html">Awesome  Collection</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -312,7 +314,7 @@
 	<!-- End Most Popular Area -->
 	
 	<!-- Start Shop Home List  -->
-	<section class="shop-home-list section">
+	{{-- <section class="shop-home-list section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-6 col-12">
@@ -506,7 +508,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
 	<!-- End Shop Home List  -->
 	
 	<!-- Start Cowndown Area -->
@@ -564,7 +566,7 @@
 				<div class="col-lg-4 col-md-6 col-12">
 					<!-- Start Single Blog  -->
 					<div class="shop-single-blog">
-						<img src="https://images.pexels.com/photos/6663490/pexels-photo-6663490.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
+						<img src="https://images.pexels.com/photos/6249817/pexels-photo-6249817.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July, 2020. Monday</p>
 							<a href="#" class="title">Man’s Style Phone Sale</a>
