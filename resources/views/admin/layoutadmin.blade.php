@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="height: 10.375rem;">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ asset('admin') }}" style="height: 10.375rem;">
                 <div class="sidebar-brand-icon rotate-n-0" style="height: 10.375rem;">
                     <img src="{{asset('images/logo4.png')}}" alt="logo" style="width:97%;">
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080/abc/public/admin/home">
+                <a class="nav-link" href="{{ asset('admin') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -57,7 +57,7 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            {{-- <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -71,7 +71,7 @@
                         <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -122,21 +122,7 @@
                         <a class="collapse-item" href="{{ asset('admin/thongke') }}">Thống Kê</a>
                     </div>
                 </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+            </li>                        
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -344,7 +330,7 @@
                             {{-- <a href="{{ asset('admin/logout') }} "><button>logout</button></a> --}}
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">welcome {{session()->get('name')}}</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome {{session()->get('name')}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('img/undraw_profile.svg') }}">
                             </a>

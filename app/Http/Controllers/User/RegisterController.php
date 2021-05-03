@@ -24,8 +24,8 @@ class RegisterController extends Controller
                             $model->birthday = $req->birthday;
                             $model->phonenumber = $req->phone;
                             $model->email = $req->email;
-                            $model->save();
-                    return redirect('home');;   
+                            $model->save();                            
+                            return redirect('login');   
                         }else {
                             $message = 'Email không hợp lệ';
                             return view('user/register',['message'=>$message]);

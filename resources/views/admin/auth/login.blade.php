@@ -63,8 +63,11 @@
                                         <a class="small" >Welcome!</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small">Already have an account? Login!</a>
+                                        <a class="small">Already have an account? Login!</a>                                        
                                     </div>
+                                    <div class="text-center">
+                                        <a href="{{ asset('home') }}">Về Trang Chủ</a>
+                                    </div>                                    
                                 </div>
                             </div>
                         </div>

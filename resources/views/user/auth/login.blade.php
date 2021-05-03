@@ -169,7 +169,7 @@
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="Đăng nhập">
         </form>
         <div class="text-center small">Have you created your account? <a href="{{ asset('register') }}">Sign up here</a></div>
-        <div class="text-center small"> <a href="{{ asset('home') }}">Home</a></div>
+        <div class="text-center small"> <a href="{{ asset('home') }}">Về Trang Chủ</a></div>
     </div>
 </body>
 

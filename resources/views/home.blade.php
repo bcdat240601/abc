@@ -23,7 +23,7 @@
    	<!-- Slider Area -->
 	<section class="hero-slider">
 		<!-- Single Slider -->
-		<div class="single-slider">
+		<div class="single-slider">			
 			<div class="container">
 				<div class="row no-gutters">
 					<div class="col-lg-9 offset-lg-3 col-12">
@@ -125,7 +125,7 @@
 																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 															</div>
 															<div class="product-action-2">
-																<a title="Add to cart" href="#">Add to cart</a>
+																<a title="Add to cart" class="btn" data-id={{$item->id}} href="#">Add to cart</a>
 															</div>
 														</div>
 													</div>
@@ -835,4 +835,15 @@
 </div>
 @endsection --}}
 @section('script')
+<script>
+	$('.btn').click(function () {
+		var id = $(this).data("id"); 
+		$.get("shopgrid/AddToCart",{id:id},function(data){
+			alert(data);
+		});	
+		// $.get("AddToCart",{id:id},function(data){
+		// 	alert(data);
+		// });
+	});
+</script>
 @endsection
