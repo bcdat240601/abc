@@ -207,23 +207,15 @@
 									<div class="navbar-collapse">	
 										<div class="nav-inner">	
 											<ul class="nav main-menu menu navbar-nav">
-													<li class="active"><a href="{{ asset('home') }}">Home</a></li>
-													<li><a href="#">Product</a></li>												
-													<!-- <li><a href="#">Service</a></li> -->
-													<li><a href="#">Shop<i class="ti-angle-down"></i><span class="new">New</span></a>
+													<li class="active"><a href="{{ asset('home') }}">Home</a></li>																								
+													<li><a href="{{ asset('shopgrid') }}">Shop Grid</a></li>
+													<li><a href="{{ asset('cart') }}">Cart</a></li>
+													<li><a href="{{ asset('checkout') }}">Checkout</a></li>																				
+													<li><a href="">Blog<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
-															<li><a href="{{ asset('shopgrid') }}">Shop Grid</a></li>
-															<li><a href="{{ asset('cart') }}">Cart</a></li>
-															<li><a href="{{ asset('checkout') }}">Checkout</a></li>
+															<li><a href="{{ asset('blog') }}">Blog Single Sidebar</a></li>
 														</ul>
-													</li>
-													<li><a href="#">Pages</a></li>									
-													<!-- <li><a href="{{ asset('blog') }}">Blog<i class="ti-angle-down"></i></a>
-														<ul class="dropdown">
-															<li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
-														</ul>
-													</li> -->
-													<li><a href="contact.html">Contact Us</a></li>
+													</li>													
 												</ul>
 										</div>
 									</div>

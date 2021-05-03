@@ -771,7 +771,7 @@
     </div>
     <!-- Modal end -->
 @endsection
-@section('cate')
+{{-- @section('cate')
 <div class="col-lg-3">
     <div class="all-category">
         <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
@@ -831,6 +831,6 @@
         </ul>
     </div>
 </div>
-@endsection
+@endsection --}}
 @section('script')
 @endsection
