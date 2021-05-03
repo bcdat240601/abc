@@ -83,13 +83,16 @@ class nhanvienController extends Controller
         return view('DienThoai/detail');
         }
     }
-    public function checkbill(){
+    public function checkbill(){        
         $bill = DB::table('hoadon')->get();
         return view('admin/bill',['bill'=>$bill]);
     }
-    public function xuly (Request $req){
+    public function xuly (Request $req){        
         $model = hoadon::find($req->mahd);
-        $model->chotdon = $req->state;
-        $model->save();
+        if($model->chotdon == 0){
+            $model->id_nv = $req->idnv;
+            $model->chotdon = $req->state;
+            $model->save();
+        }
     }
 }
