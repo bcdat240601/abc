@@ -149,7 +149,7 @@
 								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> 
+								<a href="{{ asset('cart') }}" class="single-icon"><i class="ti-bag"></i> 
 									<span class="total-count">
 										@if (session()->has('cart'))
 											{{count($items)}}
@@ -159,11 +159,11 @@
 									</span>
 								</a>
 								{{-- {{-- <!-- Shopping Item --> --}}
-								<div class="shopping-item">
+								{{-- <div class="shopping-item"> --}}
 									{{-- <div class="dropdown-cart-header">
 										<span>
 											@if (session()->has('cart'))
-												{{count($items)}}
+
 											@endif Items
 										</span>
 										<a href="#">View Cart</a>
@@ -184,9 +184,9 @@
 										<div class="total">
 											
 										</div> --}}
-										<a href="{{ asset('cart') }}" class="btn animate">Move To Cart</a>
+										{{-- <a href="{{ asset('cart') }}" class="btn animate">Move To Cart</a> --}}
 									{{-- </div> --}}
-								</div>
+								{{-- </div> --}}
 								<!--/ End Shopping Item -->
 							</div>
 						</div>
