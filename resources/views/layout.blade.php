@@ -82,7 +82,7 @@
 								{{-- <li><i class="ti-location-pin"></i> Store location</li>
 								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
 								@if (session('login')==1)
-								<li><i class="ti-user"></i> <a href="{{ asset('profile') }}">My Account</a></li>
+								<li><i class="ti-user"></i> <a href="{{ asset('myaccount') }}">My Account</a></li>
 								@endif
 								@if (session('login')==0)
 								<li><i class="ti-power-off"></i><a href="{{ asset('register') }}">Register</a></li>

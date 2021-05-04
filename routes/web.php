@@ -83,4 +83,5 @@ Route::get('huydon', 'User\UserController@huydonhang');
 Route::get('product', function(){
     return view('detail');
 });
+Route::get('myaccount','HomeController@myaccount');
 Route::get('shorter','HomeController@shorter');

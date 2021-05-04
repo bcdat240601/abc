@@ -173,4 +173,9 @@ class HomeController extends Controller
         session()->put('select',$select);
         return redirect('shopgrid');
     }
+    public function myaccount(){
+        $user = Auth::user();
+        $items = session()->get('cart');
+        return view('user/myaccount',['items'=>$items,'user'=>$user]);
+    }
 }

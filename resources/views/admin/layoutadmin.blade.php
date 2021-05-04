@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ asset('home') }}" style="height: 10.375rem;">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ asset('admin/home') }}" style="height: 10.375rem;">
                 <div class="sidebar-brand-icon rotate-n-0" style="height: 10.375rem;">
                     <img src="{{asset('images/logo4.png')}}" alt="logo" style="width:97%;">
                 </div>
@@ -57,21 +57,8 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
+            
+            
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -88,8 +75,8 @@
                         <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
                         <a class="collapse-item" href="{{ asset('admin/table/nv') }}">DELETE workers</a>
                         @endif
-                        <a class="collapse-item" href="{{ asset('admin/detail/khachhang/showadd') }}">ADD customer</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        {{-- <a class="collapse-item" href="{{ asset('admin/detail/khachhang/showadd') }}">ADD customer</a> --}}
+                        <a class="collapse-item" href="{{ asset('admin/detail/sanpham/showadd') }}">ADD product</a>                        
                     </div>
                 </div>
             </li>
@@ -113,8 +100,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="{{ asset('home') }}">Customer view</a>
-                        <a class="collapse-item" href="{{ asset('admin/table/sp') }}">Detail Show</a>
-                        <a class="collapse-item" href="{{ asset('admin/table/kh') }}">Customer Show</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/sp') }}">Product Table</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/kh') }}">Customer Table</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         @if (session()->get('role')==1)<a class="collapse-item" href="{{ asset('admin/table/nv') }}">Show Workers</a>@endif
@@ -123,20 +110,7 @@
                     </div>
                 </div>
             </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ asset('admin/chart') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -342,8 +316,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             {{-- <a href="{{ asset('admin/logout') }} "><button>logout</button></a> --}}
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link " href="{{ asset('admin/myaccount') }}" id="userDropdown" role="button">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">welcome {{session()->get('name')}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('img/undraw_profile.svg') }}">

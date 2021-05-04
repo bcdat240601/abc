@@ -36,14 +36,13 @@ class khachhangController extends Controller
     public function edit(Request $req){
         $model = User::find($req->id);
         $model->name = $req->name;
-        $model->user = $req->user;
-        $model->password = $req->password;
+        $model->user = $req->user;        
         $model->address = $req->address;
         $model->birthday = $req->birthday;
         $model->phonenumber = $req->phonenumber;
         $model->email = $req->email;
         $model->save();
-        return view('KhachHang/detail',['data'=>$model]);
+        return redirect()->back();
     }
     public function add(Request $req){
         // $model = User::find($req->id);
