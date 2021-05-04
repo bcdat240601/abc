@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-        .hoadon{
-            margin-bottom: 15px;
-        }
-    </style>
-    <div>
+@extends('layout')
+@section('content')
+<
+<section class="hero-slider">
+<table class="table table-success table-striped" style="    margin-top: 20px;">
+    <thead>
+      <tr>
+        <th scope="col">Mã hóa đơn:</th>
+        <th scope="col">Mã khuyến mãi :</th>
+        <th scope="col">Tổng tiền: </th>
+        <th scope="col">Ngày Thanh Toán :</th>
+        <th scope="col">Xem chi tiết</th>
+        <th scope="col">Hủy Đơn Hàng</th>
+      </tr>
+    </thead>
+    <tbody>
+        
         @foreach ($hoadon as $item)
-            <div class="hoadon">
-                <div>Mã hóa đơn:{{$item->mahd}}</div>
-                <div>Mã khuyến mãi :
-                    @if ($item->code_km == null)
-                        Không
-                    @else
-                        {{$item->code_km}}
-                    @endif 
-                    </div>
-                <div>Tổng tiền: {{number_format($item->total)}} VNĐ</div>
-                <div>Ngày Thanh Toán :{{$item->created_at}}</div>
-                <div class="detail"><a href="{{ asset('hoadondetail?mahd='.$item->mahd) }}">Xem Chi Tiết</a></div>
-                @if ($item->chotdon == 0)
-                    <div><a href="{{ asset('huydon?mahd='.$item->mahd) }}">Hủy Đơn Hàng</a></div>
-                @endif
-            </div>
+        <tr>
+        <td><a>{{$item->mahd}}</a></td>
+        <td> @if ($item->code_km == null)
+            Không
+        @else
+            {{$item->code_km}}
+        @endif </td>
+        <td> {{number_format($item->total)}} VNĐ</td>
+        <td> {{$item->created_at}}</td>
+        <td class="detail"><a href="{{ asset('hoadondetail?mahd='.$item->mahd) }}">Xem Chi Tiết</a></td>
+        <td>@if ($item->chotdon == 0)
+            <a href="{{ asset('huydon?mahd='.$item->mahd) }}">Hủy Đơn Hàng</a>
+        @endif</td>
+        </tr>
         @endforeach
-        <a href="{{ asset('home') }}">Quay về trang chủ</a>
-    </ul>
-</body>
-</html>
+    </tbody>
+</table>
+</section>
+@endsection
