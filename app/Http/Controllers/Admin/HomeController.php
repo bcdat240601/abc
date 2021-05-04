@@ -36,13 +36,13 @@ class HomeController extends Controller
             $from = $_GET['from']." 00:00:00";
             $to = $_GET['to']." 00:00:00";
             if ($type == 1) {
-                $title = ['Tên Sản Phẩm','Giá Tiền','Số Lượng Sản Phẩm Bán Chạy Nhất'];
+                $title = ['Tên 10 Sản Phẩm Bán Chạy Nhất','Giá Tiền','Số Lượng Bán'];
                 $thongke = DB::table('cthd')->join('dienthoai','cthd.id_dt','=','dienthoai.id')->select('dienthoai.name','cthd.giatien',DB::raw('SUM(cthd.soluong) as soluong'))->where([['created_at','>',$from],['created_at','<',$to]])->groupBy('dienthoai.name','cthd.giatien')->orderByDesc('soluong')->take(10)->get();
                 session()->put('thongketype',1);
             }
             if ($type == 2) {
-                $title = ['Tên Khách Hàng','Số Lần Mua Hàng'];
-                $thongke = DB::table('hoadon')->join('khachhang','hoadon.id_khach','=','khachhang.id')->select('khachhang.name',DB::raw('COUNT(khachhang.id) as solan'))->where([['created_at','>',$from],['created_at','<',$to]])->groupBy('khachhang.name')->get();
+                $title = ['Tên 10 Khách Hàng Mua Nhiều Nhất','Số Lần Mua Hàng'];
+                $thongke = DB::table('hoadon')->join('khachhang','hoadon.id_khach','=','khachhang.id')->select('khachhang.name',DB::raw('COUNT(khachhang.id) as solan'))->where([['created_at','>',$from],['created_at','<',$to]])->groupBy('khachhang.name')->orderByDesc('solan')->take(10)->get();
                 session()->put('thongketype',2);
             }
             return view('admin/thongke',['thongke'=>$thongke,'from'=>$from,'to'=>$to,'title'=>$title]);
