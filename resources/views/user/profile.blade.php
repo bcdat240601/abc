@@ -2,7 +2,7 @@
 @section('content')
 <
 <section class="hero-slider">
-<table class="table table-success table-striped" style="    margin-top: 20px;">
+<table class="table table-success table-striped" style="margin-top: 20px;">
     <thead>
       <tr>
         <th scope="col">Mã hóa đơn:</th>
