@@ -217,7 +217,7 @@
 								</div>
 							</div>
 							<div class="product-content">
-								<h3><a href="product-details.html">Black Phone For Women</a></h3>
+								<h3><a href="{{ asset('shopgrid') }}">Black Phone For Women</a></h3>
 								<div class="product-price">
 									<span class="old">$60.00</span>
 									<span>$50.00</span>
@@ -245,7 +245,7 @@
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="product-details.html">Teen Hot Collection</a></h3>
+                                <h3><a href="{{ asset('shopgrid') }}">Teen Hot Collection</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -272,7 +272,7 @@
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="product-details.html">Awesome Pink Show</a></h3>
+                                <h3><a href="{{ asset('shopgrid') }}">Awesome Pink Show</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -294,12 +294,12 @@
 										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
 									</div>
 									<div class="product-action-2">
-										<a title="Add to cart" href="#">Add to cart</a>
+										<a title="Add to cart" href="{{ asset('shopgrid') }}">Go to Look</a>
 									</div>
 								</div>
                             </div>
                             <div class="product-content">
-                                <h3><a href="product-details.html">Awesome  Collection</a></h3>
+                                <h3><a href="{{ asset('shopgrid') }}">Awesome  Collection</a></h3>
                                 <div class="product-price">
                                     <span>$50.00</span>
                                 </div>
@@ -557,8 +557,8 @@
 						<img src="https://images.pexels.com/photos/6147067/pexels-photo-6147067.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July , 2020. Monday</p>
-							<a href="#" class="title">Sed adipiscing ornare.</a>
-							<a href="#" class="more-btn">Continue Reading</a>
+							<a href="{{ asset('shopgrid') }}" class="title">Sed adipiscing ornare.</a>
+							<a  class="more-btn">Continue Reading</a>
 						</div>
 					</div>
 					<!-- End Single Blog  -->
@@ -569,8 +569,8 @@
 						<img src="https://images.pexels.com/photos/6249817/pexels-photo-6249817.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July, 2020. Monday</p>
-							<a href="#" class="title">Man’s Style Phone Sale</a>
-							<a href="#" class="more-btn">Continue Reading</a>
+							<a href="{{ asset('shopgrid') }}" class="title">Man’s Style Phone Sale</a>
+							<a class="more-btn">Continue Reading</a>
 						</div>
 					</div>
 					<!-- End Single Blog  -->
@@ -581,8 +581,8 @@
 						<img src="https://images.pexels.com/photos/4491469/pexels-photo-4491469.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="#">
 						<div class="content">
 							<p class="date">22 July, 2020. Monday</p>
-							<a href="#" class="title">Women FStyle Phone Festive</a>
-							<a href="#" class="more-btn">Continue Reading</a>
+							<a href="{{ asset('shopgrid') }}" class="title">Women FStyle Phone Festive</a>
+							<a  class="more-btn">Continue Reading</a>
 						</div>
 					</div>
 					<!-- End Single Blog  -->
