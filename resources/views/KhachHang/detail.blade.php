@@ -38,6 +38,7 @@
                     </tbody>
                 </table>
                 <button id="edit">Chỉnh Sửa</button>
+                <button><a href="{{ asset('admin/table/kh') }}">Quay Về</a></button>
             </div>
         </div>
     </div>

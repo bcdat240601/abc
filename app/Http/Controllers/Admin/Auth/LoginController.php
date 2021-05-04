@@ -22,8 +22,10 @@ class LoginController extends Controller
             $role=$o->role;
             session()->put('islogin',1);
             session()->put('role',$role);
-            $name=$o->name;
+            $name=$o->name;            
             session()->put('name',$name);
+            $id = $o->id;
+            session()->put('idnv',$id);
             return redirect()->route('dashboard');
 
         } else {

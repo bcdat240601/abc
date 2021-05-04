@@ -160,6 +160,7 @@
             </div>
         <input type="submit" value="Submit">
     </form>
+    <a href="{{ asset('home') }}">Về Trang Chủ</a>
     <span>@if (isset($message))
         {{$message}}
     @endif</span>

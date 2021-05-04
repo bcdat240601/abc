@@ -15,7 +15,7 @@
             checked
         @endif>
         <label for="dxl">Đã Xử Lý</label>
-    </div>
+    </div>    
     {{-- <div>
         <select name="state" id="">
             <option value="0">Chưa xử lý</option>
@@ -23,14 +23,16 @@
     </div> --}}
 </div>
 @endforeach
-
+<span id="idnv" style="display:none;">{{session()->get('idnv')}}</span>
 @endsection
 
 @section('scripts')
 <script>
     $('.dxl').click(function () { 
         var id =$(this).data('id');
-        $.get('xuly',{mahd:id,state:1},function(data){
+        var idnhanvien = $('#idnv').text();             
+        $.get('xuly',{mahd:id,state:1,idnv:idnhanvien},function(){
+            alert('Xử Lí Thành Công');
         });
     });
 </script>

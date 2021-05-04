@@ -48,6 +48,7 @@
                     </tbody>
                 </table>
                 <button id="edit">Chỉnh sửa</button>
+                <button><a href="{{ asset('admin/table/sp') }}">Quay Về</a></button>
             </div>
         </div>
     </div>

@@ -93,13 +93,12 @@
 								<div class="right">
 									<ul>
 										<li>Cart Subtotal<span id="subtotal">$330.00</span></li>
-										<li>Shipping<span>Free</span></li>
-										<li>You Save<span>$20.00</span></li>
-										<li class="last">You Pay<span>$310.00</span></li>
+										<li>Shipping<span>Free</span></li>										
+										<li class="last">You Pay<span id="finalpay">$310.00</span></li>
 									</ul>
 									<div class="button5">
 										<a href="{{ asset('cart/checkout') }}" class="btn">Checkout</a>
-										<a href="#" class="btn">Continue shopping</a>
+										<a href="{{ asset('shopgrid') }}" class="btn">Continue shopping</a>
 									</div>
 								</div>
 							</div>
@@ -309,6 +308,7 @@
 			s += parseInt(element);
 		});
 		$('#subtotal').text(s);
+		$('#finalpay').text(s);
 	}
 	gettotal();
 	$('.cong').click(function () { 
