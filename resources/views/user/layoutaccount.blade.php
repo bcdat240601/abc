@@ -10,8 +10,11 @@
         .rouded{
             width: 350px;
         }
+        .content{
+            height: 660px;
+        }
     </style>
-    <div class="row">
+    <div class="row content">
         <div class="col-3 mt-5 mb-5" style="background-color: rgba(62, 77, 77, 0.514);padding-top:10px;">
             <div class="rounded" >
                 <button type="button" class="btn btn-danger nut" style="background-color:rgb(184, 40, 64);"><a href="{{ asset('myaccount') }}">Thông Tin Cá Nhân</a></button>
