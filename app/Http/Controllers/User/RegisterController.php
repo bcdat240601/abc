@@ -70,7 +70,7 @@ class RegisterController extends Controller
         return true;
     }
     public function checkname($name){
-        if(!preg_match("/^[a-z0-9A-Z]+/",$name)){
+        if(!preg_match("/[a-z0-9A-Z]+/",$name)){
             return false;
         }
         return true;

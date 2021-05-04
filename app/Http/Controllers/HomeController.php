@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\dienthoai;
 use App\Models\Product;
 use App\Models\hoadon;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use DB;
@@ -110,8 +111,8 @@ class HomeController extends Controller
     }
     public function history(){
         session()->forget('search');
-        $user = Auth::user();
-        $hoadon = DB::table('hoadon')->where('id_khach',$user->id)->get();
+        $user = session()->get('idkh');
+        $hoadon = DB::table('hoadon')->where('id_khach',$user)->get();
         return view('user/profile',['hoadon'=>$hoadon]);
     }
     public function hoadondetail(){
@@ -174,7 +175,8 @@ class HomeController extends Controller
         return redirect('shopgrid');
     }
     public function myaccount(){
-        $user = Auth::user();
+        $idkh = session()->get('idkh');
+        $user = User::where('id','=',$idkh)->first();
         $items = session()->get('cart');
         return view('user/myaccount',['items'=>$items,'user'=>$user]);
     }
