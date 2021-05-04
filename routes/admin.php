@@ -62,7 +62,7 @@ Route::get('checkbill',[nhanvienController::class, 'checkbill']);
 
 
 Route::get('chart',function(){
-    return view('nhanvien/chart');
+    return view('admin/chart');
 });
 
 Route::get('xuly',[nhanvienController::class, 'xuly'])->name('admin.xuly');

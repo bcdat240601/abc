@@ -126,7 +126,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ asset('admin/chart') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
@@ -473,6 +473,7 @@
     <script src="{{asset('js/easing.js')}}"></script>
     <!-- Active JS -->
     <script src="{{asset('js/active.js')}}"></script>
+    <script src="{{asset('js/demo/chart-bar-demo.js')}}"></script>
     @yield('scripts')
 </body>
 
