@@ -60,7 +60,7 @@
       <div class="col-md-6">
   
         <h5>{{$pd->name}}</h5>
-        <p class="mb-2 text-muted text-uppercase small">Shirts</p>
+        <p class="mb-2 text-muted text-uppercase small">{{$pd->name}}</p>
         <ul class="rating">
           <li>
             <i class="fas fa-star fa-sm text-primary"></i>
@@ -106,7 +106,7 @@
             <tbody>
               <tr>
                 <td class="pl-0 pb-0 w-25">Quantity</td>
-                <td class="pb-0">Select size</td>
+                <td class="pb-0">Select RAM</td>
               </tr>
               <tr>
                 <td class="pl-0">
@@ -124,17 +124,17 @@
                       <input type="radio" class="form-check-input" id="small" name="materialExampleRadios"
                         checked>
                       <label class="form-check-label small text-uppercase card-link-secondary"
-                        for="small">Small</label>
+                        for="small">320GB</label>
                     </div>
                     <div class="form-check form-check-inline pl-0">
                       <input type="radio" class="form-check-input" id="medium" name="materialExampleRadios">
                       <label class="form-check-label small text-uppercase card-link-secondary"
-                        for="medium">Medium</label>
+                        for="medium">64GB</label>
                     </div>
                     <div class="form-check form-check-inline pl-0">
                       <input type="radio" class="form-check-input" id="large" name="materialExampleRadios">
                       <label class="form-check-label small text-uppercase card-link-secondary"
-                        for="large">Large</label>
+                        for="large">120GB</label>
                     </div>
                   </div>
                 </td>
