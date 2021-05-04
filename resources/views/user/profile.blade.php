@@ -1,5 +1,5 @@
-@extends('layout')
-@section('content')
+@extends('user/layoutaccount')
+@section('contentaccount')
 <
 <section class="hero-slider">
 <table class="table table-success table-striped" style="    margin-top: 20px;">
