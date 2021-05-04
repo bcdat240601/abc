@@ -20,7 +20,8 @@ class LoginController extends Controller
             session()->put('role',$role);
             return redirect()->route('home');
         } else {
-            return redirect()->back()->withInput();
+            $message = 'tài khoản  không hợp lệ';
+            return view('user/auth/login',['message'=>$message]);
         }
     }
     public function logout(){

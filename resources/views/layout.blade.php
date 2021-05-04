@@ -79,8 +79,8 @@
 						<!-- Top Right -->
 						<div class="right-content">
 							<ul class="list-main">
-								<li><i class="ti-location-pin"></i> Store location</li>
-								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
+								{{-- <li><i class="ti-location-pin"></i> Store location</li>
+								<li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
 								@if (session('login')==1)
 								<li><i class="ti-user"></i> <a href="{{ asset('profile') }}">My Account</a></li>
 								@endif

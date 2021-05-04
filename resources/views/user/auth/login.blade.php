@@ -159,6 +159,9 @@
         <form method="POST" action="{{ route('login') }}">
             <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
             <h4 class="modal-title">Log in</h4>
+            <span style="color: red;">@if (isset($message))
+                {{$message}}
+            @endif</span>
             @csrf
             <div class="form-group">
                 <input type="text" class="form-control" id="userlog" name="email" placeholder="Email" required="required">

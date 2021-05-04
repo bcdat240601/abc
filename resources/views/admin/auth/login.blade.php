@@ -43,10 +43,14 @@
                                         <h1 class="h4 text-gray-900 mb-2">Log-in ADmin</h1>
                                         <p class="mb-4">enter your email address below
                                             and we'll send you  to Admin place</p>
+                                            <span style="color: red;">@if (isset($message))
+                                                {{$message}}
+                                            @endif</span>
                                     </div>
                                     <form class="user" method="POST" action="{{ route('admin.login') }}">
                                         @csrf
                                         <div class="form-group">
+
                                             <input type="email" class="form-control form-control-user" name="email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
