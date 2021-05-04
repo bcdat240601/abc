@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" style="height: 10.375rem;">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ asset('home') }}" style="height: 10.375rem;">
                 <div class="sidebar-brand-icon rotate-n-0" style="height: 10.375rem;">
                     <img src="{{asset('images/logo4.png')}}" alt="logo" style="width:97%;">
                 </div>
@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost:8080/abc/public/admin/home">
+                <a class="nav-link" href="{{ asset('admin/home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
