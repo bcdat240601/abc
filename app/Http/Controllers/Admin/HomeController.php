@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\dienthoai;
 use App\Models\User;
+use App\Models\admin;
 use DB;
 
 class HomeController extends Controller
@@ -47,6 +48,11 @@ class HomeController extends Controller
             return view('admin/thongke',['thongke'=>$thongke,'from'=>$from,'to'=>$to,'title'=>$title]);
         }
         
+    }
+    public function myaccount(){
+        $id = session()->get('idnv');
+        $admin = admin::where('id','=',$id)->first();    
+        return view('admin/myaccount',['admin'=>$admin]);
     }
     
 

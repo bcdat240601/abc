@@ -57,6 +57,7 @@ Route::get('detail/nhanvien/showadd', function(){
     return view('nhanvien/add');
 });
 Route::post('detail/nhanvien/add',[nhanvienController::class, 'addnv'])->name('addnv');
+Route::post('nhanvien/save',[nhanvienController::class, 'editnv'])->name('editnv');
 
 Route::get('checkbill',[nhanvienController::class, 'checkbill']);
 
@@ -69,4 +70,5 @@ Route::get('xuly',[nhanvienController::class, 'xuly'])->name('admin.xuly');
 
 Route::get('thongke',[HomeController::class, 'thongke']);
 Route::get('thongketime',[HomeController::class, 'thongketime'])->name('thongketheothoigian');
+Route::get('myaccount', [HomeController::class, 'myaccount']);
 

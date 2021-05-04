@@ -342,8 +342,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             {{-- <a href="{{ asset('admin/logout') }} "><button>logout</button></a> --}}
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link " href="{{ asset('admin/myaccount') }}" id="userDropdown" role="button">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">welcome {{session()->get('name')}}</span>
                                 <img class="img-profile rounded-circle"
                                     src="{{ asset('img/undraw_profile.svg') }}">

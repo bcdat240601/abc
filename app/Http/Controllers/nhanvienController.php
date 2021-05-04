@@ -95,4 +95,16 @@ class nhanvienController extends Controller
             $model->save();
         }
     }
+    public function editnv(Request $req){
+        session()->put('name',$req->name);
+        $model = admin::find($req->id);
+        $model->name = $req->name;
+        $model->user = $req->user;        
+        $model->address = $req->address;
+        $model->birthday = $req->birthday;
+        $model->phonenumber = $req->phonenumber;
+        $model->email = $req->email;
+        $model->save();
+        return redirect()->back();
+    }
 }
