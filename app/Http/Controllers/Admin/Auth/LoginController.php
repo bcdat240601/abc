@@ -29,7 +29,8 @@ class LoginController extends Controller
             return redirect()->route('dashboard');
 
         } else {
-            return redirect()->back()->withInput();
+            $message = 'tài khoản  không hợp lệ';
+            return view('admin/auth/login',['message'=>$message]);
         }
     }
     public function Manager(){
