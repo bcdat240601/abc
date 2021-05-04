@@ -21,7 +21,7 @@
                             <div class="col-md-12"><label class="labels" for="birthday">Ngày Sinh</label><input class="form-control" type="text" name="birthday" value="{{$user->birthday}}"></div>
                             <div class="col-md-12"><label class="labels" for="phonenumber">Số điện thoại</label><input class="form-control" type="text" name="phonenumber" value="{{$user->phonenumber}}"></div>
                             <div class="col-md-12"><label class="labels" for="email">Email</label><input class="form-control" type="text" name="email" value="{{$user->email}}"></div>
-                           <div class="col-md-12"><input type="submit" value="Lưu">
+                           <div class="col-md-12"><button type="submit" class="btn btn-warning" style="background: #d1e528;">lưu</button>
                         </div>
                     </div>
                 </form>

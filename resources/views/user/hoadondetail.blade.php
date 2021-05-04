@@ -1,27 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <style>
-        .item{
-            margin-bottom:20px;
-        }
-    </style>
-    <div>
-        @foreach ($cthd as $item)
-            <div class="item">
-                <div>Tên Sản Phẩm: {{$item->name}}</div>
-                <div>Màu sắc: {{$item->color}}</div>
-                <div>Số Lượng:{{$item->soluong}}</div>
-                <div>Giá Tiền Sản Phẩm:{{number_format($item->giatien)}} VNĐ</div>
-                <div>Tổng Tiền Sản Phẩm: {{number_format($item->total)}} VNĐ</div>
-            </div>
-        @endforeach
-    </ul>
-</body>
-</html>
+@extends('user/layoutaccount')
+@section('contentaccount')
+<section class="hero-slider">
+    <table class="table table-danger table-striped" style="margin-top: 20px;">
+        <thead>
+          <tr>
+            <th scope="col">Tên Sản Phẩm: </th>
+            <th scope="col">Màu sắc:</th>
+            <th scope="col">Số Lượng: </th>
+            <th scope="col">Giá Tiền Sản Phẩm:</th>
+            <th scope="col">Tổng Tiền Sản Phẩm:</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            
+            @foreach ($cthd as $item)
+            <tr>
+            <td><a> {{$item->name}}</a></td>
+            <td> {{$item->color}}</td>
+            <td> {{$item->soluong}}</td>
+            <td> :{{number_format($item->giatien)}} VNĐ</td>
+            <td>{{number_format($item->total)}} VNĐ</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    </section>
+    @endsection
+    

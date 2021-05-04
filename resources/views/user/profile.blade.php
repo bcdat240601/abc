@@ -1,6 +1,5 @@
 @extends('user/layoutaccount')
 @section('contentaccount')
-<
 <section class="hero-slider">
 <table class="table table-success table-striped" style="margin-top: 20px;">
     <thead>
@@ -28,6 +27,7 @@
         <td class="detail"><a href="{{ asset('hoadondetail?mahd='.$item->mahd) }}">Xem Chi Tiết</a></td>
         <td>@if ($item->chotdon == 0)
             <a href="{{ asset('huydon?mahd='.$item->mahd) }}">Hủy Đơn Hàng</a>
+            @else không thể hủy đơn
         @endif</td>
         </tr>
         @endforeach
