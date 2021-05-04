@@ -35,8 +35,8 @@ class HomeController extends Controller
             $from = $_GET['from']." 00:00:00";
             $to = $_GET['to']." 00:00:00";
             if ($type == 1) {
-                $title = ['Tên Sản Phẩm','Giá Tiền','Số Lượng Được Mua'];
-                $thongke = DB::table('cthd')->join('dienthoai','cthd.id_dt','=','dienthoai.id')->select('dienthoai.name','cthd.giatien',DB::raw('SUM(cthd.soluong) as soluong'))->where([['created_at','>',$from],['created_at','<',$to]])->groupBy('dienthoai.name','cthd.giatien')->get();
+                $title = ['Tên Sản Phẩm','Giá Tiền','Số Lượng Sản Phẩm Bán Chạy Nhất'];
+                $thongke = DB::table('cthd')->join('dienthoai','cthd.id_dt','=','dienthoai.id')->select('dienthoai.name','cthd.giatien',DB::raw('SUM(cthd.soluong) as soluong'))->where([['created_at','>',$from],['created_at','<',$to]])->groupBy('dienthoai.name','cthd.giatien')->orderByDesc('soluong')->take(10)->get();
                 session()->put('thongketype',1);
             }
             if ($type == 2) {
