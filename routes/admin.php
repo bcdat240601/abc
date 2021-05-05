@@ -72,3 +72,4 @@ Route::get('thongke',[HomeController::class, 'thongke']);
 Route::get('thongketime',[HomeController::class, 'thongketime'])->name('thongketheothoigian');
 Route::get('myaccount', [HomeController::class, 'myaccount']);
 
+Route::post('detail/nhanvien/role',[nhanvienController::class, 'role'])->name('role');

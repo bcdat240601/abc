@@ -27,6 +27,12 @@ class nhanvienController extends Controller
         else return redirect('admin/login');
         
     }
+    public function role(Request $req){
+        // $name = 'nhanvien';
+        // $id = $_GET['id'];
+        $model = dienthoai::find($id);
+        $model->role = $req->role;
+    }
     public function addnv(Request $req){
         $model = new admin();
         $model->name = $req->fullname;

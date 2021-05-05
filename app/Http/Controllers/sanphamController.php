@@ -33,16 +33,9 @@ class sanphamController extends Controller
         $model = dienthoai::find($req->id);
         // $model = new dienthoai();
         $model->name = $req->name;
-        $model->battery = $req->battery;
-        $model->RAM = $req->RAM;
-        $model->ROM = $req->ROM;
         $model->price = $req->price;
         $model->color = $req->color;
-        $model->cpu = $req->cpu;
-        $model->screen = $req->screen;
-        $model->kichthuoc = $req->kichthuoc;
-        $model->trongluong = $req->trongluong;
-        $model->nation = $req->nation;
+        $model->mota = $req->mota;
         $model->save();
         return view('DienThoai/detail',['data'=>$model]);
     }
@@ -50,20 +43,20 @@ class sanphamController extends Controller
         $file = $req->file;
         $model = new dienthoai();
         $model->name = $req->name;
-        $model->battery = $req->battery;
-        $model->RAM = $req->RAM;
-        $model->ROM = $req->ROM;
+        // $model->battery = $req->battery;
+        // $model->RAM = $req->RAM;
+        // $model->ROM = $req->ROM;
         $model->price = $req->price;
         $model->color = $req->color;
-        $model->cpu = $req->cpu;
+        $model->mota = $req->mota;
         if(isset($file)){
             $model->image = $file->getClientOriginalName();
             $file->move('images/product', $file->getClientOriginalName());
         }
-        $model->screen = $req->screen;
-        $model->kichthuoc = $req->kichthuoc;
-        $model->trongluong = $req->trongluong;
-        $model->nation = $req->nation;
+        // $model->screen = $req->screen;
+        // $model->kichthuoc = $req->kichthuoc;
+        // $model->trongluong = $req->trongluong;
+        // $model->nation = $req->nation;
         $model->id_hang = $req->idhang;
         $model->save();
         return view('DienThoai/Add',['data'=>$model]);

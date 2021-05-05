@@ -72,6 +72,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         @if (session()->get('role')==1)
+                        <a class="collapse-item" href="{{ asset('admin/table/nv') }}">ADD Role</a>
                         <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
                         <a class="collapse-item" href="{{ asset('admin/table/nv') }}">DELETE workers</a>
                         @endif
