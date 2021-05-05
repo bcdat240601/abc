@@ -19,7 +19,7 @@
             <td><a> {{$item->name}}</a></td>
             <td> {{$item->color}}</td>
             <td> {{$item->soluong}}</td>
-            <td> :{{number_format($item->giatien)}} VNĐ</td>
+            <td> {{number_format($item->giatien)}} VNĐ</td>
             <td>{{number_format($item->total)}} VNĐ</td>
             </tr>
             @endforeach

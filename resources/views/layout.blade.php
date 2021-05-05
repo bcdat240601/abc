@@ -46,7 +46,8 @@
 	
 </head>
 <body class="js">
-	
+	<style>			
+	</style>	
 	<!-- Preloader -->
 	{{-- <div class="preloader">
 		<div class="preloader-inner">
@@ -125,13 +126,7 @@
 					</div>
 					<div class="col-lg-8 col-md-7 col-12">
 						<div class="search-bar-top">
-							<div class="search-bar">
-								<select>
-									<option selected="selected">All Category</option>
-									<option>IPHONE</option>
-									<option>OPPO</option>
-									<option>ASUS</option>
-								</select>
+							<div class="search-bar" style="width:390px;">								
 								<form action="{{ route('search') }}" method="get">
 									<input name="search" placeholder="Search Products Here....." type="search">
 									<button class="btnn"><i class="ti-search"></i></button>
@@ -141,13 +136,7 @@
 					</div>
 					<div class="col-lg-2 col-md-3 col-12">
 						<div class="right-bar">
-							<!-- Search Form -->
-							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-							</div>
-							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-							</div>
+							<!-- Search Form -->							
 							<div class="sinlge-bar shopping">
 								<a href="{{ asset('cart') }}" class="single-icon"><i class="ti-bag"></i> 
 									<span class="total-count">

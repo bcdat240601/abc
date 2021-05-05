@@ -16,6 +16,9 @@
     <script type="text/javascript" src="JS/formlog-reg.js"></script>
     <script type="text/javascript" src="JS/account.js"></script>
     <style>
+        input{
+            color:black;
+        }
         body {
             color: #fff;
             background: #34414c;
@@ -44,7 +47,7 @@
         }
         
         .signup-form form {
-            color: #999;
+            color: rgb(145, 51, 51);
             border-radius: 3px;
             margin-bottom: 15px;
             background: #fff;
@@ -118,48 +121,19 @@
 </head>
 <body>
     <div class="signup-form">
-        <form action="{{ route('register') }}" method="post">
-        <h2>Sign up</h2>
-        <hr>
-           @csrf
-           <!-- Tên đầy đủ<input type="text" name="fullname"><br> -->
-        <div class="form-group">
-                <div class="row">
-                    <div class="name"><input type="text" id="fullnamereg" class="form-control" name="fullname" placeholder="Full name" required="required"></div>
-                </div>
-            </div>
-        <!-- Tên Tài Khoản<input type="text" name="user"><br> -->
-        <div class="form-group">
-                <div class="row">
-                    <div class="name"><input type="text" id="usernamereg" class="form-control" name="user" placeholder="Username " required="required"></div>
-                </div>
-            </div>
-        <!-- Mật Khẩu<input type="password" name="password"><br> -->
-        <div class="form-group">
-                <div class="row">
-                    <div class="password"><input type="password" id="pwdreg" class="form-control" name="password" placeholder="Password" required="required"></div>
-                </div>
-            </div>
-        <!-- Ngày sinh<input type="date" name="birthday"><br> -->
-        <div class="form-group">
-                <div class="row">
-                    <div class="name"><input type="date" id="datereg" class="form-control" name="birthday" placeholder="Birthday" required="required"></div>
-                </div>
-            </div>
-        <!-- Số Điện Thoại<input type="text" name="phone"><br> -->
-        <div class="form-group">
-                <div class="row">
-                    <div class="name"><input type="text" id="phonereg" class="form-control" name="phone" placeholder="Phonenumber" required="required"></div>
-                </div>
-            </div>
-        <!-- Email<input type="text" name="email"><br> -->
-        <div class="form-group">
-                <div class="row">
-                    <div class="name"><input type="text" id="emailreg" class="form-control" name="email" placeholder="Email" required="required"></div>
-                </div>
-            </div>
-        <input type="submit" value="Submit">
-    </form>
+        <input type="text" name="id" value="" style="display: none">
+        <label for="Tên">Tên</label><input type="text"  class="fullname" value="">
+        <span id="taikhoan" style="display: none;width:250px;color:red;">Trùng Tài Khoản</span>
+        <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user" value="">
+        <label for="Mật Khẩu">Mật Khẩu</label><input type="password" class="password" value="">
+        <label for="Địa Chỉ">Địa Chỉ</label><input type="text" class="address" value="">
+        <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday" value="">
+        <span id="SDT" style="display: none;width:250px;color:red;">Sai Hoặc Thiếu Số Điện Thoại</span>
+        <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone" value="">
+        <span id="Email1" style="display: none;width:250px;color:red;">Sai Hoặc Thiếu Thông Tin Email</span>
+        <span id="Email2" style="display: none;width:250px;color:red;">Trùng Email</span>
+        <label for="Email">Email</label><input type="text" class="email"  value="">        
+        <button class="nhan">Thêm</button>
     <a href="{{ asset('home') }}">Về Trang Chủ</a>
     <span>@if (isset($message))
         {{$message}}
@@ -197,6 +171,55 @@
 	<script src="{{asset('js/easing.js')}}"></script>
 	<!-- Active JS -->
     <script src="{{asset('js/active.js')}}"></script>
+    <script>
+        $('.nhan').click(function () {
+            $('#taikhoan').css('display', 'none');
+            $('#SDT').css('display', 'none');
+            $('#Email1').css('display', 'none');
+            $('#Email2').css('display', 'none');
+            var fullname = $('.fullname').val();
+            var user = $('.user').val();
+            var password = $('.password').val();
+            var address = $('.address').val();
+            var birthday = $('.birthday').val();
+            var phone = $('.phone').val();;
+            var email = $('.email').val();            
+            if (checkphone(phone)) {
+                if (checkemail(email)) {                                                      
+                    $.post('register',{"_token": "{{ csrf_token() }}",fullname:fullname,user:user,password:password,address:address,birthday:birthday,phone:phone,email:email},function(data){
+                        if(data == 1){
+                            $('#taikhoan').css('display', 'inline-block');                            
+                        }
+                        if(data == 2){
+                            $('#Email2').css('display', 'inline-block');                            
+                        }else{
+                            return view(data);
+                        }
+                    });                    
+                }else {
+                    $('#Email1').css('display', 'inline-block');                    
+
+                }
+            }else {                
+                $('#SDT').css('display', 'inline-block');                
+            }        
+            
+        });
+    function checkphone(pho){
+        var phone = pho;
+        if(phone.match(/((09|03|07|08|05|01)([0-9]{8})\b)/) != null){
+            return true;
+        }
+        return false;
+    }
+    function checkemail(ema){
+        var email = ema;
+        if(email.match(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/) != null){
+            return true;
+        }
+        return false;
+    }
+    </script>
 </html>
 
 

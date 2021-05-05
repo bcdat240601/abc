@@ -18,9 +18,11 @@ class LoginController extends Controller
             $o = User::where('email','=',$request->email)->first();
             $role=$o->role;
             session()->put('role',$role);
+            $idkh = $o->id;
+            session()->put('idkh',$idkh);
             return redirect()->route('home');
         } else {
-            $message = 'tài khoản  không hợp lệ';
+            $message = 'Tài khoản không hợp lệ';
             return view('user/auth/login',['message'=>$message]);
         }
     }

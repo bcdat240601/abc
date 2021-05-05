@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\dienthoai;
 use App\Models\Product;
 use App\Models\hoadon;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use DB;
@@ -110,15 +111,17 @@ class HomeController extends Controller
     }
     public function history(){
         session()->forget('search');
-        $user = Auth::user();
-        $hoadon = DB::table('hoadon')->where('id_khach',$user->id)->get();
-        return view('user/profile',['hoadon'=>$hoadon]);
+        $items = session()->get('cart');
+        $user = session()->get('idkh');
+        $hoadon = DB::table('hoadon')->where('id_khach',$user)->get();
+        return view('user/profile',['hoadon'=>$hoadon,'items'=>$items]);
     }
     public function hoadondetail(){
         session()->forget('search');
+        $items = session()->get('cart');
         $mahd = $_GET['mahd'];
         $cthd = DB::table('cthd')->join('dienthoai','cthd.id_dt','=','dienthoai.id')->select('dienthoai.name','dienthoai.color','cthd.giatien','cthd.soluong','cthd.total')->where('ma_hd',$mahd)->get();
-        return view('user/hoadondetail',['cthd'=>$cthd]);
+        return view('user/hoadondetail',['cthd'=>$cthd,'items'=>$items]);
     }
     function xoa_dau($a) {
         $a = preg_replace('/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/','a',$a);
@@ -174,7 +177,8 @@ class HomeController extends Controller
         return redirect('shopgrid');
     }
     public function myaccount(){
-        $user = Auth::user();
+        $idkh = session()->get('idkh');
+        $user = User::where('id','=',$idkh)->first();
         $items = session()->get('cart');
         return view('user/myaccount',['items'=>$items,'user'=>$user]);
     }

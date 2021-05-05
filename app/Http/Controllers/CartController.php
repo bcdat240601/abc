@@ -18,8 +18,8 @@ class CartController extends Controller
         $phone = new Product($a->id,$a->name,$a->price);
         $cart = session()->get('cart');
         if(isset($cart[$id])){
-            // $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
-            echo 'Bạn Đã Thêm Vào Giỏ Hàng Sản Phẩm Này Rồi';
+            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+            echo 'Đã thêm vào giỏ hàng';
         }
         else{
             $cart[$id] = [
@@ -75,11 +75,11 @@ class CartController extends Controller
             echo "bạn phải đăng nhập mới được phép thanh toán";
         } else {
             $total = 0;
-            $user = Auth::user();
+            $user = session()->get('idkh');
             $cart = session()->get('cart');
             $modelhd = new hoadon();
                 $modelhd->mahd = Str::random(3);
-                $modelhd->id_khach = $user->id;
+                $modelhd->id_khach = $user;
                 $modelhd->id_nv = null;
                 $modelhd->chotdon = 0;
                 $modelhd->code_km = null;
