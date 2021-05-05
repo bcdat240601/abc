@@ -87,6 +87,7 @@ class nhanvienController extends Controller
         $model->email = $req->email;
         $model->role = 2;
         $model->save();
+        return redirect('admin/detail/nhanvien/add');
     }
     public function delete(Request $req){
         $row = $req->row;

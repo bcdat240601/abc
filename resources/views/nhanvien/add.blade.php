@@ -2,14 +2,14 @@
 @section('content')
 <div id="editingadd">
         <input type="text" name="id" value="" style="display: none">
-        <label for="Tên">Tên</label><input type="text" class="fullname" name="fullname" value="">
-        <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user" name="user" value="">
-        <label for="Mật Khẩu">Mật Khẩu</label><input type="text" class="password" name="password" value="">
-        <label for="Địa Chỉ">Địa Chỉ</label><input type="date" class="address" name="address" value="">
-        <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday" name="birthday" value="">
-        <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone" name="phone" value="">
-        <label for="Email">Email</label><input type="text" class="email" name="email" value="">        
-        <input type="submit"  class="nhan" value="Thêm">
+        <label for="Tên">Tên</label><input type="text" class="fullname" value="">
+        <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user" value="">
+        <label for="Mật Khẩu">Mật Khẩu</label><input type="password" class="password" value="">
+        <label for="Địa Chỉ">Địa Chỉ</label><input type="text" class="address" value="">
+        <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday" value="">
+        <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone" value="">
+        <label for="Email">Email</label><input type="text" class="email"  value="">        
+        <button class="nhan">Them</button>
     <span>@if (isset($message))
         {{$message}}
     @endif</span>
@@ -19,24 +19,24 @@
 @section('scripts')
     <script> 
         $('.nhan').click(function () {
-            
-            var fullname = $('.fullname').text();
-            var user = $('.user').text();
-            var password = $('.password').text();
-            var address = $('.address').text();
-            var birthday = $('.birthday').text();
+            var fullname = $('.fullname').val();
+            var user = $('.user').val();
+            var password = $('.password').val();
+            var address = $('.address').val();
+            var birthday = $('.birthday').val();
             var phone = $('.phone').val();;
-            var email = $('.email').text();            
+            var email = $('.email').val();            
         // if ($this->checkuser(user)){
             if (checkphone(phone)) {
-                if (checkemail(email)) {                    
-                    $.post('admin/detail/nhanvien/add',{fullname:fullname,user:user,password:password,address:address,birthday:birthday,phone:phone,email:email},function(){
+                if (checkemail(email)) {                                                      
+                    $.post('add',{"_token": "{{ csrf_token() }}",fullname:fullname,user:user,password:password,address:address,birthday:birthday,phone:phone,email:email},function(data){
+                        return data;
                     });                    
                 }else {
-                    alert('c');                                       
+                    alert('Sai hoặc thiếu thông tin email');                                       
                 }
             }else {                
-                alert('b');                
+                alert('Sai hoặc thiếu số điện thoại');                
             }
         // }
         // else {     
