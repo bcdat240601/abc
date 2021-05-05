@@ -19,8 +19,8 @@ class nhanvienController extends Controller
     {
         if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $object = 'nhanvien';
-        $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email')->get();
-        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email'];
+        $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email','role')->get();
+        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Role'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
         }
         if(session()->get('role')==0 && session()->get('login')==1) return view('invalid');
@@ -84,6 +84,8 @@ class nhanvienController extends Controller
         $model = admin::find($req->id);
         $model->role = $req->role;
         $model->save();
+        session()->put('role',$req->role);
+        return redirect()->back();
     }
     public function addnv(Request $req){
         $users = DB::table('nhanvien')->select('user')->get();

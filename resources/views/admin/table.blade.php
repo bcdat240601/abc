@@ -22,6 +22,9 @@
                                 <th>{{$value}}</th>                                    
                             @endforeach            
                                 <th>Chi Tiết</th>                                                                            
+                                <th>Xóa Nhân Viên</th>
+                                <th>Quyền Hạn Thay Đổi</th>
+                                <th>Xác Nhận</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,16 +42,26 @@
                                  <label for="role">Role
                                 <input type="text" name="id" value="{{$item->id}}" style="display: none">
                                 <select name="role">
-                                    <option value="2"> Thêm Xóa</option>
-                                    <option value="3">Thêm</option>
+                                    <option value="1" @if ($item->role == 1)
+                                        selected
+                                    @endif> Thêm Xóa Phân quyền</option>
+                                    <option value="2" @if ($item->role == 2)
+                                        selected
+                                    @endif> Thêm Xóa</option>
+                                    <option value="3" @if ($item->role == 3)
+                                        selected
+                                    @endif>Thêm</option>
                                     {{-- <option value="4">Sửa</option> --}}
-                                    <option value="4"> Xóa</option>
-                                    <option value="1"> Thêm Xóa Phân quyền</option>
+                                    <option value="4" @if ($item->role == 4)
+                                        selected
+                                    @endif> Xóa</option>                                    
                                     {{-- <option value="7">Thêm Sửa</option>
                                     <option value="8"> Sửa Xóa</option> --}}
                                   </select>
                                 </th>
-                                <input type="submit" value="Thêm">
+                                <th><input @if ($item->id == 1)
+                                    style="display:none;"
+                                @endif type="submit" value="Thêm"></th>
                                 </form>
                                
                             </tr>
