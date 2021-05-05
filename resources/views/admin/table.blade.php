@@ -38,13 +38,13 @@
                                     @csrf  
                                  <label for="role">Role
                                 <select name="role" id="cars">
-                                    <option value="2"> Thêm Xóa Sửa</option>
+                                    <option value="2"> Thêm Xóa</option>
                                     <option value="3">Thêm</option>
-                                    <option value="4">Sửa</option>
-                                    <option value="5"> Xóa</option>
-                                    <option value="6"> Thêm Xóa</option>
-                                    <option value="7">Thêm Sửa</option>
-                                    <option value="8"> Sửa Xóa</option>
+                                    {{-- <option value="4">Sửa</option> --}}
+                                    <option value="4"> Xóa</option>
+                                    <option value="1"> Thêm Xóa Phân quyền</option>
+                                    {{-- <option value="7">Thêm Sửa</option>
+                                    <option value="8"> Sửa Xóa</option> --}}
                                   </select>
                                 </form>
                                 </th>
