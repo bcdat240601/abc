@@ -70,6 +70,7 @@ Route::get('xuly',[nhanvienController::class, 'xuly'])->name('admin.xuly');
 
 Route::get('thongke',[HomeController::class, 'thongke']);
 Route::get('thongketime',[HomeController::class, 'thongketime'])->name('thongketheothoigian');
+Route::get('thongketype',[HomeController::class, 'thongketype'])->name('thongketheoloai');
 Route::get('myaccount', [HomeController::class, 'myaccount']);
 
 Route::post('detail/nhanvien/role',[nhanvienController::class, 'role'])->name('role');

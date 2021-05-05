@@ -140,7 +140,7 @@
 							<div class="sinlge-bar shopping">
 								<a href="{{ asset('cart') }}" class="single-icon"><i class="ti-bag"></i> 
 									<span class="total-count">
-										@if (session()->has('cart'))
+										@if (session()->has('cart') && isset($items))
 											{{count($items)}}
 										@else
 											0

@@ -20,11 +20,7 @@
                         <tr>
                             @foreach ($title as $value)
                                 <th>{{$value}}</th>                                    
-                            @endforeach            
-                                <th>Chi Tiết</th>                                                                            
-                                <th>Xóa Nhân Viên</th>
-                                <th>Quyền Hạn Thay Đổi</th>
-                                <th>Xác Nhận</th>
+                            @endforeach                                                                                            
                         </tr>
                     </thead>
                     <tbody>
@@ -33,9 +29,12 @@
                                 @foreach ($item as $value)
                                 <th>{{$value}}</th>
                                 @endforeach
-                                <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
+                                @if ($object != 'nhanvien')
+                                    <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
+                                @endif
                                
                                 <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                                @if (isset($item->role))
                                 <form action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
                                     <th>
@@ -63,6 +62,7 @@
                                     style="display:none;"
                                 @endif type="submit" value="Thêm"></th>
                                 </form>
+                                @endif
                                
                             </tr>
                         @endforeach
