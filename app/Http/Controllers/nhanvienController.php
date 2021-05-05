@@ -81,8 +81,9 @@ class nhanvienController extends Controller
     public function role(Request $req){
         // $name = 'nhanvien';
         // $id = $_GET['id'];
-        $model = dienthoai::find($id);
+        $model = admin::find($req->id);
         $model->role = $req->role;
+        $model->save();
     }
     public function addnv(Request $req){
         $users = DB::table('nhanvien')->select('user')->get();

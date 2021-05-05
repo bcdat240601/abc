@@ -33,11 +33,12 @@
                                 <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
                                
                                 <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
-                                <th>
                                 <form action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
+                                    <th>
                                  <label for="role">Role
-                                <select name="role" id="cars">
+                                <input type="text" name="id" value="{{$item->id}}" style="display: none">
+                                <select name="role">
                                     <option value="2"> Thêm Xóa</option>
                                     <option value="3">Thêm</option>
                                     {{-- <option value="4">Sửa</option> --}}
@@ -46,8 +47,10 @@
                                     {{-- <option value="7">Thêm Sửa</option>
                                     <option value="8"> Sửa Xóa</option> --}}
                                   </select>
-                                </form>
                                 </th>
+                                <input type="submit" value="Thêm">
+                                </form>
+                               
                             </tr>
                         @endforeach
                     </tbody>
@@ -74,4 +77,5 @@
             }
         });
     </script>
+    
 @endsection
