@@ -5,6 +5,9 @@
 	<div class="breadcrumbs">
 		<div class="container">
 			<div class="row">
+				<h1 style="margin: 0 auto;">@if (isset($message))
+					{{$message}}
+				@endif</h1>
 				<div class="col-12">
 					<div class="bread-inner">
 						<ul class="bread-list">
@@ -97,7 +100,13 @@
 										<li class="last">You Pay<span id="finalpay">$310.00</span></li>
 									</ul>
 									<div class="button5">
-										<a href="{{ asset('cart/checkout') }}" class="btn">Checkout</a>
+										<a @if (session('login') == 0)
+										href="{{ asset('login') }}"
+										@else
+											href="{{ asset('cart/checkout') }}"	
+										@endif class="btn checkout" @if (session()->get('cart') == null || session()->has('cart') == false)
+											style="display:none;"
+										@endif>Checkout</a>
 										<a href="{{ asset('shopgrid') }}" class="btn">Continue shopping</a>
 									</div>
 								</div>
@@ -292,8 +301,7 @@
                 </div>
             </div>
         </div>
-        <!-- Modal end -->
-
+        <!-- Modal end -->		
 @endsection
 @section('script')
 {{-- <script src="{{ asset('js/code/ajax.js') }}"></script> --}}

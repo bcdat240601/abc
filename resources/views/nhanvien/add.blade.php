@@ -48,7 +48,7 @@
                             if(data == 2){
                                 $('#Email2').css('display', 'inline-block');                            
                             }else{
-                                return view(data);
+                                window.location.reload(true);
                             }
                         });                    
                     }else {

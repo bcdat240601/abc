@@ -85,7 +85,11 @@ class nhanvienController extends Controller
         $model->role = $req->role;
         $model->save();
         session()->put('role',$req->role);
-        return redirect()->back();
+        if($req->role == 1){
+            return redirect()->back();
+        }else{
+            return redirect('admin/home');
+        }
     }
     public function addnv(Request $req){
         $users = DB::table('nhanvien')->select('user')->get();

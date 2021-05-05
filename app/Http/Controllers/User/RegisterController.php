@@ -31,7 +31,6 @@ class RegisterController extends Controller
         $model->phonenumber = $req->phone;
         $model->email = $req->email;
         $model->save();
-        return view('user/register');
     }
     // public function register(Request $req){
     //     $model = new User();
