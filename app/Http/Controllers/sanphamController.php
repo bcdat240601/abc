@@ -40,14 +40,19 @@ class sanphamController extends Controller
         return view('DienThoai/detail',['data'=>$model]);
     }
     public function add(Request $req){
-        $file = $req->file;
+        $file = $req->file;        
         $model = new dienthoai();
         $model->name = $req->name;
         // $model->battery = $req->battery;
         // $model->RAM = $req->RAM;
         // $model->ROM = $req->ROM;
         $model->price = $req->price;
-        $model->color = $req->color;
+        if($req->color == 1)
+            $model->color = "Trắng";
+        if($req->color == 2)
+            $model->color = "Đen";
+        if($req->color == 3)
+            $model->color = "Đỏ";    
         $model->mota = $req->mota;
         if(isset($file)){
             $model->image = $file->getClientOriginalName();

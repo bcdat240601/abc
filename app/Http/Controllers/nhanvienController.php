@@ -27,7 +27,6 @@ class nhanvienController extends Controller
         else return redirect('admin/login');
         
     }
-<<<<<<< Updated upstream
 
     // public function addnv(Request $req){
     //     $model = new admin();
@@ -78,14 +77,13 @@ class nhanvienController extends Controller
     //     }
     //     return true;
     // }
-=======
+
     public function role(Request $req){
         // $name = 'nhanvien';
         // $id = $_GET['id'];
         $model = dienthoai::find($id);
         $model->role = $req->role;
     }
->>>>>>> Stashed changes
     public function addnv(Request $req){
         $model = new admin();
         $model->name = $req->fullname;
