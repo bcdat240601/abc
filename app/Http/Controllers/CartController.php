@@ -18,8 +18,8 @@ class CartController extends Controller
         $phone = new Product($a->id,$a->name,$a->price);
         $cart = session()->get('cart');
         if(isset($cart[$id])){
-            // $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
-            echo 'Bạn Đã Thêm Vào Giỏ Hàng Sản Phẩm Này Rồi';
+            $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+            echo 'Đã thêm vào giỏ hàng';
         }
         else{
             $cart[$id] = [

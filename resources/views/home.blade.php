@@ -34,7 +34,7 @@
 										<h1><span>UP TO 50% OFF </span>Phone For Man</h1>
 										<p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri <br> odiy maboriosm.</p>
 										<div class="button">
-											<a href="#" class="btn">Shop Now!</a>
+											<a href="{{ asset('shopgrid') }}" class="btn">Shop Now!</a>
 										</div>
 									</div>
 								</div>
@@ -200,7 +200,7 @@
 						<!-- Start Single Product -->
 						<div class="single-product">
 							<div class="product-img">
-								<a href="product-details.html">
+								<a href="{{ asset('shopgrid') }}">
 									<img class="default-img" src="{{ asset('images/bfw.jpeg') }}" alt="#">
 									<img class="hover-img" src="{{ asset('images/bfw.jpeg') }}" alt="#">
 									<span class="out-of-stock">Hot</span>
@@ -228,7 +228,7 @@
 						<!-- Start Single Product -->
 						<div class="single-product">
                             <div class="product-img">
-                                <a href="product-details.html">
+                                <a href="{{ asset('shopgrid') }}">
                                     <img class="default-img" src="{{ asset('images/case.jfif') }}" alt="#">
                                     <img class="hover-img" src="{{ asset('images/case.jfif') }}" alt="#">
 									<span class="new">New</span>
@@ -255,7 +255,7 @@
 						<!-- Start Single Product -->
 						<div class="single-product">
                             <div class="product-img">
-                                <a href="product-details.html">
+                                <a href="{{ asset('shopgrid') }}">
                                     <img class="default-img" src="{{ asset('images/pink.jfif') }}" alt="#">
                                     <img class="hover-img" src="{{ asset('images/pink.jfif') }}" alt="#">
 									<span class="new">New</span>
@@ -282,7 +282,7 @@
 						<!-- Start Single Product -->
 						<div class="single-product">
                             <div class="product-img">
-                                <a href="product-details.html">
+                                <a href="{{ asset('shopgrid') }}">
                                     <img class="default-img" src="{{ asset('images/cool.jpeg') }}" alt="#">
                                     <img class="hover-img" src="{{ asset('images/cool.jpeg') }}" alt="#">
 									<span class="out-of-stock">Cool</span>
