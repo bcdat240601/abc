@@ -77,6 +77,16 @@ class nhanvienController extends Controller
     //     return true;
     // }
     public function addnv(Request $req){
+        $users = DB::table('nhanvien')->select('user')->get();
+        $emails = DB::table('nhanvien')->select('email')->get();
+        foreach ($users as $user) {
+            if($user->user == $req->user)
+            return 1;
+        }
+        foreach ($emails as $email) {
+            if($email->email == $req->email)
+            return 2;
+        }
         $model = new admin();
         $model->name = $req->fullname;
         $model->user = $req->user;
@@ -87,7 +97,7 @@ class nhanvienController extends Controller
         $model->email = $req->email;
         $model->role = 2;
         $model->save();
-        return redirect('admin/detail/nhanvien/add');
+        return view('nhanvien/add');
     }
     public function delete(Request $req){
         $row = $req->row;
