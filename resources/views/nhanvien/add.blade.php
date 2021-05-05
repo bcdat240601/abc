@@ -40,7 +40,7 @@
             if(fullname != "" && user != "" && password != "" && address != "" && birthday != "" && phone != "" && email != ""){
                 if (checkphone(phone)) {
                     if (checkemail(email)) {                                                      
-                        $.post('register',{"_token": "{{ csrf_token() }}",fullname:fullname,user:user,password:password,address:address,birthday:birthday,phone:phone,email:email},function(data){
+                        $.post('add',{"_token": "{{ csrf_token() }}",fullname:fullname,user:user,password:password,address:address,birthday:birthday,phone:phone,email:email},function(data){
                             if(data == 1){
                                 $('#taikhoan').css('display', 'inline-block');                            
                             }

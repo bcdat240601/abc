@@ -85,32 +85,26 @@ class nhanvienController extends Controller
         $model->role = $req->role;
     }
     public function addnv(Request $req){
+        $users = DB::table('nhanvien')->select('user')->get();
+        $emails = DB::table('nhanvien')->select('email')->get();
+        foreach ($users as $user) {
+            if($user->user == $req->user)
+            return 1;
+        }
+        foreach ($emails as $email) {
+            if($email->email == $req->email)
+            return 2;
+        }
         $model = new admin();
         $model->name = $req->fullname;
-        if ($this->checkuser($req->user)){
-            if ($this->checkphone($req->phone)) {
-                if ($this->checkemail($req->email)) {
-                    $model->user = $req->user;
-                    $model->password = Hash::make($req->password);
-                    $model->address = $req->address;
-                    $model->birthday = $req->birthday;
-                    $model->phonenumber = $req->phone;
-                    $model->email = $req->email;
-                    $model->role = $req->role;
-                    $model->save();
-            return redirect('admin/table/nv');;   
-                }else {
-                    $message = 'Email không hợp lệ';
-                    return view('nhanvien/add',['message'=>$message]);
-                }
-            }else {
-                $message = 'Số Điện Thoại Không Hợp Lệ';
-                return view('nhanvien/add',['message'=>$message]);
-            }
-        }else {
-            $message = 'Đã trùng tài khoản';
-            return view('nhanvien/add',['message'=>$message]);
-        }
+        $model->user = $req->user;
+        $model->password = Hash::make($req->password);
+        $model->address = $req->address;
+        $model->birthday = $req->birthday;
+        $model->phonenumber = $req->phone;
+        $model->email = $req->email;
+        $model->role = 2;
+        $model->save();
     }
     public function checkuser($user){
         $getuser = DB::table('nhanvien')->select('user')->get();
