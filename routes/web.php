@@ -61,6 +61,7 @@ Route::get('upload', function(){
 Route::post('upload', 'UpFile@up')->name('upfile');
 //route add vào giỏ hàng
 Route::get('shopgrid/AddToCart', 'CartController@add');
+Route::get('product/shopgrid/AddToCart', 'CartController@add');
 Route::get('shopgrid/re', 'CartController@remove');
 Route::get('shopgrid/quan', 'CartController@quantitychange');
 Route::get('shopgrid/page', 'HomeController@paginate');

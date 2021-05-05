@@ -16,9 +16,9 @@
         <label for="ROM">ROM</label><input type="text" name="ROM" value=""> --}}
         <label for="price">Giá</label><input type="text" name="price" value="">
         <label for="color">Màu sắc</label><select name="color" id="cars">
-            <option value="Trắng">Trắng</option>
-            <option value="Đen">Đen</option>
-            <option value="Đỏ">Đỏ</option>
+            <option value="1">Trắng</option>
+            <option value="2">Đen</option>
+            <option value="3">Đỏ</option>
           </select><br>
         {{-- <label for="cpu">CPU</label><input type="text" name="cpu" value=""> --}}
         <label for="file">Hình Ảnh</label><input type="file" name="file" value="">
@@ -30,9 +30,9 @@
         {{-- <label for="idhang">ID Hãng</label><input type="text" name="idhang" value=""> --}}
         <label for="idhang">Thể Loại</label>
         <select name="idhang" id="cars">
-            <option value="3">iphone</option>
-            <option value="5">oppo</option>
-            <option value="1">asus</option>
+            <option value="3">Iphone</option>
+            <option value="5">Oppo</option>
+            <option value="1">Asus</option>
           </select>
         <input type="submit" value="Thêm Sản Phẩm">
     </form>

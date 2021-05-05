@@ -143,17 +143,17 @@
           </table>
         </div>
         {{-- <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Buy now</button> --}}
-        <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
-            class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+        <button type="button" class="btn btn-light btn-md mr-1 mb-2 btn" data-id="{{$pd->id}}"><i
+            class="fas fa-shopping-cart pr-2" ></i>Add to cart</button>
       </div>
     </div>
     <script>
-        $(document).ready(function () {
-  // MDB Lightbox Init
-  $(function () {
-    $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-  });
-});
+//         $(document).ready(function () {
+//   // MDB Lightbox Init
+//   $(function () {
+//     $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+//   });
+// });
     </script>
   </div>
   <!--Section: Block Content-->
@@ -164,4 +164,17 @@
         <li>GIÁ SẢN PHẨM:{{$pd->price}} VNĐ</li>
     </ul>
 </div> --}}
+@endsection
+@section('script')
+    <script>
+      $('.btn').click(function () {
+        var id = $(this).data("id"); 
+        $.get("shopgrid/AddToCart",{id:id},function(data){
+          alert(data);
+        });	
+        // $.get("AddToCart",{id:id},function(data){
+        //   alert(data);
+        // });
+      });
+    </script>
 @endsection
