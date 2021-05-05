@@ -27,6 +27,8 @@ class nhanvienController extends Controller
         else return redirect('admin/login');
         
     }
+<<<<<<< Updated upstream
+
     // public function addnv(Request $req){
     //     $model = new admin();
     //     $model->name = $req->fullname;
@@ -76,28 +78,62 @@ class nhanvienController extends Controller
     //     }
     //     return true;
     // }
+=======
+    public function role(Request $req){
+        // $name = 'nhanvien';
+        // $id = $_GET['id'];
+        $model = dienthoai::find($id);
+        $model->role = $req->role;
+    }
+>>>>>>> Stashed changes
     public function addnv(Request $req){
-        $users = DB::table('nhanvien')->select('user')->get();
-        $emails = DB::table('nhanvien')->select('email')->get();
-        foreach ($users as $user) {
-            if($user->user == $req->user)
-            return 1;
-        }
-        foreach ($emails as $email) {
-            if($email->email == $req->email)
-            return 2;
-        }
         $model = new admin();
         $model->name = $req->fullname;
-        $model->user = $req->user;
-        $model->password = Hash::make($req->password);
-        $model->address = $req->address;
-        $model->birthday = $req->birthday;
-        $model->phonenumber = $req->phone;
-        $model->email = $req->email;
-        $model->role = 2;
-        $model->save();
-        return view('nhanvien/add');
+        if ($this->checkuser($req->user)){
+            if ($this->checkphone($req->phone)) {
+                if ($this->checkemail($req->email)) {
+                    $model->user = $req->user;
+                    $model->password = Hash::make($req->password);
+                    $model->address = $req->address;
+                    $model->birthday = $req->birthday;
+                    $model->phonenumber = $req->phone;
+                    $model->email = $req->email;
+                    $model->role = $req->role;
+                    $model->save();
+            return redirect('admin/table/nv');;   
+                }else {
+                    $message = 'Email không hợp lệ';
+                    return view('nhanvien/add',['message'=>$message]);
+                }
+            }else {
+                $message = 'Số Điện Thoại Không Hợp Lệ';
+                return view('nhanvien/add',['message'=>$message]);
+            }
+        }else {
+            $message = 'Đã trùng tài khoản';
+            return view('nhanvien/add',['message'=>$message]);
+        }
+    }
+    public function checkuser($user){
+        $getuser = DB::table('nhanvien')->select('user')->get();
+        foreach ($getuser as $username) {
+            if($username->user == $user){
+                return false;
+            }
+        }
+        return true;
+    }
+    public function checkphone($phone){
+        if(!preg_match("/((09|03|07|08|05|01)([0-9]{8})\b)/",$phone)){
+            return false;
+        }
+        return true;
+    }
+    public function checkemail($email){
+        if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/",$email)){
+            return false;
+        }
+        return true;
     }
     public function delete(Request $req){
         $row = $req->row;

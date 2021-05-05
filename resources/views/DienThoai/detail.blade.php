@@ -19,31 +19,17 @@
                     <thead>
                         <tr>
                             <th>Tên</th>
-                            <th>Pin</th>
-                            <th>RAM</th>
-                            <th>ROM</th>
                             <th>Giá Tiền</th>
                             <th>Màu sắc</th>
-                            <th>Thông số CPU</th>
-                            <th>Screen</th>
-                            <th>Kích thước</th>
-                            <th>Trọng Lượng</th>
-                            <th>Quốc gia</th>
+                            <th>Mô Tả</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>{{$data->name}}</th>
-                            <th>{{$data->battery}}</th>
-                            <th>{{$data->RAM}}</th>
-                            <th>{{$data->ROM}}</th>
                             <th>{{number_format($data->price)}}</th>
                             <th>{{$data->color}}</th>
-                            <th>{{$data->cpu}}</th>
-                            <th>{{$data->screen}}</th>
-                            <th>{{$data->kichthuoc}}</th>
-                            <th>{{$data->trongluong}}</th>
-                            <th>{{$data->nation}}</th>
+                            <th>{{$data->mota}}</th>
                         </tr>
                     </tbody>
                 </table>
@@ -59,16 +45,14 @@
         @csrf
         <input type="text" name="id" value="{{$data->id}}" style="display: none">
         <label for="name">Tên</label><input type="text" name="name" value="{{$data->name}}">
-        <label for="battery">Pin</label><input type="text" name="battery" value="{{$data->battery}}">
-        <label for="RAM">RAM</label><input type="text" name="RAM" value="{{$data->RAM}}">
-        <label for="ROM">ROM</label><input type="text" name="ROM" value="{{$data->ROM}}">
         <label for="price">Giá</label><input type="text" name="price" value="{{$data->price}}">
-        <label for="color">Màu sắc</label><input type="text" name="color" value="{{$data->color}}">
-        <label for="cpu">CPU</label><input type="text" name="cpu" value="{{$data->cpu}}">
-        <label for="screen">Screen</label><input type="text" name="sreen" value="{{$data->screen}}">
-        <label for="kichthuoc">Kích Thước</label><input type="text" name="kichthuoc" value="{{$data->kickthuoc}}">
-        <label for="trongluong">Trọng Lượng</label><input type="text" name="trongluong" value="{{$data->trongluong}}">
-        <label for="nation">Quốc Gia</label><input type="text" name="nation" value="{{$data->nation}}">
+        {{-- <label for="color">Màu sắc</label><input type="text" name="color" value="{{$data->color}}"> --}}
+        <label for="color">Màu sắc</label><select name="color" id="cars">
+            <option value="Trắng">Trắng</option>
+            <option value="Đen">Đen</option>
+            <option value="Đỏ">Đỏ</option>
+          </select><br>
+        <label for="nation">Mô tả</label><input type="text" name="mota" value="{{$data->mota}}" style="margin-bottom: 3px;width:200%;height:150px;">
         <input type="submit" value="Lưu">
     </form>
 </div>

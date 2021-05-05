@@ -32,7 +32,22 @@
                                 @endforeach
                                 <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
                                
-                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>  
+                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                                <th>
+                                <form action="{{ route('role')}}" method="post" enctype="multipart/form-data">
+                                    @csrf  
+                                 <label for="role">Role
+                                <select name="role" id="cars">
+                                    <option value="2"> Thêm Xóa Sửa</option>
+                                    <option value="3">Thêm</option>
+                                    <option value="4">Sửa</option>
+                                    <option value="5"> Xóa</option>
+                                    <option value="6"> Thêm Xóa</option>
+                                    <option value="7">Thêm Sửa</option>
+                                    <option value="8"> Sửa Xóa</option>
+                                  </select>
+                                </form>
+                                </th>
                             </tr>
                         @endforeach
                     </tbody>

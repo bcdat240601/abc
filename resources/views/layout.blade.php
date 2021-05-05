@@ -49,14 +49,14 @@
 	<style>			
 	</style>	
 	<!-- Preloader -->
-	<div class="preloader">
+	{{-- <div class="preloader">
 		<div class="preloader-inner">
 			<div class="preloader-icon">
 				<span></span>
 				<span></span>
 			</div>
 		</div>
-	</div>
+	</div> --}}
 	<!-- End Preloader -->
 	
 	
@@ -138,7 +138,7 @@
 						<div class="right-bar">
 							<!-- Search Form -->							
 							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> 
+								<a href="{{ asset('cart') }}" class="single-icon"><i class="ti-bag"></i> 
 									<span class="total-count">
 										@if (session()->has('cart'))
 											{{count($items)}}
@@ -148,11 +148,11 @@
 									</span>
 								</a>
 								{{-- {{-- <!-- Shopping Item --> --}}
-								<div class="shopping-item">
+								{{-- <div class="shopping-item"> --}}
 									{{-- <div class="dropdown-cart-header">
 										<span>
 											@if (session()->has('cart'))
-												{{count($items)}}
+
 											@endif Items
 										</span>
 										<a href="#">View Cart</a>
@@ -173,9 +173,9 @@
 										<div class="total">
 											
 										</div> --}}
-										<a href="{{ asset('cart') }}" class="btn animate">Move To Cart</a>
+										{{-- <a href="{{ asset('cart') }}" class="btn animate">Move To Cart</a> --}}
 									{{-- </div> --}}
-								</div>
+								{{-- </div> --}}
 								<!--/ End Shopping Item -->
 							</div>
 						</div>

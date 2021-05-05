@@ -1,25 +1,24 @@
 @extends('admin/layoutadmin')
 @section('content')
 <div id="editingadd">
+
         <span id="thongtin" style="display: none;width:250px;color:red;">Thiếu Thông Tin, Xin Vui Lòng Điền Đầy Đủ Thông Tin</span>
         <input type="text" name="id" value="" style="display: none">
-        <label for="Tên">Tên</label><input type="text" class="fullname" value="">
-        <span id="taikhoan" style="display: none;width:250px;color:red;">Trùng Tài Khoản</span>
-        <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user" value="">
-        <label for="Mật Khẩu">Mật Khẩu</label><input type="password" class="password" value="">
-        <label for="Địa Chỉ">Địa Chỉ</label><input type="text" class="address" value="">
-        <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday" value="">
-        <span id="SDT" style="display: none;width:250px;color:red;">Sai Hoặc Thiếu Số Điện Thoại</span>
-        <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone" value="">
-        <span id="Email1" style="display: none;width:250px;color:red;">Sai Hoặc Thiếu Thông Tin Email</span>
-        <span id="Email2" style="display: none;width:250px;color:red;">Trùng Email</span>
-        <label for="Email">Email</label><input type="text" class="email"  value="">        
-        <button class="nhan">Thêm</button>
+        <label for="Tên">Tên</label><input type="text" name="fullname" value="">
+        <label for="Tài Khoản">Tài Khoản</label><input type="text" name="user" value="">
+        <label for="Mật Khẩu">Mật Khẩu</label><input type="text" name="password" value="">
+        <label for="Địa Chỉ">Địa Chỉ</label><input type="text" name="address" value="">
+        <label for="Ngày Sinh">Ngày Sinh</label><input type="date" name="birthday" value="">
+        <label for="Số Điện Thoại">Số điện thoại</label><input type="text" name="phone" value="">
+        <label for="Email">Email</label><input type="text" name="email" value="">
+        <label for="Email">Role</label><input type="text" name="role" value="">
+        <input type="submit" value="Thêm">
     <span>@if (isset($message))
         {{$message}}
     @endif</span>
     <button ><a href="{{ asset('admin/table/nv') }}">Quay Lại</a></button>
 </div>
+
 @endsection
 @section('scripts')
     <script> 
