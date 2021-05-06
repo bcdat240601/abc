@@ -15,7 +15,8 @@ Route::middleware('auth:admin')->group(function (){
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 });
 Route::get('home', function () {
-    if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1  ){
+    $role = session()->get('role');
+    if(isset($role) && session('islogin') == 1){
      return view('admin/admin');
     }
     else return  redirect('admin/login');

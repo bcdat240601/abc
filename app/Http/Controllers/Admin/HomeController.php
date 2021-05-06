@@ -13,7 +13,8 @@ use DB;
 class HomeController extends Controller
 {
     public function index(){
-        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
+        $role = session()->get('role');
+        if(isset($role) && session('islogin') == 1){
         $user = Auth::guard('admin')->user();
     //    echo 'Xin chào Admin, '. $user->name;
         return view('admin/admin');
@@ -33,7 +34,7 @@ class HomeController extends Controller
             $message = 'Thiếu Thời Gian Kết Thúc Thống Kê';
             return view('admin/thongke',['message'=>$message]);
         }elseif($_GET['from'] >= $_GET['to']){
-            $message = 'Xin Mời Nhập Đúng Khoản Thời Gian';
+            $message = 'Xin Mời Nhập Đúng Khoảng Thời Gian';
             return view('admin/thongke',['message'=>$message]);
         }
         else{
@@ -63,7 +64,7 @@ class HomeController extends Controller
             $message = 'Thiếu Thời Gian Kết Thúc Thống Kê';
             return view('admin/thongke',['message'=>$message]);
         }elseif($_GET['from'] >= $_GET['to']){
-            $message = 'Xin Mời Nhập Đúng Khoản Thời Gian';
+            $message = 'Xin Mời Nhập Đúng Khoảng Thời Gian';
             return view('admin/thongke',['message'=>$message]);
         }
         else{
