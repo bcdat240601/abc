@@ -26,7 +26,8 @@ class LoginController extends Controller
             session()->put('name',$name);
             $id = $o->id;
             session()->put('idnv',$id);
-            return redirect()->route('dashboard');
+            // return redirect()->route('dashboard');
+            return view('admin/admin');
 
         } else {
             $message = 'tài khoản  không hợp lệ';
@@ -40,7 +41,8 @@ class LoginController extends Controller
     }
     public function logout(){
         Auth::logout();
-        session()->put('islogin',0);
+        // session()->put('islogin',0);
+        \session()->forget('islogin');
         \session()->forget('role');
         \session()->forget('name');
         return redirect()->route('admin.login');
