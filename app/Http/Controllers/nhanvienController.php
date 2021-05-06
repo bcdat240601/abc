@@ -84,12 +84,12 @@ class nhanvienController extends Controller
         $model = admin::find($req->id);
         $model->role = $req->role;
         $model->save();
-        session()->put('role',$req->role);
-        if($req->role == 1){
-            return redirect()->back();
-        }else{
+        $id = session()->get('idnv');
+        if($req->id == $id && $req->role != 1){
+            session()->put('role',$req->role);
             return redirect('admin/home');
         }
+        return redirect()->back();
     }
     public function addnv(Request $req){
         $users = DB::table('nhanvien')->select('user')->get();
