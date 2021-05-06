@@ -16,6 +16,9 @@
     <script type="text/javascript" src="JS/formlog-reg.js"></script>
     <script type="text/javascript" src="JS/account.js"></script>
     <style>
+        label{
+            display: block;
+        }
         input{
             color:black;
         }
@@ -26,10 +29,21 @@
         }
         
         .form-control {
-            height: 41px;
+            /* height: 41px;
             background: #f2f2f2;
             box-shadow: none !important;
-            border: none;
+            border: none; */
+            margin: 0 auto;
+            display: block;
+            width: 80%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
         }
         
         .form-control:focus {
@@ -44,6 +58,12 @@
         .signup-form {
             width: 390px;
             margin: 30px auto;
+            color: #000000;
+            border-radius: 1px;
+            background: #fff;
+            border: 1px solid #f3f3f3;
+            box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+            padding: 30px;
         }
         
         .signup-form form {
@@ -66,7 +86,8 @@
         }
         
         .signup-form .form-group {
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
+            text-align: center;
         }
         
         .signup-form input[type="checkbox"] {
@@ -116,26 +137,45 @@
         .signup-form .hint-text {
             padding-bottom: 15px;
             text-align: center;
-        }
+        }        
     </style>
 </head>
 <body>
     <div class="signup-form">
-        <span id="thongtin" style="display: none;width:250px;color:red;">Thiếu Thông Tin, Xin Vui Lòng Điền Đầy Đủ Thông Tin</span>
+        <h4 style="text-align: center;">Register</h4>
+        <span id="thongtin" style="display: none;width:332px;color:red;">Thiếu Thông Tin, Xin Vui Lòng Điền Đầy Đủ Thông Tin</span>
         <input type="text" name="id" value="" style="display: none">
-        <label for="Tên">Tên</label><input type="text"  class="fullname" value="">
-        <span id="taikhoan" style="display: none;width:250px;color:red;">Trùng Tài Khoản</span>
-        <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user" value="">
-        <label for="Mật Khẩu">Mật Khẩu</label><input type="password" class="password" value="">
-        <label for="Địa Chỉ">Địa Chỉ</label><input type="text" class="address" value="">
-        <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday" value="">
-        <span id="SDT" style="display: none;width:250px;color:red;">Sai Hoặc Thiếu Số Điện Thoại</span>
-        <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone" value="">
-        <span id="Email1" style="display: none;width:250px;color:red;">Sai Hoặc Thiếu Thông Tin Email</span>
-        <span id="Email2" style="display: none;width:250px;color:red;">Trùng Email</span>
-        <label for="Email">Email</label><input type="text" class="email"  value="">        
-        <button class="nhan">Thêm</button>
-    <a href="{{ asset('home') }}">Về Trang Chủ</a>
+        <div class="form-group">
+            <label for="Tên">Tên</label><input type="text"  class="fullname form-control" value="">
+        </div>
+        <span id="taikhoan" style="display: none;width:332px;color:red;">Trùng Tài Khoản</span>
+        <div class="form-group">
+            <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user form-control" value="">
+        </div>
+        <div class="form-group">
+            <label for="Mật Khẩu">Mật Khẩu</label><input type="password" class="password form-control" value="">
+        </div>
+        <div class="form-group">
+            <label for="Địa Chỉ">Địa Chỉ</label><input type="text" class="address form-control" value="">    
+        </div>        
+        <div class="form-group">
+            <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday form-control" value="">
+        </div>        
+        <span id="SDT" style="display: none;width:332px;color:red;">Sai Hoặc Thiếu Số Điện Thoại</span>
+        <div class="form-group">
+            <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone form-control" value="">
+        </div>        
+        <span id="Email1" style="display: none;width:332px;color:red;">Sai Hoặc Thiếu Thông Tin Email</span>
+        <span id="Email2" style="display: none;width:332px;color:red;">Trùng Email</span>
+        <div class="form-group">
+            <label for="Email">Email</label><input type="text" class="email form-control"  value="">    
+        </div>        
+        <div class="form-group">
+            <button class="nhan" style="color: black;">Đăng Ký</button>            
+        </div>
+        <div class="form-group">
+            <a style="color: orange;" href="{{ asset('home') }}">Về Trang Chủ</a>
+        </div>
     <span>@if (isset($message))
         {{$message}}
     @endif</span>

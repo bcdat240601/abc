@@ -32,6 +32,9 @@ class HomeController extends Controller
         }elseif($_GET['to'] == null){
             $message = 'Thiếu Thời Gian Kết Thúc Thống Kê';
             return view('admin/thongke',['message'=>$message]);
+        }elseif($_GET['from'] >= $_GET['to']){
+            $message = 'Xin Mời Nhập Đúng Khoản Thời Gian';
+            return view('admin/thongke',['message'=>$message]);
         }
         else{
             $from = $_GET['from']." 00:00:00";
@@ -58,6 +61,9 @@ class HomeController extends Controller
             return view('admin/thongke',['message'=>$message]);
         }elseif($_GET['to'] == null){
             $message = 'Thiếu Thời Gian Kết Thúc Thống Kê';
+            return view('admin/thongke',['message'=>$message]);
+        }elseif($_GET['from'] >= $_GET['to']){
+            $message = 'Xin Mời Nhập Đúng Khoản Thời Gian';
             return view('admin/thongke',['message'=>$message]);
         }
         else{
