@@ -19,7 +19,9 @@
                     <thead>
                         <tr>
                             @foreach ($title as $value)
-                                <th>{{$value}}</th>                                    
+                                <th @if ($value == 'Quyền Hạn' && session()->get('role') !=1 || $value == 'Xác Nhận' && session()->get('role') !=1 )
+                                    style="display: none;"
+                                @endif>{{$value}}</th>                                    
                             @endforeach                                                                                            
                         </tr>
                     </thead>
@@ -35,19 +37,27 @@
                                 @endforeach
                                 @if ($object != 'nhanvien')
                                     <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
-                                @endif                               
-                                <th><form  @if ($item->id == 1 && $object == 'nhanvien')
-                                    style="display:none;"
-                                @endif class="block">
-                                <input type="checkbox"@if (isset($item->block) && $item->block == 1)
-                                    checked
-                                @endif name="block" class="block"  data-row="{{$item->id}}">
-                                <label for="vehicle1"  > Block</label><br>
-                                </form></th>
+                                @endif    
+                                                           
+                                @if ($key=='block')
+                                    <th><form  @if ($item->id == 1 && $object == 'nhanvien')
+                                        style="display:none;"
+                                    @endif class="block">
+                                    <input type="checkbox"@if (isset($item->block) && $item->block == 1)
+                                        checked
+                                    @endif name="block" class="block"  data-row="{{$item->id}}">
+                                    <label for="vehicle1"  > Block</label><br>
+                                    </form></th>    
+                                
+                                 
+                                @endif
+                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
                                 @if (isset($item->role))
-                                <form action="{{ route('role')}}" method="post" enctype="multipart/form-data">
+                                <form  action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
-                                    <th>
+                                    <th @if (session()->get('role') !=1)
+                                        style="display:none;"
+                                    @endif>
                                  <label for="role">
                                 <input type="text" name="id" value="{{$item->id}}" style="display: none">
                                 <select name="role">
@@ -68,7 +78,9 @@
                                     <option value="8"> Sửa Xóa</option> --}}
                                   </select>
                                 </th>
-                                <th><input @if ($item->id == 1)
+                                <th  @if (session()->get('role') !=1)
+                                    style="display:none;"
+                                @endif><input @if (session()->get('role') !=1)
                                     style="display:none;"
                                 @endif type="submit" value="Thêm"></th>
                                 </form>
@@ -89,6 +101,11 @@
 @section('scripts')
     <script>
         $(".delete").click(function () { 
+            var id= $(this).data('row');
+            if(id==1){
+                alert("bạn không thể xóa UserRoot!!!")
+            }
+            else{
             var f=confirm("Bạn có muốn xóa");
             if(f==true)
             {     
@@ -97,7 +114,7 @@
                 $.get("detail/"+object+"/delete",{row:row},function(data){
                 });
                 $("#product-"+row).hide();
-            }
+            }}
         });
         $(document).ready( function () {
             $('#table_id').DataTable();
