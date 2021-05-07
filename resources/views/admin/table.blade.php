@@ -7,7 +7,11 @@
     <p class="mb-4" style="display:none;" >DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the <a target="_blank"
             href="https://datatables.net">official DataTables documentation</a>.</p>
-
+    <style>
+        .table-bordered thead th{
+            text-align: center;
+        }
+    </style>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -82,7 +86,7 @@
                                     style="display:none;"
                                 @endif><input @if (session()->get('role') !=1)
                                     style="display:none;"
-                                @endif type="submit" value="confirm"></th>
+                                @endif type="submit" value="ok"></th>
                                 </form>
                                 @endif
                                
