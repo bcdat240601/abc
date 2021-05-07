@@ -31,14 +31,15 @@
                                 @endforeach
                                 @if ($object != 'nhanvien')
                                     <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
-                                @endif
-                               
-                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                                @endif                               
+                                <th><button @if ($item->id == 1 && $object == 'nhanvien')
+                                    style="display:none;"
+                                @endif class="delete" data-row="{{$item->id}}">Xóa</button></th>
                                 @if (isset($item->role))
                                 <form action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
                                     <th>
-                                 <label for="role">Role
+                                 <label for="role">
                                 <input type="text" name="id" value="{{$item->id}}" style="display: none">
                                 <select name="role">
                                     <option value="1" @if ($item->role == 1)

@@ -141,6 +141,7 @@
     </style>
 </head>
 <body>
+    <div id="urllogin" style="display: none;">{{ asset('login') }}</div>
     <div class="signup-form">
         <h4 style="text-align: center;">Register</h4>
         <span id="thongtin" style="display: none;width:332px;color:red;">Thiếu Thông Tin, Xin Vui Lòng Điền Đầy Đủ Thông Tin</span>
@@ -235,8 +236,9 @@
                             }
                             if(data == 2){
                                 $('#Email2').css('display', 'inline-block');                            
-                            }else{
-                                window.location.reload(true);
+                            }
+                            if(data == 0){
+                                window.location.href = $('#urllogin').text();
                             }
                         });                    
                     }else {

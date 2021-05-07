@@ -35,8 +35,7 @@
             var password = $('.password').val();
             var address = $('.address').val();
             var birthday = $('.birthday').val();
-            var phone = $('.phone').val();;
-
+            var phone = $('.phone').val();
             var email = $('.email').val();
             if(fullname != "" && user != "" && password != "" && address != "" && birthday != "" && phone != "" && email != ""){
                 if (checkphone(phone)) {
@@ -44,10 +43,10 @@
                         $.post('add',{"_token": "{{ csrf_token() }}",fullname:fullname,user:user,password:password,address:address,birthday:birthday,phone:phone,email:email},function(data){
                             if(data == 1){
                                 $('#taikhoan').css('display', 'inline-block');                            
-                            }
-                            if(data == 2){
+                            }if(data == 2){
                                 $('#Email2').css('display', 'inline-block');                            
-                            }else{
+                            }
+                            if(data == 0){
                                 window.location.reload(true);
                             }
                         });                    

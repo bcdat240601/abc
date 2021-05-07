@@ -20,7 +20,7 @@ class nhanvienController extends Controller
         if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
         $object = 'nhanvien';
         $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email','role')->get();
-        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Role'];
+        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Role','Xóa Nhân Viên','Quyền Hạn','Xác Nhận'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
         }
         if(session()->get('role')==0 && session()->get('login')==1) return view('invalid');
@@ -112,6 +112,7 @@ class nhanvienController extends Controller
         $model->email = $req->email;
         $model->role = 2;
         $model->save();
+        return 0;
     }
     public function checkuser($user){
         $getuser = DB::table('nhanvien')->select('user')->get();

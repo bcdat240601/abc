@@ -41,22 +41,37 @@
 
 </div>
 <div id="editing">
-    <form action="{{ route('edit')}}" method="post">
+    <form id="form" action="{{ route('edit')}}" method="post">
         @csrf
         <input type="text" name="id" value="{{$data->id}}" style="display: none">
-        <label for="name">Tên</label><input type="text" name="name" value="{{$data->name}}">
-        <label for="price">Giá</label><input type="text" name="price" value="{{$data->price}}">
+        <span id="thongbao" style="color: red;display: none;">Vui Lòng Điền Đầy Đủ Thông Tin</span>
+        <label for="name">Tên</label><input type="text" name="name" class="name" value="{{$data->name}}">
+        <label for="price">Giá</label><input type="text" name="price" class="price" value="{{$data->price}}">
         {{-- <label for="color">Màu sắc</label><input type="text" name="color" value="{{$data->color}}"> --}}
         <label for="color">Màu sắc</label><select name="color" id="cars">
             <option value="Trắng">Trắng</option>
             <option value="Đen">Đen</option>
             <option value="Đỏ">Đỏ</option>
           </select><br>
-        <label for="nation">Mô tả</label><input type="text" name="mota" value="{{$data->mota}}" style="margin-bottom: 3px;width:200%;height:150px;">
+        <label for="nation">Mô tả</label><input type="text" name="mota" class="mota" value="{{$data->mota}}" style="margin-bottom: 3px;width:200%;height:150px;">
         <input type="submit" value="Lưu">
     </form>
 </div>
 @endsection
 @section('scripts')
 <script src="{{ asset('js/code/edit.js') }}"></script>
+<script>
+    $('#thongbao').css('display', 'none');
+    $('#form').submit(function () { 
+      var ten = $('.name').val();
+      var price = $('.price').val();
+      var mota = $('.mota').val();
+      if(ten != "" && price != "" && mota != ""){
+        return true;
+      }else{        
+      $('#thongbao').css('display', 'block');
+      return false;
+      }
+    });
+  </script>
 @endsection
