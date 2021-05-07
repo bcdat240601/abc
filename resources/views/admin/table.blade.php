@@ -26,8 +26,8 @@
                     <tbody>
                         @foreach ($data as $item)
                             <tr id="product-{{$item->id}}" data-row="{{$item->id}}">
-                                @foreach ($item as $value)
-                                @if ($value != 'block')
+                                @foreach ($item as $key=>$value)
+                                @if ($key != 'block')
                                     <th>{{$value}}</th>                                    
                                 @else
                                 <th style="display: none;">{{$value}}</th>
@@ -106,8 +106,8 @@
             var checkbox=$(this).is(":checked");
             var id= $(this).data('row');
             $.get("kh/block",{checkbox:checkbox,id:id},function(){
-			
-		});	
+                window.location.reload(true);
+		    });	
         })
     </script>
     
