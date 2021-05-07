@@ -82,7 +82,7 @@
                                     style="display:none;"
                                 @endif><input @if (session()->get('role') !=1)
                                     style="display:none;"
-                                @endif type="submit" value="Thêm"></th>
+                                @endif type="submit" value="confirm"></th>
                                 </form>
                                 @endif
                                

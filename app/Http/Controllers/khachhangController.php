@@ -17,7 +17,7 @@ class khachhangController extends Controller
         if(isset($role) && session('islogin') == 1){
         $object = 'khachhang';
         $data = DB::table('khachhang')->select('id','name','user','address','birthday','phonenumber','email','block')->get();
-        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Chi Tiết','Xóa Khách Hàng'];
+        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Chi Tiết','Block','Xóa Khách Hàng'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
         }
         if(session()->get('role')==0 && session()->get('login')==1) return view('invalid');
