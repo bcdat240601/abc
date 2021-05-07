@@ -39,7 +39,7 @@
                                 <th><form  @if ($item->id == 1 && $object == 'nhanvien')
                                     style="display:none;"
                                 @endif class="block">
-                                <input type="checkbox"@if ($item->block == 1)
+                                <input type="checkbox"@if (isset($item->block) && $item->block == 1)
                                     checked
                                 @endif name="block" class="block"  data-row="{{$item->id}}">
                                 <label for="vehicle1"  > Block</label><br>
