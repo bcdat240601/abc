@@ -51,7 +51,7 @@
                                 
                                  
                                 @endif
-                                <th><button class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                                <th><button class="delete" data-row="{{$item->id}}" value="{{isset($item->role)}}">Xóa</button></th>
                                 @if (isset($item->role))
                                 <form  action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
@@ -102,7 +102,8 @@
     <script>
         $(".delete").click(function () { 
             var id= $(this).data('row');
-            if(id==1){
+            var object = $('#getValue').text();
+            if(id==1 && object=='nhanvien' ){
                 alert("bạn không thể xóa UserRoot!!!")
             }
             else{
