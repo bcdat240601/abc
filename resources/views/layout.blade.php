@@ -199,12 +199,12 @@
 													<li class="active"><a href="{{ asset('home') }}">Home</a></li>																								
 													<li><a href="{{ asset('shopgrid') }}">Shop Grid</a></li>
 													<li><a href="{{ asset('cart') }}">Cart</a></li>
-													<li><a href="{{ asset('checkout') }}">Checkout</a></li>																				
-													<li><a href="">Blog<i class="ti-angle-down"></i></a>
+													{{-- <li><a href="{{ asset('checkout') }}">Checkout</a></li>																				 --}}
+													{{-- <li><a href="">Blog<i class="ti-angle-down"></i></a>
 														<ul class="dropdown">
 															<li><a href="{{ asset('blog') }}">Blog Single Sidebar</a></li>
 														</ul>
-													</li>													
+													</li>													 --}}
 												</ul>
 										</div>
 									</div>
