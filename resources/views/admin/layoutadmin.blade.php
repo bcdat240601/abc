@@ -168,7 +168,7 @@
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div> --}}
-                        </div>
+                        {{-- </div>
                     </form> --}}
 
                     <!-- Topbar Navbar -->
