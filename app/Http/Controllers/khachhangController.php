@@ -16,7 +16,7 @@ class khachhangController extends Controller
         $role = session()->get('role');
         if(isset($role) && session('islogin') == 1){
         $object = 'khachhang';
-        $data = DB::table('khachhang')->select('id','name','user','address','birthday','phonenumber','email')->get();
+        $data = DB::table('khachhang')->select('id','name','user','address','birthday','phonenumber','email','block')->get();
         $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Chi Tiết','Xóa Khách Hàng'];
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
         }
@@ -64,5 +64,17 @@ class khachhangController extends Controller
         $model = DB::table('khachhang')->where('id', '=', $row)->delete();
         return view('KhachHang/detail');
         }
+    }
+    public function block(Request $req){
+        $model = User::find($req->id);
+        if($req->checkbox == true){
+            $model->block = 1;
+        }
+        if($req->checkbox == 'false'){
+            $model->block = 0;
+        }
+        $model->save();
+        echo $model->block;
+        // return redirect()->back();
     }
 }

@@ -63,6 +63,7 @@ Route::post('nhanvien/save',[nhanvienController::class, 'editnv'])->name('editnv
 Route::get('checkbill',[nhanvienController::class, 'checkbill']);
 
 
+
 Route::get('chart',function(){
     return view('admin/chart');
 });
@@ -75,3 +76,5 @@ Route::get('thongketype',[HomeController::class, 'thongketype'])->name('thongket
 Route::get('myaccount', [HomeController::class, 'myaccount']);
 
 Route::post('detail/nhanvien/role',[nhanvienController::class, 'role'])->name('role');
+// Route::post('detail/khachhang/block',[khachhangController::class, 'block'])->name('block');
+Route::get('table/kh/block',[khachhangController::class, 'block']);

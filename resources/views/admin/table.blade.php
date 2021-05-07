@@ -11,11 +11,11 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Company</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered display" id="table_id" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             @foreach ($title as $value)
@@ -27,14 +27,23 @@
                         @foreach ($data as $item)
                             <tr id="product-{{$item->id}}" data-row="{{$item->id}}">
                                 @foreach ($item as $value)
-                                <th>{{$value}}</th>
+                                @if ($value != 'block')
+                                    <th>{{$value}}</th>                                    
+                                @else
+                                <th style="display: none;">{{$value}}</th>
+                                @endif
                                 @endforeach
                                 @if ($object != 'nhanvien')
                                     <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
                                 @endif                               
-                                <th><button @if ($item->id == 1 && $object == 'nhanvien')
+                                <th><form  @if ($item->id == 1 && $object == 'nhanvien')
                                     style="display:none;"
-                                @endif class="delete" data-row="{{$item->id}}">Xóa</button></th>
+                                @endif class="block">
+                                <input type="checkbox"@if ($item->block == 1)
+                                    checked
+                                @endif name="block" class="block"  data-row="{{$item->id}}">
+                                <label for="vehicle1"  > Block</label><br>
+                                </form></th>
                                 @if (isset($item->role))
                                 <form action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
@@ -90,6 +99,16 @@
                 $("#product-"+row).hide();
             }
         });
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+        $('.block').click(function(){
+            var checkbox=$(this).is(":checked");
+            var id= $(this).data('row');
+            $.get("kh/block",{checkbox:checkbox,id:id},function(){
+			
+		});	
+        })
     </script>
     
 @endsection

@@ -14,6 +14,12 @@ class LoginController extends Controller
             return view('user.auth.login');
         }
         $credentials = $request->only(['email', 'password']);
+        $o = User::where('email','=',$request->email)->first();
+        $block = $o->block;
+        if($block == 1){
+            $message = 'Tài khoản bạn đã bị khóa';
+            return view('user/auth/login',['message'=>$message]);
+        }
         if (Auth::attempt($credentials)) {
             session()->forget('search');
             session()->forget('page');
