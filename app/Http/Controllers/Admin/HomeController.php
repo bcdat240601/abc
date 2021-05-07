@@ -70,7 +70,7 @@ class HomeController extends Controller
         else{
             $from = $_GET['from']." 00:00:00";
             $to = $_GET['to']." 00:00:00";
-            $title = ['Sản Phẩm Iphone Bán Chạy Nhất','Giá Tiền','Số Lượng Bán'];
+            $title = ['Sản Phẩm Bán Chạy Nhất','Giá Tiền','Số Lượng Bán'];
             $thongke = DB::table('cthd')->join('dienthoai','cthd.id_dt','=','dienthoai.id')->select('dienthoai.name','cthd.giatien',DB::raw('SUM(cthd.soluong) as soluong'))->where([['created_at','>',$from],['created_at','<',$to],['id_hang','=',$type]])->groupBy('dienthoai.name','cthd.giatien')->orderByDesc('soluong')->take(10)->get();
             session()->put('typesanpham',$type);
             return view('admin/thongke',['thongke'=>$thongke,'from'=>$from,'to'=>$to,'title'=>$title]);

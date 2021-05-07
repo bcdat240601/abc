@@ -78,7 +78,7 @@
             <i class="far fa-star fa-sm text-primary"></i>
           </li>
         </ul> --}}
-        <p><span class="mr-1"><strong>${{$pd->price}}</strong></span></p>
+        <p><span class="mr-1"><strong>{{number_format($pd->price)}} VNĐ</strong></span></p>
         <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
           error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
           officia quis dolore quos sapiente tempore alias.</p>

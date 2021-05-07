@@ -27,7 +27,8 @@ class CartController extends Controller
                 'id' => $phone->id,
                 'name' => $phone->name,
                 'price' => $phone->price,
-                'quantity' => 1
+                'quantity' => 1,
+                'image'=> $a->image
             ];
             echo 'Đã thêm vào giỏ hàng';
         }

@@ -42,7 +42,7 @@
 							@if (session()->has('cart'))
 								@foreach ($items as $item)
 								<tr class="product-{{$item['id']}}">
-									<td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
+									<td class="image" data-title="No"><img src="{{ asset('images/product/'.$item['image']) }}" alt="#"></td>
 									<td class="product-des" data-title="Description">
 										<p class="product-name"><a href="#">{{$item['name']}}</a></p>
 										<p class="product-des">Maboriosam in a tonto nesciung eget  distingy magndapibus.</p>

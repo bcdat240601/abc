@@ -13,7 +13,8 @@ class sanphamController extends Controller
 {
     public function showsp()
     {
-        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
+        $role = session()->get('role');
+        if(isset($role) && session('islogin') == 1){
         $object = 'sanpham';
         $data = DB::table('dienthoai')->select('id','name','price','color')->get();
         $title = ['Id','Tên','Giá','Color','Chi Tiết','Xóa Sản Phẩm'];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User\Auth;
 use App\Models\User;
+use App\Models\dienthoai;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,13 +15,19 @@ class LoginController extends Controller
         }
         $credentials = $request->only(['email', 'password']);
         if (Auth::attempt($credentials)) {
+            session()->forget('search');
+            session()->forget('page');
+            session()->put('select',3);
+            $items = session()->get('cart');
+            $show = dienthoai::all()->take(3);
+            $Titem = dienthoai::all()->take(8);
             session()->put('login',1);
             $o = User::where('email','=',$request->email)->first();
             $role=$o->role;
             session()->put('role',$role);
             $idkh = $o->id;
             session()->put('idkh',$idkh);
-            return redirect()->route('home');
+            return view('home',["Titem"=>$Titem,'show'=>$show,'items'=>$items]);
         } else {
             $message = 'Tài khoản không hợp lệ';
             return view('user/auth/login',['message'=>$message]);

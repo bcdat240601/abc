@@ -20,7 +20,7 @@
                             <div class="col-md-12"><label class="labels" for="address">Địa Chỉ</label><input class="form-control" type="text" name="address" value="{{$admin->address}}"></div>
                             <div class="col-md-12"><label class="labels" for="birthday">Ngày Sinh</label><input class="form-control" type="text" name="birthday" value="{{$admin->birthday}}"></div>
                             <div class="col-md-12"><label class="labels" for="phonenumber">Số điện thoại</label><input class="form-control" type="text" name="phonenumber" value="{{$admin->phonenumber}}"></div>
-                            <div class="col-md-12"><label class="labels" for="email">Email</label><input class="form-control" type="text" name="email" value="{{$admin->email}}"></div>
+                            <div class="col-md-12"><label class="labels" for="email">Email</label><input class="form-control" type="email" name="email" value="{{$admin->email}}"></div>
                            <div class="col-md-12"><input type="submit" value="Lưu">
                         </div>
                     </div>

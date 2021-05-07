@@ -15,6 +15,7 @@
         {{-- <label for="battery">Pin</label><input type="text" name="battery" value=""> --}}
         {{-- <label for="RAM">RAM</label><input type="text" name="RAM" value="">
         <label for="ROM">ROM</label><input type="text" name="ROM" value=""> --}}
+        <span id="price" style="color: red;display: none;">Xin Chỉ Nhập Dữ Liệu Là Số</span>
         <label for="price">Giá</label><input type="text" class="price" name="price" value="">
         <label for="color">Màu sắc</label><select name="color" id="cars">
             <option value="1">Trắng</option>
@@ -22,7 +23,7 @@
             <option value="3">Đỏ</option>
           </select><br>
         {{-- <label for="cpu">CPU</label><input type="text" name="cpu" value=""> --}}
-        <label for="file">Hình Ảnh</label><input type="file" name="file" value="">
+        <label for="file">Hình Ảnh</label><input type="file" name="file" class="file" required value="">
         <label for="screen">Mô Tả</label><input type="text" class="mota" name="mota" value="" style="height: 150px;width:200%">
         {{-- <label for="screen">Screen</label><input type="text" name="sreen" value="">
         <label for="kichthuoc">Kích Thước</label><input type="text" name="kichthuoc" >
@@ -42,13 +43,19 @@
 @endsection
 @section('scripts')
   <script>
+    $('#price').css('display', 'none');
     $('#thongbao').css('display', 'none');
     $('#form').submit(function () { 
-      var ten = $('.name').val();
+      var ten = $('.name').val();      
       var price = $('.price').val();
-      var mota = $('.mota').val();
+      var mota = $('.mota').val();    
       if(ten != "" && price != "" && mota != ""){
-        return true;
+        if(price.match(/^\d+$/) != null){
+          return true;
+        }else{
+          $('#price').css('display', 'block');
+          return false;
+        }
       }else{        
       $('#thongbao').css('display', 'block');
       return false;

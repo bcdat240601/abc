@@ -13,7 +13,8 @@ class khachhangController extends Controller
 {
     public function showkh()
     {
-        if(session()->get('role')==1 && session()->get('islogin')==1 || session()->get('role')==2 && session()->get('islogin')==1 ){
+        $role = session()->get('role');
+        if(isset($role) && session('islogin') == 1){
         $object = 'khachhang';
         $data = DB::table('khachhang')->select('id','name','user','address','birthday','phonenumber','email')->get();
         $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Chi Tiết','Xóa Khách Hàng'];
