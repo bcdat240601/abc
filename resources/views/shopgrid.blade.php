@@ -69,8 +69,8 @@
 									</div>
 									<!--/ End Shop By Price -->
 								<!-- Single Widget -->
-								<div class="single-widget recent-post">
-									<h3 class="title">Recent post</h3>
+								{{-- <div class="single-widget recent-post">
+									<h3 class="title">Recent post</h3> --}}
 									<!-- Single Post -->
 									<!-- <div class="single-post first">
 										<div class="image">
@@ -125,7 +125,7 @@
 										</div>
 									</div> -->
 									<!-- End Single Post -->
-								</div>
+								{{-- </div> --}}
 								<!--/ End Single Widget -->
 								<!-- Single Widget -->
 								<!-- <div class="single-widget category">
@@ -161,19 +161,19 @@
 											@endif>09</option>
 											</select>
 										</div>
-										<div class="single-shorter">
+										{{-- <div class="single-shorter">
 											<label>Sort By :</label>
 											<select>
 												<option selected="selected">Name</option>
 												<option>Price</option>
 												<option>Size</option>
 											</select>
-										</div>
+										</div> --}}
 									</div>
-									<ul class="view-mode">
+									{{-- <ul class="view-mode">
 										<li class="active"><a href="shop-grid.html"><i class="fa fa-th-large"></i></a></li>
 										<li><a href="shop-list.html"><i class="fa fa-th-list"></i></a></li>
-									</ul>
+									</ul> --}}
 								</div>
 								<!--/ End Shop Top -->
 							</div>
@@ -221,7 +221,7 @@
 
 		<!-- Start Shop Newsletter  -->
 		<section class="shop-newsletter section">
-			<div class="container">
+			{{-- <div class="container">
 				<div class="inner-top">
 					<div class="row">
 						<div class="col-lg-8 offset-lg-2 col-12">
@@ -238,7 +238,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --}}
 		</section>
 		<!-- End Shop Newsletter -->
 		
