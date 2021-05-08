@@ -84,7 +84,7 @@
                                 </th>
                                 <th  @if (session()->get('role') !=1)
                                     style="display:none;"
-                                @endif><input @if (session()->get('role') !=1)
+                                @endif><input @if (($item->id == 1))
                                     style="display:none;"
                                 @endif type="submit" value="ok"></th>
                                 </form>
