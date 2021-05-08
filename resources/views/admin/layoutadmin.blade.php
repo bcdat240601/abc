@@ -74,19 +74,19 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         @if (session()->get('role')==1)
-                        <a class="collapse-item" href="{{ asset('admin/table/nv') }}">Setting Role</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/nv?id=1') }}">Setting Role</a>
                         <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
-                        <a class="collapse-item" href="{{ asset('admin/table/nv') }}">DELETE workers</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/nv?id=0') }}">DELETE workers</a>
                         @endif
                         @if (session()->get('role')==2)
                         <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
-                        <a class="collapse-item" href="{{ asset('admin/table/nv') }}">DELETE workers</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/nv?id=0') }}">DELETE workers</a>
                         @endif
                         @if (session()->get('role')==3)
                         <a class="collapse-item" href="{{ asset('admin/detail/nhanvien/showadd') }}">ADD workers</a>
                         @endif
                         @if (session()->get('role')==4)
-                        <a class="collapse-item" href="{{ asset('admin/table/nv') }}">DELETE workers</a>
+                        <a class="collapse-item" href="{{ asset('admin/table/nv?id=0') }}">DELETE workers</a>
                         @endif
                         {{-- <a class="collapse-item" href="{{ asset('admin/detail/khachhang/showadd') }}">ADD customer</a> --}}
                         <a class="collapse-item" href="{{ asset('admin/detail/sanpham/showadd') }}">ADD product</a>                        
