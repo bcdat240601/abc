@@ -47,6 +47,7 @@
                                 $('#Email2').css('display', 'inline-block');                            
                             }
                             if(data == 0){
+                                alert('Thêm Nhân Viên Thành Công');
                                 window.location.reload(true);
                             }
                         });                    

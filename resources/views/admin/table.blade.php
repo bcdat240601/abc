@@ -39,7 +39,7 @@
                                 <th style="display: none;">{{$value}}</th>
                                 @endif
                                 @endforeach
-                                @if ($object != 'nhanvien')
+                                @if ($object != 'nhanvien' && $object != 'khachhang')
                                     <th><a href="{{ asset('admin/detail/'.$object.'?id='.$item->id) }}">Xem</a></th>
                                 @endif    
                                                            

@@ -51,6 +51,7 @@
       var mota = $('.mota').val();    
       if(ten != "" && price != "" && mota != ""){
         if(price.match(/^\d+$/) != null){
+          alert('Thêm Sản Phẩm Thành Công');
           return true;
         }else{
           $('#price').css('display', 'block');

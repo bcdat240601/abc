@@ -241,6 +241,7 @@
                                 $('#Email2').css('display', 'inline-block');                            
                             }
                             if(data == 0){
+                                alert('Đăng Kí Thành Công,Bạn Sẽ Được Chuyển Sang Trang Đăng Nhập');
                                 window.location.href = $('#urllogin').text();
                             }
                         });
