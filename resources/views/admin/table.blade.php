@@ -57,7 +57,7 @@
                                 @endif
                                 <th @if (session('onoff') == 1 && $object == 'nhanvien')
                                     style="display: none"
-                                    @endif><button @if ($item->id == 1)
+                                    @endif><button @if ($item->id == 1 || (session('idnv') == $item->id))
                                         style="display:none;"
                                         @endif class="delete" data-row="{{$item->id}}" value="{{isset($item->role)}}">Xóa</button></th>
                                 @if (isset($item->role))

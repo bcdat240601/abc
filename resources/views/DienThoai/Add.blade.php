@@ -37,8 +37,7 @@
             <option value="1">Asus</option>
           </select>
         <input type="submit" value="Thêm Sản Phẩm">
-    </form>
-    <button ><a href="{{ asset('admin/table/sp') }}">Quay Lại</a></button>
+    </form>    
 </div>
 @endsection
 @section('scripts')

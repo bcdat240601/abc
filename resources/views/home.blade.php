@@ -60,7 +60,7 @@
 						<div class="content">
 							<p>Sắp Ra Mắt</p>
 							<h3 style="color: #955782">Super Phone <br> collection</h3>
-							<a href="#">Discover Now</a>
+							<a href="{{ asset('shopgrid') }}">Discover Now</a>
 						</div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 						<div class="content">
 							<p>Sắp Ra Mắt</p>
 							<h3>Super Phone <br> collection</h3>
-							<a href="#" style="color: white">Discover Now</a>
+							<a href="{{ asset('shopgrid') }}" style="color: white">Discover Now</a>
 						</div>
 					</div>
 				</div>
@@ -80,7 +80,7 @@
 						<div class="content">
 							<p>Sắp Ra Mắt</p>
 							<h3>Super Phone <br> collection</h3>
-							<a href="#" >Discover Now</a>
+							<a href="{{ asset('shopgrid') }}" >Discover Now</a>
 						</div>
 					</div>
 				</div>
@@ -162,7 +162,7 @@
 						<div class="content">
 							<p>Man's Collectons</p>
 							<h3>Man's items <br>Up to<span> 50%</span></h3>
-							<a href="#">Shop Now</a>
+							<a href="{{ asset('shopgrid') }}">Shop Now</a>
 						</div>
 					</div>
 				</div>
@@ -174,7 +174,7 @@
 						<div class="content">
 							<p>phone for women</p>
 							<h3>mid season <br> up to <span>70%</span></h3>
-							<a href="#" class="btn">Shop Now</a>
+							<a href="{{ asset('shopgrid') }}" class="btn">Shop Now</a>
 						</div>
 					</div>
 				</div>

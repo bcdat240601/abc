@@ -145,15 +145,15 @@
     <div class="signup-form">
         <h4 style="text-align: center;">Register</h4>
         <span id="thongtin" style="display: none;width:332px;color:red;">Thiếu Thông Tin, Xin Vui Lòng Điền Đầy Đủ Thông Tin</span>
-        <input type="text" name="id" value="" style="display: none">
-        <span id="ten" style="display: none;width:332px;color:red;">Tên Người Dùng Có Kí Tự Đặc Biệt</span>
+        <input type="text" name="id" value="" style="display: none">        
         <div class="form-group">
             <label for="Tên">Tên</label><input type="text"  class="fullname form-control" value="">
         </div>        
-        <span id="taikhoan" style="display: none;width:332px;color:red;">Trùng Tài Khoản</span>
+        <span id="ten" style="display: none;width:332px;color:red;">Tên Người Dùng Có Kí Tự Đặc Biệt</span>        
         <div class="form-group">
             <label for="Tài Khoản">Tài Khoản</label><input type="text" class="user form-control" value="">
         </div>
+        <span id="taikhoan" style="display: none;width:332px;color:red;">Trùng Tài Khoản</span>
         <div class="form-group">
             <label for="Mật Khẩu">Mật Khẩu</label><input type="password" class="password form-control" value="">
         </div>
@@ -162,16 +162,16 @@
         </div>        
         <div class="form-group">
             <label for="Ngày Sinh">Ngày Sinh</label><input type="date" class="birthday form-control" value="">
-        </div>        
-        <span id="SDT" style="display: none;width:332px;color:red;">Sai Hoặc Thiếu Số Điện Thoại</span>
+        </div>                
         <div class="form-group">
             <label for="Số Điện Thoại">Số điện thoại</label><input type="text" class="phone form-control" value="">
         </div>        
-        <span id="Email1" style="display: none;width:332px;color:red;">Sai Hoặc Thiếu Thông Tin Email</span>
-        <span id="Email2" style="display: none;width:332px;color:red;">Trùng Email</span>
+        <span id="SDT" style="display: none;width:332px;color:red;">Sai Hoặc Thiếu Số Điện Thoại</span>    
         <div class="form-group">
             <label for="Email">Email</label><input type="text" class="email form-control"  value="">    
         </div>        
+        <span id="Email1" style="display: none;width:332px;color:red;">Sai Hoặc Thiếu Thông Tin Email</span>
+        <span id="Email2" style="display: none;width:332px;color:red;">Trùng Email</span>
         <div class="form-group">
             <button class="nhan" style="color: black;">Đăng Ký</button>            
         </div>

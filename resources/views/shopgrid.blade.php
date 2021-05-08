@@ -43,7 +43,7 @@
 								</div>
 								<!--/ End Single Widget -->
 								<!-- Shop By Price -->
-									<div class="single-widget range">
+									{{-- <div class="single-widget range">
 										<h3 class="title">Shop by Price</h3>
 										<div class="price-filter">
 											<div class="price-filter-inner">
@@ -66,7 +66,7 @@
 												<label class="checkbox-inline" for="3"><input name="news" id="3" type="checkbox">{{number_format(15000000)}} trở lên</label>
 											</li>
 										</ul>
-									</div>
+									</div> --}}
 									<!--/ End Shop By Price -->
 								<!-- Single Widget -->
 								{{-- <div class="single-widget recent-post">
