@@ -55,12 +55,16 @@
                                 
                                  
                                 @endif
-                                <th><button class="delete" data-row="{{$item->id}}" value="{{isset($item->role)}}">Xóa</button></th>
+                                <th @if (session('onoff') == 1 && $object == 'nhanvien')
+                                    style="display: none"
+                                    @endif><button @if ($item->id == 1)
+                                        style="display:none;"
+                                        @endif class="delete" data-row="{{$item->id}}" value="{{isset($item->role)}}">Xóa</button></th>
                                 @if (isset($item->role))
                                 <form  action="{{ route('role')}}" method="post" enctype="multipart/form-data">
                                     @csrf  
-                                    <th @if (session()->get('role') !=1)
-                                        style="display:none;"
+                                    <th @if (session('onoff') == 0 && $object == 'nhanvien')                                                                
+                                    style="display: none"
                                     @endif>
                                  <label for="role">
                                 <input type="text" name="id" value="{{$item->id}}" style="display: none">
@@ -82,10 +86,10 @@
                                     <option value="8"> Sửa Xóa</option> --}}
                                   </select>
                                 </th>
-                                <th  @if (session()->get('role') !=1)
+                                <th  @if (session('onoff') == 0 && $object == 'nhanvien')
                                     style="display:none;"
-                                @endif><input @if (($item->id == 1))
-                                    style="display:none;"
+                                @endif><input @if ($item->id == 1)
+                                style="display:none;"
                                 @endif type="submit" value="ok"></th>
                                 </form>
                                 @endif
@@ -106,11 +110,7 @@
     <script>
         $(".delete").click(function () { 
             var id= $(this).data('row');
-            var object = $('#getValue').text();
-            if(id==1 && object=='nhanvien' ){
-                alert("bạn không thể xóa UserRoot!!!")
-            }
-            else{
+            var object = $('#getValue').text();            
             var f=confirm("Bạn có muốn xóa");
             if(f==true)
             {     
@@ -119,7 +119,7 @@
                 $.get("detail/"+object+"/delete",{row:row},function(data){
                 });
                 $("#product-"+row).hide();
-            }}
+            }
         });
         $(document).ready( function () {
             $('#table_id').DataTable();

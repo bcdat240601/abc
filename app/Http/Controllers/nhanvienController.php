@@ -18,10 +18,15 @@ class nhanvienController extends Controller
     public function shownv()
     {
         $role = session()->get('role');
-        if(isset($role) && session('islogin') == 1){
+        if(isset($role) && session('islogin') == 1){    
+        session()->put('onoff',$_GET['id']);            
+        if($_GET['id'] ==1){
+            $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Role','Quyền Hạn','Xác Nhận'];
+        }else{
+            $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Role','Xóa Nhân Viên'];
+        }
         $object = 'nhanvien';
-        $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email','role')->get();
-        $title = ['Id','Tên','User','Địa Chỉ','Birthday','Số Điện Thoại','Email','Role','Xóa Nhân Viên','Quyền Hạn','Xác Nhận'];
+        $data = DB::table('nhanvien')->select('id','name','user','address','birthday','phonenumber','email','role')->get();        
         return view('admin/table',['data'=>$data,'title'=>$title,'object'=>$object]);
         }
         if(session()->get('role')==0 && session()->get('login')==1) return view('invalid');
@@ -138,10 +143,8 @@ class nhanvienController extends Controller
     }
     public function delete(Request $req){
         $row = $req->row;
-        if(session()->get('role')==1 && session()->get('islogin')==1){
         $model = DB::table('nhanvien')->where('id', '=', $row)->delete();
         return view('DienThoai/detail');
-        }
     }
     public function checkbill(){        
         $bill = DB::table('hoadon')->get();
