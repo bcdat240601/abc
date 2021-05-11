@@ -21,7 +21,10 @@
                             <th>Tên</th>
                             <th>Giá Tiền</th>
                             <th>Màu sắc</th>
-                            <th>Mô Tả</th>
+                            {{-- <th>Mô Tả</th> --}}
+                            <th>RAM</th>
+                            <th>ROM</th>
+                            <th>Pin</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +32,10 @@
                             <th>{{$data->name}}</th>
                             <th>{{number_format($data->price)}}</th>
                             <th>{{$data->color}}</th>
-                            <th>{{$data->mota}}</th>
+                            {{-- <th>{{$data->mota}}</th> --}}
+                            <th>{{$data->RAM}}</th>
+                            <th>{{$data->ROM}}</th>
+                            <th>{{$data->battery}}</th>
                         </tr>
                     </tbody>
                 </table>
@@ -53,7 +59,23 @@
             <option value="Đen">Đen</option>
             <option value="Đỏ">Đỏ</option>
           </select><br>
-        <label for="nation">Mô tả</label><input type="text" name="mota" class="mota" value="{{$data->mota}}" style="margin-bottom: 3px;width:200%;height:150px;">
+        {{-- <label for="nation">Mô tả</label><input type="text" name="mota" class="mota" value="{{$data->mota}}" style="margin-bottom: 3px;width:200%;height:150px;"> --}}
+        <label for="RAM">RAM</label><select name="RAM" id="cars">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+          </select><br>
+          <label for="ROM">ROM</label><select name="ROM" id="cars">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+          </select><br>
+          <label for="battery">Pin(mma)</label><select name="battery" id="cars">
+            <option value="1000">1000</option>
+            <option value="2000">2000</option>
+            <option value="3000">3000</option>
+            <option value="4000">4000</option>
+          </select><br>
         <input type="submit" value="Lưu">
     </form>
 </div>

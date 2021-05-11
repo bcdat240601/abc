@@ -44,9 +44,9 @@ class sanphamController extends Controller
         $file = $req->file;        
         $model = new dienthoai();
         $model->name = $req->name;
-        // $model->battery = $req->battery;
-        // $model->RAM = $req->RAM;
-        // $model->ROM = $req->ROM;
+        $model->battery = $req->battery;
+        $model->RAM = $req->RAM;
+        $model->ROM = $req->ROM;
         $model->price = $req->price;
         if($req->color == 1)
             $model->color = "Trắng";

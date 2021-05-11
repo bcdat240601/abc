@@ -12,9 +12,25 @@
         <input type="text" name="id" value="" style="display: none">
         <span id="thongbao" style="color: red;display: none;">Vui Lòng Điền Đầy Đủ Thông Tin</span>
         <label for="name">Tên</label><input type="text" class="name" name="name" value="">
-        {{-- <label for="battery">Pin</label><input type="text" name="battery" value=""> --}}
-        {{-- <label for="RAM">RAM</label><input type="text" name="RAM" value="">
-        <label for="ROM">ROM</label><input type="text" name="ROM" value=""> --}}
+        {{-- <label for="battery">Pin(mma)</label><input type="number" name="battery" value=""> --}}
+        <label for="battery">Pin(mma)</label><select name="battery" id="cars">
+          <option value="1000">1000</option>
+          <option value="2000">2000</option>
+          <option value="3000">3000</option>
+          <option value="4000">4000</option>
+        </select><br>
+        {{-- <label for="RAM">RAM</label><input type="number" name="RAM" value=""> --}}
+        <label for="RAM">RAM</label><select name="RAM" id="cars">
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+        </select><br>
+        {{-- <label for="ROM">ROM</label><input type="number" name="ROM" value=""> --}}
+        <label for="ROM">ROM</label><select name="ROM" id="cars">
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+        </select><br>
         <span id="price" style="color: red;display: none;">Xin Chỉ Nhập Dữ Liệu Là Số</span>
         <label for="price">Giá</label><input type="text" class="price" name="price" value="">
         <label for="color">Màu sắc</label><select name="color" id="cars">
@@ -27,8 +43,8 @@
         <label for="screen">Mô Tả</label><input type="text" class="mota" name="mota" value="" style="height: 150px;width:200%">
         {{-- <label for="screen">Screen</label><input type="text" name="sreen" value="">
         <label for="kichthuoc">Kích Thước</label><input type="text" name="kichthuoc" >
-        <label for="trongluong">Trọng Lượng</label><input type="text" name="trongluong" >
-        <label for="nation">Quốc Gia</label><input type="text" name="nation" value=""> --}}
+        <label for="trongluong">Trọng Lượng</label><input type="text" name="trongluong" > --}}
+        {{-- <label for="nation">Quốc Gia</label><input type="text" name="nation" value=""> --}}
         {{-- <label for="idhang">ID Hãng</label><input type="text" name="idhang" value=""> --}}
         <label for="idhang">Thể Loại</label>
         <select name="idhang" id="cars">
